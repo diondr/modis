@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MODIS | Modul Sistem Operasi</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    <link rel="shortcut icon" href="assets/img/favicon_modis-1_1.png">
+
+    <link href='assets/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/main.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/animate-custom.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-font.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-modis.css' rel='stylesheet' type='text/css'>
+    <link href="assets/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="assets/fancybox/helpers/jquery.fancybox-buttons.css" rel="stylesheet" type="text/css" media="screen">
+
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+	<script type="text/javascript" src="assets/js/jmodis.js"></script>
+    <script type="text/javascript" src="assets/fancybox/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="assets/fancybox/helpers/jquery.fancybox-buttons.js"></script>
+    <script>
+    $(document).ready(function() {
+        //semua links dengam akhiran ekstensi gambar
+        var thumbnails = 'a[href$=".gif"],a[href$=".jpg"],a[href$=".jpeg"],a[href$=".png"],a[href$=".GIF"],a[href$=".JPG"],a[href$=".JPEG"],a[href$=".PNG"]';
+
+        //menambah class "fancybox" ke thumbnails dan dijadikan satu group "rel" untuk mengaktifkan tombol previous/next
+        jQuery(thumbnails).addClass("fancybox").attr("rel","lightbox");
+
+        //memanggil fancybox
+        jQuery('.fancybox').fancybox({
+            padding: 0,
+            //mendapatkan alt dari img untuk title fancybox
+            beforeShow : function() {
+                var alt = this.element.find('img').attr('alt');
+                this.inner.find('img').attr('alt', alt);
+                this.title = alt;
+            }
+        });
+    });
+    </script>
+</head>
+<body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+
+<div id="navbar-main">
+    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="menuIcon"><i class="fa fa-lg fa-list-ul"></i> Menu</span>
+            </button>
+            <span class="navbar-brand logoModis"><img class="noBayang" src="assets/img/logo_modis-1_1.png"></span>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html"><i class="fa fa-lg fa-home"></i>&nbsp; Home</a></li>
+                <li><a href="info.html"><i class="fa fa-lg fa-info-circle"></i>&nbsp; Info</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-lg fa-book"></i>&nbsp; Pembelajaran <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="bab1.html">&nbsp; BAB 1 &nbsp; Perkembangan</a></li>
+                        <li><a href="bab2.html">&nbsp; BAB 2 &nbsp; Struktur</a></li>
+                        <li><a href="bab3.html">&nbsp; BAB 3 &nbsp; Proses <em>Booting</em></a></li>
+                        <li><a href="bab4.html">&nbsp; BAB 4 &nbsp; Instalasi</a></li>
+                        <li><a href="bab5.html">&nbsp; BAB 5 &nbsp; Administrasi</a></li>
+                        <li><a href="bab6.html">&nbsp; BAB 6 &nbsp; Pencarian Kesalahan</a></li>
+                    </ul>
+                </li>
+                <li><a href="evaluasi.html"><i class="fa fa-lg fa-tasks"></i>&nbsp; Evaluasi</a></li>
+                <li><a href="bantuan.html"><i class="fa fa-lg fa-question-circle"></i>&nbsp; Bantuan</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</div>
+
+    <!--INFO AWAL-->
+	<div id="kbwrap" class="kbwrap04">
+		<div class="row">	
+			<img src="assets/img/batik1.png" class="img-responsive tengah"></a>
+			<h3 class="centered">#9 Instalasi Ubuntu metode <em>Clean Install &amp; Upgrade</em></h3>
+			<hr>
+			<a onclick="toggle('tujuan');" href="#tujuan" class="smoothScroll">Tujuan</a> / 
+			<a onclick="toggle('uraianMateri');" href="#uraianMateri" class="smoothScroll">Uraian Materi</a> / 
+			<a onclick="toggle('lembarKerja');" href="#lembarKerja" class="smoothScroll">Lembar Kerja</a> / 
+			<a onclick="toggle('rangkuman');" href="#rangkuman" class="smoothScroll">Rangkuman</a>
+			</p>
+			<br>
+		</div>
+	</div>
+	
+	<div class="container" id="kb04" name="kb04">
+		<br>
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+			<div class="panel panel-default artikel" id="tujuan">
+				<div class="panel-body"> 
+					<h3 class="page-header">Tujuan</h3> 
+    				<p>Pada pembelajaran ini Anda diharapkan:</p>
+					<ul>
+                        <li>Dapat menjelaskan langkah-langkah instalasi Ubuntu dengan metode <em>clean install</em>.</li>
+                        <li>Dapat menjelaskan langkah-langkah instalasi Ubuntu dengan metode sistem <em>upgrade</em>.</li>
+                        <li>Mampu melakukan instalasi Ubuntu dengan metode <em>clean install.</em></li>
+                        <li>Mampu melakukan instalasi Ubuntu dengan metode sistem <em>upgrade</em>.</li>
+					</ul>
+                    <hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('uraianMateri');" href="#uraianMateri">Lanjut ke Materi &raquo;</a></p>
+				</div>
+			</div>
+			
+			<div class="panel panel-default artikel" id="uraianMateri" style="display:none;">
+				<div class="panel-body">
+					<h3 class="page-header">Uraian Materi</h3>
+                    <p>Pembelajaran mengenai instalasi Ubuntu metode <em>clean install &amp; upgrade</em> ini terdiri 2 bahasan utama. Pertama bahasan akan tertuju pada instalasi Ubuntu dengan metode <em>clean install</em>, kemudian dilanjutkan dengan instalasi Ubuntu dengan metode sistem <em>upgrade.</em> Selamat belajar :)</p>
+				    
+                    <div class="kb-row-container">
+                    <div class="kb-row" id="cleanInstall">
+    					<a href="#uraianMateri" class="kb-row-handle">Metode Instalasi <em>Clean Install</em></a>
+    					<div class="kb-row-content">
+							<br><figure class="gambar-kiri img-responsive">
+    							<img src="assets/img/kb09/clean_install.jpg" width="150px" class="img-responsive tengah" alt="Clean Install" title="Clean Install">
+                                <br><figcaption>Gambar 9.1. &nbsp;&nbsp; <em>Clean Install</em></figcaption>
+    						</figure>
+    						<p><strong>Salah satu</strong> metode atau cara untuk menginstall Ubuntu adalah dengan metode <em>clean install</em>. Dengan cara ini kita akan mengistall Ubuntu secara langsung pada komputer atau laptop secara <em>fresh</em>. Maksudnya komputer kita belum ada sistem operasi yang terinstall atau sudah ada dan ingin diganti dengan Ubuntu. Nantinya hanya siatem operasi Ubuntu yang terinstall pada komputer.</p>
+    						<p>Secara umum ada 10 langkah untuk mengistall Ubuntu dengan <em>clean install, </em>yaitu:</p>
+    						<ol>
+                                <li><em>Booting</em> <em>installer</em> Ubuntu (melalui CD/DVD atau media lainnya)</li>
+                                <li>Pemilihan bahasa</li>
+                                <li>Informasi persiapan instalasi</li>
+                                <li>Pilihan tipe instalasi</li>
+                                <li>Konfirmasi penghapusan <em>harddisk</em></li>
+                                <li>Pengaturan lokasi</li>
+                                <li>Pengaturan <em>keyboard layout</em></li>
+                                <li>Pengisian data diri</li>
+                                <li>Proses instalasi Ubuntu</li>
+                                <li>Selesai <em>(restart)</em></li>
+                            </ol>
+    					</div>
+    				</div>
+    				
+    				<div class="kb-row">
+    					<a href="#cleanInstall" class="kb-row-handle">Metode Instalasi Sistem <em>Upgrade</em></a>
+    					<div class="kb-row-content">
+                            <br>
+                            <figure class="gambar-kanan img-responsive" style="padding-top:20px;">
+    							<img src="assets/img/kb09/upgrade.jpg" width="200px" class="img-responsive tengah" alt="Upgrade" title="Upgrade">
+                                <br><figcaption>Gambar 9.2. &nbsp;&nbsp; <em>Upgrade</em></figcaption>
+    						</figure>
+                            <p><strong>Metode</strong> ini dilkukan jika komputer Anda sudah terinstall sistem operasi Ubuntu, kemudian Anda ingin <em>mengupgrade</em> atau memperbarui ke versi yang lebih baru. Contohnya pada komputer sudah terinstall Ubuntu 12.04 dan akan <em>diupgrade </em>ke versi terbaru Ubuntu 13.10. Jadi Anda perlu menyiapkan <em>installer</em> Ubuntu dengan versi yang lebih baru dari pada yang terinstall pada komputer.</p>
+                            <p>Langkah-langkah untuk menginstall Ubuntu dengan metode sistem <em>upgrade</em> tidak jauh berbeda dengan metode <em>clean install</em>. Hanya saja pada langkah &ldquo;pilihan tipe instalasi&rdquo; Anda perlu mengaturnya pada pilihan <em>&ldquo;upgrade&rdquo;</em>. Dengan metode ini, Anda akan mendapatkan Ubuntu dengan versi yang lebih baru terinstall pada komputer Anda.</p>
+    					</div>
+    				</div>
+    				</div><!-- kb-row-container-->
+    				<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('lembarKerja');" href="#lembarKerja">Lanjut ke Lembar Kerja &raquo;</a></p>
+				</div><!-- panel-body-->
+			</div>
+
+			<div class="panel panel-default artikel" id="lembarKerja" style="display:none;">
+				<div class="panel-body">
+                    <h3 class="page-header">Lembar Kerja</h3>
+                    <div class="kb-row-container">
+                        <div class="kb-row open" id="alatBahan">
+                            <a href="#lembarKerja" class="kb-row-handle">Alat dan Bahan</a>
+                            <div class="kb-row-content" style="display:block;">
+                                <ul>
+                                    <li>Komputer atau laptop</li>
+                                    <li><em>Installer</em> (CD/DVD) Ubuntu 12.04</li>
+                                    <li><em>Installer</em> (CD/DVD) Ubuntu 13.10</li>
+                                </ul>
+					       </div>
+                        </div>
+                        
+                        <div class="kb-row" id="petunjuk">
+                            <a href="#alatBahan" class="kb-row-handle">Petunjuk</a>
+                            <div class="kb-row-content">
+                            <ul>
+                                <li>Awali setiap aktivitas dengan do'a, semoga mendapat kemudahan dan keberkahan.</li>
+                                <li>Baca dan pahami langkah-langkah yang ada dengan seksama.</li>
+                                <li>Pastikan komputer dalam keadaan baik dan benar.</li>
+                                <li>Jangan meletakkan benda yang dapat mengeluarkan medan elektromagnetik (handphone, magnet, dan sejenisnya) di dekat komputer.</li>
+                                <li>Gunakan komputer sesuai fungsinya dengan hati-hati.</li>
+                                <li>Kerjakan secara baik, benar, dan sabar.</li>
+                            </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="kb-row" id="latihan">
+                            <a href="#petunjuk" class="kb-row-handle">Latihan</a>
+                            <div class="kb-row-content">
+                            <p>Pada latihan ini Anda akan belajar bagaimana menginstall Ubuntu dengan metode <em>clean install.</em> <strong>Siap?</strong></p>
+                            <ol style="margin-left:-20px;">
+                                <li>Hidupkan komputer dan masukkan CD/DVD <em>installer</em> Ubuntu 12.04 ke dalam komputer yang akan diinstall.</li>
+                                <li>Atur BIOS agar <em>booting</em> pertama melalui CD/DVD.</li>
+                                <li>Jika sudah maka akan tampil proses <em>booting</em> Ubuntu.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb09/01-booting.jpg"><img src="assets/img/kb09/01-booting.jpg" width="500px" class="img-responsive tengah" alt="Proses Booting" title="Proses Booting"></a>
+                                    <figcaption>Gambar 9.3. &nbsp;&nbsp; Proses <em>Booting</em></figcaption>
+                                </figure>
+                                <li>Kemudian akan muncul tampilan baru dengan 2 opsi, yaitu “Try Ubuntu” dan “Install Ubuntu”.
+                                <ul style="margin-left:-20px;">
+                                    <li>“Try Ubuntu”, Anda hanya mencoba Ubuntu secara Live-CD tanpa menginstallnya ke dalam komputer.</li>
+                                    <li>Sedangkan “Install Ubuntu”, Anda langsung menginstal Ubuntu ke dalam komputer.</li>
+                                </ul>
+                                Untuk saat ini kita langsung menginstall Ubuntu, jadi pilih <em><strong>Install Ubuntu</strong></em>.
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb09/02-pilih_install.jpg"><img src="assets/img/kb09/02-pilih_install.jpg" width="500px" class="img-responsive tengah" alt="Pilihan Instalasi" title="Pilihan Instalasi"></a>
+                                    <figcaption>Gambar 9.4. &nbsp;&nbsp; Pilihan Instalasi</figcaption>
+                                </figure>
+                                </li>
+                                <li>Setelah itu akan tampil informasi persiapan instal Ubuntu. Klik <em><strong>Continue</strong></em> untuk melanjutkan.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb09/03-info.jpg"><img src="assets/img/kb09/03-info.jpg" width="500px" class="img-responsive tengah" alt="Informasi Persiapan Instalasi" title="Informasi Persiapan Instalasi"></a>
+                                    <figcaption>Gambar 9.5. &nbsp;&nbsp; Informasi Persiapan Instalasi</figcaption>
+                                </figure>
+                                <li>Lalu akan diminta pemilihan pengaturan disk sebagai tempat instalasi Ubuntu. Karena metode yang kita gunakan saat ini yaitu <em>clean install</em> maka pilih saja <em><strong>Erase disk and install Ubuntu</strong></em>. Lalu klik <em><strong>Continue</strong></em>.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb09/04-tipe_instalasi.jpg"><img src="assets/img/kb09/04-tipe_instalasi.jpg" width="500px" class="img-responsive tengah" alt="Pilihan Tipe Instalasi" title="Pilihan Tipe Instalasi"></a>
+                                    <figcaption>Gambar 9.6. &nbsp;&nbsp; Pilihan Tipe Instalasi</figcaption>
+                                </figure>
+                                <li>Akan muncul konfirmasi untuk mengahpus disk dan menginstal Ubuntu. Klik <em><strong>Install Now</strong></em> untuk menginstal Ubuntu.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb09/05-hapus_disk.jpg"><img src="assets/img/kb09/05-hapus_disk.jpg" width="500px" class="img-responsive tengah" alt="Konfirmasi Penghapusan Disk" title="Konfirmasi Penghapusan Disk"></a>
+                                    <figcaption>Gambar 9.7. &nbsp;&nbsp; Konfirmasi Penghapusan Disk</figcaption>
+                                </figure>
+                                <li>Proses instalasi mulai berjalan, Anda diharuskan mengisi data-data yang dibutuhkan. Pertama, Anda diminta untuk mengisi lokasi tempat tinggal. Dalam latihan ini Anda bisa memilih <strong>Jakarta</strong> dengan mengklik posisi yang sesuai atau mengetikkan pada kolom yang disediakan. Jika sudah, klik <em><strong>Continue.</strong></em></li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb09/06-lokasi.jpg"><img src="assets/img/kb09/06-lokasi.jpg" width="500px" class="img-responsive tengah" alt="Pengaturan Lokasi" title="Pengaturan Lokasi"></a>
+                                    <figcaption>Gambar 9.8. &nbsp;&nbsp; Pengaturan Lokasi</figcaption>
+                                </figure>
+                                <li>Seletah itu pilih <strong>English (US) </strong>untuk pilihan <em>keyboard layout </em>lalu klik <em><strong>Continue</strong></em>.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb09/07-keyboard.jpg"><img src="assets/img/kb09/07-keyboard.jpg" width="500px" class="img-responsive tengah" alt="Pengaturan Keyboard Layout" title="Pengaturan Keyboard Layout"></a>
+                                    <figcaption>Gambar 9.9. &nbsp;&nbsp; Pengaturan Keyboard Layout</figcaption>
+                                </figure>
+                                <li>Kemudian Anda diminta untuk mengisi data diri. Silakan isi nama, nama komputer, <em>username, password</em> dan pada pilihan <em>login</em> pilih <em><strong>Require my password to log in</strong></em>. Terakhir klik <em><strong>Continue</strong></em>.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb09/08-siapa.jpg"><img src="assets/img/kb09/08-siapa.jpg" width="500px" class="img-responsive tengah" alt="Pengisian Data Diri" title="Pengisian Data Diri"></a>
+                                    <figcaption>Gambar 9.10. &nbsp;&nbsp; Pengisian Data Diri</figcaption>
+                                </figure>
+                                <li>Proses instalasi Ubuntu secara <em>clean install</em> sedang berjalan. Sambil menunggu proses instalasi, Anda disuguhi tampilan <em>slide</em> sekilas mengenai Ubuntu.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb09/09-slide.jpg"><img src="assets/img/kb09/09-slide.jpg" width="500px" class="img-responsive tengah" alt="Proses Instalasi Ubuntu sedang Berjalan" title="Proses Instalasi Ubuntu sedang Berjalan"></a>
+                                    <figcaption>Gambar 9.11. &nbsp;&nbsp; Proses Instalasi Ubuntu sedang Berjalan</figcaption>
+                                </figure>
+                                <li>Setelah proses instalasi selesai, muncul peringatan <em><strong>Installation Complete</strong></em>. Klik <em><strong>Restart Now</strong></em>.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb09/10-minta_restart.jpg"><img src="assets/img/kb09/10-minta_restart.jpg" width="500px" class="img-responsive tengah" alt="Instalasi Selesai" title="Instalasi Selesai"></a>
+                                    <figcaption>Gambar 9.12. &nbsp;&nbsp; Instalasi Selesai</figcaption>
+                                </figure>
+                                <li>Kemudian muncul peringatan untuk mengeluarkan media instalasi, keluarkan CD/DVD dari komputer Anda lalu <strong>tekan Enter </strong>pada <em>keyboard </em>untuk memrposesnya.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb09/11-enter.png"><img src="assets/img/kb09/11-enter.png" width="500px" class="img-responsive tengah" alt="Peringatan Pengeluaran Media Instalasi" title="Peringatan Pengeluaran Media Instalasi"></a>
+                                    <figcaption>Gambar 9.13. &nbsp;&nbsp; Peringatan Pengeluaran Media Instalasi</figcaption>
+                                </figure>
+                                <li>Setelah itu komputer akan melakukan <em>restart</em> dan Ubuntu siap untuk digunakan.</li>
+                            </ol>
+                            </div>
+                        </div>
+                        
+                        <div class="kb-row">
+                            <a href="#latihan" class="kb-row-handle">Tugas</a>
+                            <div class="kb-row-content">
+                                <p>Setelah instalasi Ubuntu dengan metode <em>clean install</em> selesai, sekarang Anda telah memiliki sistem operasi Ubuntu terpasang pada komputer. Anda bisa melihat versi Ubuntu yang terinstall dengan cara <em>search</em> "Details" pada desktop awal Ubuntu (gambar 9.14). Hasilnya terlihat seperti pada gambar 9.15.  </p>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb09/details.jpg"><img src="assets/img/kb09/details.jpg" width="300px" class="img-responsive tengah" alt="Details" title="Details"></a>
+                                    <figcaption>Gambar 9.14. &nbsp;&nbsp; <em>Details</em></figcaption>
+                                </figure>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb09/12.04.jpg"><img src="assets/img/kb09/12.04.jpg" width="500px" class="img-responsive tengah" alt="Sebelum Upgrade, Ubuntu 12.04" title="Sebelum Upgrade, Ubuntu 12.04"></a>
+                                    <figcaption>Gambar 9.15. &nbsp;&nbsp; Sebelum <em>Upgrade</em>, Ubuntu 12.04</figcaption>
+                                </figure>
+                                <p>Tugas Anda sekarang yaitu melakukan <em>upgrade </em>Ubuntu ke versi yang lebih baru melalui <em>installer</em> CD/DVD. Hasilnya seperti gambar 9.16 di bawah ini.</p>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb09/13.10.jpg"><img src="assets/img/kb09/13.10.jpg" width="500px" class="img-responsive tengah" alt="Setelah Upgrade, Menjadi Ubuntu 13.10" title="Setelah Upgrade, Menjadi Ubuntu 13.10"></a>
+                                    <figcaption>Gambar 9.16. &nbsp;&nbsp; Setelah <em>Upgrade</em>, Menjadi Ubuntu 13.10</figcaption>
+                                </figure>
+                                <p>Setelah selesai, Anda bisa menuliskan atau menceritakan apa saja yang Anda peroleh pada pembelajaran kali ini. Kemudian publikasikan tulisan Anda tersebut pada blog, website, atau media sosial. Selamat mengerjakan :)</p>
+                            </div>
+                        </div>
+                        
+					</div>
+					<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('rangkuman');" href="#rangkuman">Lanjut ke Rangkuman &raquo;</a></p>
+    			</div>
+    		</div>
+    		
+    		
+    		<div class="panel panel-default artikel" id="rangkuman" style="display:none;">
+				<div class="panel-body">  
+					<h3 class="page-header">Rangkuman</h3>
+					<p><strong>Melalui</strong> metode instalasi <em>clean install</em> kita dapat mengistall Ubuntu secara langsung pada komputer dengan sistem yang baru. Secara umum ada 10 langkah untuk mengistall Ubuntu dengan <em>clean install, </em>yaitu (1) <em>booting</em> <em>installer</em> Ubuntu (melalui CD/DVD atau media lainnya), (2) pemilihan bahasa, (3) informasi persiapan instalasi, (4) Pilihan tipe instalasi, (5) konfirmasi penghapusan <em>harddisk, </em>(6) pengaturan lokasi, (7) pengaturan <em>keyboard layout</em>, (8) pengisian data diri, (9) proses instalasi Ubuntu, dan (10), selesai <em>(restart)</em>.</p>
+                    <p>Metode selanjutnya yaitu metode instalasi sistem <em>upgrade</em>, metode ini dilkukan untuk memperbarui Ubuntu ke versi yang lebih baru. Langkah-langkah untuk menginstall Ubuntu dengan metode sistem <em>upgrade</em> tidak jauh berbeda dengan metode <em>clean install</em>. Hanya saja pada langkah &ldquo;pilihan tipe instalasi&rdquo; Anda perlu mengaturnya pada pilihan <em>&ldquo;upgrade&rdquo;</em>.</p>
+                    <br><hr><br><p class="gambar-tengah"><a class="btn btn-success btn-sm smoothScroll" href="kb10.html">Lanjut ke Pembelajaran 10 &raquo;</a></p>
+                    </div>
+    			</div>
+    		</div>
+			
+			</div><!-- col-md-offset-2 col-md-8 -->
+			<a href="#" class="back-to-top"><i class="fa fa-arrow-circle-o-up"></i> <br> ke atas</a>
+		</div><!-- row -->
+	</div><!-- kb02 --> 	
+  		
+	<div id="footerwrap">
+		<div class="container">
+			<p>by <a href="bantuan.html">diondr</a> <i class="fa fa-asterisk"></i> 2014</p>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/retina.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="assets/js/smoothscroll.js"></script>
+	<script type="text/javascript" src="assets/js/jquery-func.js"></script>
+  </body>
+</html>

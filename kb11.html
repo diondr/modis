@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MODIS | Modul Sistem Operasi</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    <link rel="shortcut icon" href="assets/img/favicon_modis-1_1.png">
+
+    <link href='assets/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/main.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/animate-custom.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-font.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-modis.css' rel='stylesheet' type='text/css'>
+    <link href="assets/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" media="screen">
+
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+	<script type="text/javascript" src="assets/js/jmodis.js"></script>
+    <script type="text/javascript" src="assets/fancybox/jquery.fancybox.pack.js"></script>
+    <script>
+    $(document).ready(function() {
+        //semua links dengam akhiran ekstensi gambar
+        var thumbnails = 'a[href$=".gif"],a[href$=".jpg"],a[href$=".jpeg"],a[href$=".png"],a[href$=".GIF"],a[href$=".JPG"],a[href$=".JPEG"],a[href$=".PNG"]';
+
+        //menambah class "fancybox" ke thumbnails dan dijadikan satu group "rel" untuk mengaktifkan tombol previous/next
+        jQuery(thumbnails).addClass("fancybox").attr("rel","lightbox");
+
+        //memanggil fancybox
+        jQuery('.fancybox').fancybox({
+            padding: 0,
+            //mendapatkan alt dari img untuk title fancybox
+            beforeShow : function() {
+                var alt = this.element.find('img').attr('alt');
+                this.inner.find('img').attr('alt', alt);
+                this.title = alt;
+            }
+        });
+    });
+    </script>
+</head>
+<body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+
+<div id="navbar-main">
+    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="menuIcon"><i class="fa fa-lg fa-list-ul"></i> Menu</span>
+            </button>
+            <span class="navbar-brand logoModis"><img class="noBayang" src="assets/img/logo_modis-1_1.png"></span>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html"><i class="fa fa-lg fa-home"></i>&nbsp; Home</a></li>
+                <li><a href="info.html"><i class="fa fa-lg fa-info-circle"></i>&nbsp; Info</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-lg fa-book"></i>&nbsp; Pembelajaran <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="bab1.html">&nbsp; BAB 1 &nbsp; Perkembangan</a></li>
+                        <li><a href="bab2.html">&nbsp; BAB 2 &nbsp; Struktur</a></li>
+                        <li><a href="bab3.html">&nbsp; BAB 3 &nbsp; Proses <em>Booting</em></a></li>
+                        <li><a href="bab4.html">&nbsp; BAB 4 &nbsp; Instalasi</a></li>
+                        <li><a href="bab5.html">&nbsp; BAB 5 &nbsp; Administrasi</a></li>
+                        <li><a href="bab6.html">&nbsp; BAB 6 &nbsp; Pencarian Kesalahan</a></li>
+                    </ul>
+                </li>
+                <li><a href="evaluasi.html"><i class="fa fa-lg fa-tasks"></i>&nbsp; Evaluasi</a></li>
+                <li><a href="bantuan.html"><i class="fa fa-lg fa-question-circle"></i>&nbsp; Bantuan</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</div>
+
+    <!--INFO AWAL-->
+	<div id="kbwrap" class="kbwrap04">
+		<div class="row">	
+			<img src="assets/img/batik1.png" class="img-responsive tengah"></a>
+			<h3 class="centered">#11 Instalasi Ubuntu Metode Virtualisasi</h3>
+			<hr>
+			<a onclick="toggle('tujuan');" href="#tujuan" class="smoothScroll">Tujuan</a> / 
+			<a onclick="toggle('uraianMateri');" href="#uraianMateri" class="smoothScroll">Uraian Materi</a> / 
+			<a onclick="toggle('lembarKerja');" href="#lembarKerja" class="smoothScroll">Lembar Kerja</a> / 
+			<a onclick="toggle('rangkuman');" href="#rangkuman" class="smoothScroll">Rangkuman</a>
+			</p>
+			<br>
+		</div>
+	</div>
+	
+	<div class="container" id="kb04" name="kb04">
+		<br>
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+			<div class="panel panel-default artikel" id="tujuan">
+				<div class="panel-body"> 
+					<h3 class="page-header">Tujuan</h3> 
+    				<p>Pada pembelajaran ini Anda diharapkan:</p>
+					<ul>
+                        <li>Dapat menjelaskan konsep instalasi dengan metode virtualisasi.</li>
+                        <li>Dapat menjelaskan langkah-langkah instalasi VirtualBox.</li>
+                        <li>Mampu membuat komputer virtual baru pada VirtualBox.</li>
+                        <li>Mampu melakukan instalasi Ubuntu dengan metode virtualisasi.</li>
+					</ul>
+                    <hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('uraianMateri');" href="#uraianMateri">Lanjut ke Materi &raquo;</a></p>
+				</div>
+			</div>
+			
+			<div class="panel panel-default artikel" id="uraianMateri" style="display:none;">
+				<div class="panel-body">
+					<h3 class="page-header">Uraian Materi</h3>
+                    <p>Pembelajaran mengenai instalasi Ubuntu metode Virtualisasi ini terdiri 2 bahasan utama. Pertama bahasan akan tertuju pada virtualisasi itu sendiri, kemudian dilanjutkan dengan VirtualBox. Selamat belajar :)</p>
+				    
+                    <div class="kb-row-container">
+                    <div class="kb-row" id="virtualisasi">
+    					<a href="#uraianMateri" class="kb-row-handle">Virtualisasi</a>
+    					<div class="kb-row-content">
+							<figure class="gambar-kiri img-responsive">
+    							<img src="assets/img/kb11/virtualisasi.jpg" class="noBayang img-responsive tengah" alt="Virtualisasi" title="Virtualisasi">
+                                <figcaption>Gambar 11.1. &nbsp;&nbsp; Virtualisasi</figcaption>
+    						</figure>
+    						<p><strong>Sebelum</strong> membahas bagaimana menginstal Ubuntu secara virtual, mari kita singgung mengenai apa “virtualisasi” itu sendiri. Secara umum virtualisasi merupakan proses atau cara untuk membuat sesuatu seolah-olah menjadi seperti nyata. Contohnya, kita punya sebuah PC yang di dalamnya terdapat main board, CPU, RAM, harrddisk, dan komponen penyusun lainnya yang dapat dilihat secara fisik. Dengan metode virtualisasi kita bisa “membuat” PC sendiri lengkap dengan komponen-komponennya, hanya saja PC virtual itu tidak dapat dilihat secara nyata komponennya.</p>
+    						<p>Nah, dengan PC atau komputer virtual itu kita bisa melakukan instalasi Ubuntu dengan metode virtualisasi. Maksudnya yaitu kita tidak langsung menginstal Ubuntu pada komputer nyata, melainkan kita “membuat” dahulu komputer secara virtual, baru kemudian kita menginstal Ubuntu pada komputer virtual tersebut.</p>
+    						<p>Instalasi secara virtual ini tidak disarankan untuk penggunaan dalam waktu lama. Kenapa? Karena dengan metode ini komputer asli kita menjadi lebih terbebani dengan 2 sistem operasi yang berjalan sekaligus. Namun, untuk pengenalan ataupun ingin mencoba suatu sistem operasi bisa menggunakan metode virtualisasi ini.</p>
+    					</div>
+    				</div>
+    				
+    				<div class="kb-row">
+    					<a href="#virtualisasi" class="kb-row-handle">VirtualBox</a>
+    					<div class="kb-row-content">
+                            <br>
+                            <figure class="gambar-kanan img-responsive" style="padding-top:20px;">
+    							<a href="assets/img/kb11/virtualbox-1.jpg"><img src="assets/img/kb11/virtualbox-1.jpg" width="300px" class="img-responsive tengah" alt="Aplikasi VirtualBox" title="Aplikasi VirtualBox"></a>
+                                <br><figcaption>Gambar 11.2. &nbsp;&nbsp; Aplikasi VirtualBox</figcaption>
+    						</figure>
+                            <p><strong>VirtualBox</strong> merupakan suatu aplikasi virtualisasi <em>cross-platform </em>yang dapat dijalankan pada berbagai sistem operasi (Windows, Linux, atau Mac). Dengan aplikasi ini kita dapat membuat komputer virtual baru di dalam komputer nyata yang sedang kita gunakan. Jadi ada beberapa sistem operasi berjalan secara bersamaan pada satu waktu dan pada satu komputer. Contohnya, Anda memiliki komputer yang terinstall sistem operasi Windows, dengan aplikasi VirtualBox Anda bisa menjalankan sistem operasi lain (Ubuntu misalnya) pada komputer tersebut secara bersamaan secara virtual.</p>
+                            <p>Secara umum kita juga bisa mengatur seberapa besar <em>harddisk</em> komputer virtual yang akan dibuat, <em>processor</em>, RAM, dan menambah DVD-drive layaknya merakit komputer asli. Kemudian kita bisa menginstal Ubuntu ke dalam komputer virtual telah dibuat buat.</p>
+    					</div>
+    				</div>
+    				</div><!-- kb-row-container-->
+    				<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('lembarKerja');" href="#lembarKerja">Lanjut ke Lembar Kerja &raquo;</a></p>
+				</div><!-- panel-body-->
+			</div>
+
+			<div class="panel panel-default artikel" id="lembarKerja" style="display:none;">
+				<div class="panel-body">
+                    <h3 class="page-header">Lembar Kerja</h3>
+                    <div class="kb-row-container">
+                        <div class="kb-row open" id="alatBahan">
+                            <a href="#lembarKerja" class="kb-row-handle">Alat dan Bahan</a>
+                            <div class="kb-row-content" style="display:block;">
+                                <ul>
+                                    <li>Komputer atau laptop (RAM minimal 1 GB)</li>
+                                    <li>File <em>installer</em> VirtualBox</li>
+                                    <li><em>Installer</em> (CD/DVD) Ubuntu 12.04</li>                                    
+                                </ul>
+					       </div>
+                        </div>
+                        
+                        <div class="kb-row" id="petunjuk">
+                            <a href="#alatBahan" class="kb-row-handle">Petunjuk</a>
+                            <div class="kb-row-content">
+                            <ul>
+                                <li>Awali setiap aktivitas dengan do'a, semoga mendapat kemudahan dan keberkahan.</li>
+                                <li>Baca dan pahami langkah-langkah yang ada dengan seksama.</li>
+                                <li>Pastikan komputer dalam keadaan baik dan benar.</li>
+                                <li>Jangan meletakkan benda yang dapat mengeluarkan medan elektromagnetik (handphone, magnet, dan sejenisnya) di dekat komputer.</li>
+                                <li>Gunakan komputer sesuai fungsinya dengan hati-hati.</li>
+                                <li>Kerjakan secara baik, benar, dan sabar.</li>
+                            </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="kb-row" id="latihan">
+                            <a href="#petunjuk" class="kb-row-handle">Latihan</a>
+                            <div class="kb-row-content">
+                            <p>Pada latihan ini Anda akan belajar bagaimana menginstall aplikasi virtualBox dilanjutkan dengan cara membuat komputer baru pada virtualBox.</em> <strong>Siap?</strong></p>
+                        
+                            <br><p class="subbab1">Instalasi VirtualBox</p>
+                            <ol style="margin-left:-20px;">
+                                <li>Pastikan Anda sudah memiliki file <em>installer</em> VirtualBox, dalam pembelajaran ini digunakan VirtualBox-4.3.8-92456-Win.exe. Anda boleh menggunakan versi yang lain.</li>
+                                <li>Jalankan file tersebut dengan cara <strong><em>double click</em></strong> <em>file</em> tersebut.</li>
+                                <li>Kemudian akan muncul jendela awal instalasi VirtualBox. Klik <em><strong>Next</strong></em> untuk melanjutkan.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb11/01-awal.jpeg"><img src="assets/img/kb11/01-awal.jpeg" class="img-responsive tengah" alt="Awal Instalasi VirtualBox"></a>
+                                    <figcaption>Gambar 11.3. &nbsp;&nbsp; Awal Instalasi VirtualBox</figcaption>
+                                </figure>
+                                <li>Setelah itu muncul pilihan fitur apa saja yang ingin diinstall. Langsung saja klik <em><strong>Next</strong></em> jika Anda ingin fitur standar yang telah ditentukan.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb11/02-pilihan.jpeg"><img src="assets/img/kb11/02-pilihan.jpeg" class="img-responsive tengah" alt="Pilihan Fitur"></a>
+                                    <figcaption>Gambar 11.4. &nbsp;&nbsp; Pilihan Fitur</figcaption>
+                                </figure>
+                                <li>Akan muncul pilihan <em>custom setup</em> untuk pembuatan <em>shortcut</em> dan <em>register file.</em> Klik <em><strong>Next</strong></em> untuk melanjutkan secara <em>default</em>.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb11/03-custom.jpeg"><img src="assets/img/kb11/03-custom.jpeg" class="img-responsive tengah" alt="Custom Setup"></a>
+                                    <figcaption>Gambar 11.5. &nbsp;&nbsp; <i>Custom Setup</i></figcaption>
+                                </figure>
+                                <li>Kemudian akan ada peringatan mengenai <em>reset</em> jaringan. Klik <em><strong>Yes</strong></em> untuk melakukan melanjutkan.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb11/04-peringatan.jpeg" rel="kb09"><img src="assets/img/kb11/04-peringatan.jpeg" class="img-responsive tengah" alt="Peringatan Reset Jaringan" title="Peringatan Reset Jaringan"></a>
+                                    <figcaption>Gambar 11.6. &nbsp;&nbsp; Peringatan Reset Jaringan</figcaption>
+                                </figure>
+                                <li>Setelah itu muncul konfirmasi untuk memulai instalasi. Klik <em><strong>Install</strong>,</em> kemudian proses instalasi akan berjalan.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb11/05-konfirmasi.jpeg"><img src="assets/img/kb11/05-konfirmasi.jpeg" class="img-responsive tengah" alt="Konfirmasi Instalasi" title="Konfirmasi Instalasi"></a>
+                                    <figcaption>Gambar 11.7. &nbsp;&nbsp; Konfirmasi Instalasi</figcaption>
+                                </figure>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb11/06-proses.jpeg"><img src="assets/img/kb11/06-proses.jpeg" class="img-responsive tengah" alt="Proses Instalasi sedang Berjalan" title="Proses Instalasi sedang Berjalan"></a>
+                                    <figcaption>Gambar 11.8. &nbsp;&nbsp; Proses Instalasi sedang Berjalan</figcaption>
+                                </figure>
+                                <li>Setelah selesai, maka akan muncul jendela informasi bahwa instalasi selesai. Centang <em>&ldquo;Start Oracle Vm VirtualBox&rdquo;</em> jika ingin langsung menjalankan VirtualBox dan klik <em><strong>Finish</strong></em>.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb11/07-selesai.jpeg"><img src="assets/img/kb11/07-selesai.jpeg" class="img-responsive tengah" alt="Instalasi VirtualBox Selesai" title="Instalasi VirtualBox Selesai"></a>
+                                    <figcaption>Gambar 11.9. &nbsp;&nbsp; Instalasi VirtualBox Selesai</figcaption>
+                                </figure>
+                            </ol>
+                        
+                            <hr><br><p class="subbab1">Membuat Komputer Virtual pada VirtualBox</p>
+                            <ol style="margin-left:-20px;">
+                                <li>Buka aplikasi VirtualBox, sehingga muncul jendela awal VirtualBox. Klik <em><strong>New</strong> </em>untuk membuat komputer virtual baru.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb11/08-awal_vb.jpg"><img src="assets/img/kb11/08-awal_vb.jpg" width="500px" class="img-responsive tengah" alt="Awal VirtualBox" title="Awal VirtualBox"></a>
+                                    <figcaption>Gambar 11.10. &nbsp;&nbsp; Awal VirtualBox</figcaption>
+                                </figure>
+                                <li>Kemudian Muncul jendela baru ucapan selamat datang, klik <em><strong>Next</strong></em> untuk melanjutkan.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb11/09-awal_vm.jpg"><img src="assets/img/kb11/09-awal_vm.jpg" width="500px" class="img-responsive tengah" alt="Awal Pembuatan Komputer Virtual" title="Awal Pembuatan Komputer Virtual"></a>
+                                    <figcaption>Gambar 11.11. &nbsp;&nbsp; Awal Pembuatan Komputer Virtual</figcaption>
+                                </figure>
+                                <li>Beri nama komputer virtual yang dibuat pada kolom <strong><em>Name.</em></strong> Pada <strong><em>OS Type</em></strong><em>,</em> pilih Linux untuk pilihan <em>Operating System</em> dan untuk <em>Version</em> pilih Ubuntu. Jika sudah, klik <em><strong>Next</strong></em>.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb11/10-vm_name.jpg"><img src="assets/img/kb11/10-vm_name.jpg" width="500px" class="img-responsive tengah" alt="VM Name & OS Type" title="VM Name & OS Type"></a>
+                                    <figcaption>Gambar 11.12. &nbsp;&nbsp; <i>VM Name</i> dan <i>OS Type</i></figcaption>
+                                </figure>
+                                <li>Kemudian muncul pengaturan <em>Memory</em>. Pada percobaan ini diatur RAM sebesar 512 MB, tetapi <strong>sesuaikan</strong> dengan RAM komputer asli Anda.
+                                    <ul>
+                                        <li>Jika komputer asli Anda memiliki RAM <strong>kurang dari 1 GB</strong> maka atur RAM pada VirtualBox sebesar <strong>256 MB</strong>.</li>
+                                        <li>Sedangkan, jika RAM komputer asli Anda <strong>lebih dari 1 GB</strong> maka atur RAM pada VirtualBox sebesar <strong>512 MB</strong>.</li>
+                                    </ul>
+                                    Setelah itu klik <strong><em>Next</em></strong> untuk menuju ke langkah berikutnya.
+                                </li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb11/11-RAM.jpg"><img src="assets/img/kb11/11-RAM.jpg" width="500px" class="img-responsive tengah" alt="Pengaturan RAM" title="Pengaturan RAM"></a>
+                                    <figcaption>Gambar 11.13. &nbsp;&nbsp; Pengaturan RAM</figcaption>
+                                </figure>
+                                <li>Pada pengaturan <em>Virtual Hard Disk</em> pilih <em><strong>Create new hard disk.</strong></em> Kemudian untuk melanjutkan klik <em><strong>Next</strong></em>.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb11/12-vd.jpg"><img src="assets/img/kb11/12-vd.jpg" width="500px" class="img-responsive tengah" alt="Pengaturan Virtual Disk" title="Pengaturan Virtual Disk"></a>
+                                    <figcaption>Gambar 11.14. &nbsp;&nbsp; Pengaturan <em>Virtual Disk</em></figcaption>
+                                </figure>
+                                <li>Setelah itu pada <em>File type</em>, pilih <em><strong>VDI (VirtualBox Disk Image)</strong></em> lalu klik <em><strong>Next</strong></em>.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb11/13-tipe_vd.jpg"><img src="assets/img/kb11/13-tipe_vd.jpg" width="500px" class="img-responsive tengah" alt="Pilihan Tipe Virtual Disk" title="Pilihan Tipe Virtual Disk"></a>
+                                    <figcaption>Gambar 11.15. &nbsp;&nbsp; Pilihan Tipe <em>Virtual Disk</em></figcaption>
+                                </figure>
+                                <li>Pilih <em><strong>Dynamically allocated</strong></em> pada <em>Storage details,</em> kemudian klik <em><strong>Next</strong></em> untuk melanjutkan.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb11/14-detail_vd.jpg"><img src="assets/img/kb11/14-detail_vd.jpg" width="500px" class="img-responsive tengah" alt="Pengaturan Detail Virtual Disk" title="Pengaturan Detail Virtual Disk"></a>
+                                    <figcaption>Gambar 11.16. &nbsp;&nbsp; Pengaturan Detail <em>Virtual Disk</em></figcaption>
+                                </figure>
+                                <li>Kemudian atur <em><strong>Size</strong> virtual disk</em> sebesar <strong>8 GB</strong> dan untuk melanjutkan klik <em><strong>Next</strong></em>.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb11/15-ukuran_vd.jpg"><img src="assets/img/kb11/15-ukuran_vd.jpg" width="500px" class="img-responsive tengah" alt="Pengaturan Ukuran Virtual Disk" title="Pengaturan Ukuran Virtual Disk"></a>
+                                    <figcaption>Gambar 11.17. &nbsp;&nbsp; Pengaturan Ukuran <em>Virtual Disk</em></figcaption>
+                                </figure>
+                                <li>Setelah itu muncul <em>Summary</em> sebagai informasi ringkasan <em>virtual disk</em> yang telah Anda buat. Klik <em><strong>Create</strong></em> untuk membuatnya.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb11/16-ringkasan_vd.jpg"><img src="assets/img/kb11/16-ringkasan_vd.jpg" width="500px" class="img-responsive tengah" alt="Ringkasan Virtual Disk" title="Ringkasan Virtual Disk"></a>
+                                    <figcaption>Gambar 11.18. &nbsp;&nbsp; Ringkasan <em>Virtual Disk</em></figcaption>
+                                </figure>
+                                <li>Kemudian ada infromasi juga mengenai ringkasan <em>virtual machine</em> atau komputer virtual yang Anda buat. Klik <em><strong>Create</strong></em> untuk memprosesnya.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb11/17-ringkasan_vm.jpg"><img src="assets/img/kb11/17-ringkasan_vm.jpg" width="500px" class="img-responsive tengah" alt="Ringkasan Virtual Machine" title="Ringkasan Virtual Machine"></a>
+                                    <figcaption>Gambar 11.19. &nbsp;&nbsp; Ringkasan <em>Virtual Machine</em></figcaption>
+                                </figure>
+                                <li>Jika berhasil maka akan muncul nama komputer virtual yang kita buat pada jedela utama VirtualBox.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb11/18-vm_selesai.jpg"><img src="assets/img/kb11/18-vm_selesai.jpg" width="500px" class="img-responsive tengah" alt="Pembuatan Komputer Virtual Selesai" title="Pembuatan Komputer Virtual Selesai"></a>
+                                    <figcaption>Gambar 11.20. &nbsp;&nbsp; Pembuatan Komputer Virtual Selesai</figcaption>
+                                </figure>
+                            </ol>
+                            </div>
+                        </div>
+                        
+                        <div class="kb-row">
+                            <a href="#latihan" class="kb-row-handle">Tugas</a>
+                            <div class="kb-row-content">
+                                <p>Setelah instalasi VirtualBox dan pembuatan komputer virtual pada VirtualBox selesai, kini saatnya menginstall Ubuntu pada komputer virtual tersebut. Anda harus &ldquo;memasukkan&rdquo; <em>file</em> ISO Ubuntu terlebih dahulu ke dalam komputer virtual. <em>File </em>ISO tersebut sebagai pengganti dari installer CD/DVD Ubuntu pada komputer nyata.</p>
+                                <ol style="margin-left:-20px;">
+                                    <li>Pertama <strong>pilih</strong> komputer virtual yang ingin dipakai, dalam percobaan ini yaitu &ldquo;KomputerKu&rdquo;, lalu klik <em><strong>Setting</strong></em>.</li>
+                                    <figure class="gambar-tengah img-responsive">
+                                        <a href="assets/img/kb11/19-pilih_kom.jpg"><img src="assets/img/kb11/19-pilih_kom.jpg" width="500px" class="img-responsive tengah" alt="Pilih Komputer" title="Pilih Komputer"></a>
+                                        <figcaption>Gambar 11.21. &nbsp;&nbsp; Pilih Komputer</figcaption>
+                                    </figure>
+                                    <li>Kemudian akan muncul jendela baru untuk pengaturan. Pilih <em><strong>Storage</strong></em>. Pada <em>IDE Controller</em> pilih <em><strong>Empty</strong></em>. Setelah itu, pada kolom <em>Attributes,</em> <strong>klik ikon CD</strong> dan pilih <strong><em>Choose a virtual CD/DVD disk file</em></strong>.</li>
+                                    <figure class="gambar-tengah img-responsive">
+                                        <a href="assets/img/kb11/20-atur_cd.jpg"><img src="assets/img/kb11/20-atur_cd.jpg" width="600px" class="img-responsive tengah" alt="Pengaturan CD/DVD" title="Pengaturan CD/DVD"></a>
+                                        <figcaption>Gambar 11.22. &nbsp;&nbsp; Pengaturan CD/DVD</figcaption>
+                                    </figure>
+                                    <li>Akan muncul jendela baru untuk memilih <em>file</em> ISO Ubuntu. Arahkan ke dalam folder dimana Anda menyimpan file ISO tersebut. Dalam percobaan ini terletak pada folder <em>Downloads</em>. Jika sudah dipilih, klik <strong>Open</strong>.</li>
+                                    <figure class="gambar-tengah img-responsive">
+                                        <a href="assets/img/kb11/21-pilih_iso.jpg"><img src="assets/img/kb11/21-pilih_iso.jpg" width="400px" class="img-responsive tengah" alt="Pemilihan file ISO Ubuntu" title="Pemilihan file ISO Ubuntu"></a>
+                                        <figcaption>Gambar 11.23. &nbsp;&nbsp; Pemilihan <em>File</em> ISO Ubuntu</figcaption>
+                                    </figure>
+                                    <li>Pastikan pada <em>IDE Controller</em> terdapat nama file ISO yang dimasukkan, dalam hal ini yaitu ubuntu-12.04.4-desktop-i386.iso. Klik <em><strong>OK</strong></em> untuk melanjutkan.</li>
+                                    <figure class="gambar-tengah img-responsive">
+                                        <a href="assets/img/kb11/22-iso_selesai.jpg"><img src="assets/img/kb11/22-iso_selesai.jpg" width="500px" class="img-responsive tengah" alt="Pemuatan File ISO Selesai" title="Pemuatan File ISO Selesai"></a>
+                                        <figcaption>Gambar 11.24. &nbsp;&nbsp; Pemuatan <em>File</em> ISO Selesai</figcaption>
+                                    </figure>
+                                    <li>Kini saatnya &ldquo;menghidupkan&rdquo; komputer virtual. Tetap dengan komputer virtual yang dipilih (dalam hal ini yaitu KomputerKu), klik <strong>Start</strong> pada jendela utama Virtualbox.</li>
+                                    <figure class="gambar-tengah img-responsive">
+                                        <a href="assets/img/kb11/23-menghidupkan_vm.jpg"><img src="assets/img/kb11/23-menghidupkan_vm.jpg" width="400px" class="img-responsive tengah" alt="Menghidupkan Komputer Virtual" title="Menghidupkan Komputer Virtual"></a>
+                                        <figcaption>Gambar 11.25. &nbsp;&nbsp; Menghidupkan Komputer Virtual</figcaption>
+                                    </figure>
+                                    <li>Setelah itu akan muncul jendela baru komputer virtual dan proses <em>booting</em> Ubuntu sedang berlangsung.</li>
+                                    <figure class="gambar-tengah img-responsive">
+                                        <a href="assets/img/kb11/24-booting.jpg"><img src="assets/img/kb11/24-booting.jpg" width="500px" class="img-responsive tengah" alt="Proses Booting" title="Proses Booting"></a>
+                                        <figcaption>Gambar 11.26. &nbsp;&nbsp; Proses <em>Booting</em></figcaption>
+                                    </figure>
+                                </ol>
+                                <p>Kini tugas Anda yaitu melanjutkan instalasi Ubuntu secara virtual tersebut. Selamat mengerjakan :)</p>
+                                <p>Jika sudah, Anda bisa menuliskan atau menceritakan apa saja yang Anda peroleh pada pembelajaran kali ini. Kemudian publikasikan tulisan Anda tersebut pada blog, website, atau media sosial.</p>
+                            </div>
+                        </div>
+                        
+					</div>
+					<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('rangkuman');" href="#rangkuman">Lanjut ke Rangkuman &raquo;</a></p>
+    			</div>
+    		</div>
+    		
+    		
+    		<div class="panel panel-default artikel" id="rangkuman" style="display:none;">
+				<div class="panel-body">  
+					<h3 class="page-header">Rangkuman</h3>
+					<p><strong>Virtualisasi</strong> merupakan proses atau cara untuk membuat sesuatu seolah-olah menjadi seperti nyata. PC atau komputer juga bisa dibuat secara virtualisasi. Dengan aplikasi VirtualBox dapat dibuat komputer virtual baru di dalam komputer nyata yang sedang kita gunakan. Secara umum kita juga bisa mengatur seberapa besar <em>harddisk</em> komputer virtual yang akan dibuat, <em>processor</em>, RAM, dan menambah DVD-drive layaknya merakit komputer asli.</p>
+                    <p>Instalasi aplikasi VirtualBox umumnya terdiri dari berapa langkah yaitu (1) perisapan file installer VirtualBox, (2) informasi awal, (3) pilihan fitur, (4) <em>custom setup, </em>(5) <em>reset</em> jaringan, (6) proses instalasi, dan (7) selesai.</p>
+                    <p>Untuk membuat komputer virtual pada VirtualBox ada beberapa langkah yang harus diperhatikan yaitu (1) awal pembuatan komputer virtual, (2) <em>VM Name</em> dan <em>OS Type, (3)</em> pengaturan RAM, (4) pengaturan <em>Virtual Disk</em>, (5) pilihan <em>Virtual Disk</em>, (6) pengaturan detail <em>Virtual Disk</em>, (7) pengaturan ukuran <em>Virtual Disk</em>, (8) ringkasan <em>Virtual Disk</em>, (9) ringkasan <em>Virtual Machine</em>, (10) selesai.</p>
+                    <p>Instalasi Ubuntu dengan metode virtualisasi tidak jauh berbeda dengan instalasi secara langsung pada komputer. Akan tetapi, perlu diatur <em>file</em> ISO Ubuntu pada VirtualBox terlebih dahulu sebagai pengganti dari installer CD/DVD Ubuntu pada komputer asli.</p>
+                    <br><hr><br><p class="gambar-tengah"><a class="btn btn-primary btn-sm smoothScroll" href="evaluasi-4.html">Lanjut ke Evaluasi &raquo;</a></p>
+                    </div>
+    			</div>
+    		</div>
+			
+			</div><!-- col-md-offset-2 col-md-8 -->
+			<a href="#" class="back-to-top"><i class="fa fa-arrow-circle-o-up"></i> <br> ke atas</a>
+		</div><!-- row -->
+	</div><!-- kb02 --> 	
+  		
+	<div id="footerwrap">
+		<div class="container">
+			<p>by <a href="bantuan.html">diondr</a> <i class="fa fa-asterisk"></i> 2014</p>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/retina.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="assets/js/smoothscroll.js"></script>
+	<script type="text/javascript" src="assets/js/jquery-func.js"></script>
+  </body>
+</html>

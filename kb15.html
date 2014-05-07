@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MODIS | Modul Sistem Operasi</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    <link rel="shortcut icon" href="assets/img/favicon_modis-1_1.png">
+
+    <link href='assets/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/main.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/animate-custom.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-font.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-modis.css' rel='stylesheet' type='text/css'>
+    <link href="assets/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" media="screen">
+
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+	<script type="text/javascript" src="assets/js/jmodis.js"></script>
+    <script type="text/javascript" src="assets/fancybox/jquery.fancybox.pack.js"></script>
+    <script>
+    $(document).ready(function() {
+        //semua links dengam akhiran ekstensi gambar
+        var thumbnails = 'a[href$=".gif"],a[href$=".jpg"],a[href$=".jpeg"],a[href$=".png"],a[href$=".GIF"],a[href$=".JPG"],a[href$=".JPEG"],a[href$=".PNG"]';
+
+        //menambah class "fancybox" ke thumbnails dan dijadikan satu group "rel" untuk mengaktifkan tombol previous/next
+        jQuery(thumbnails).addClass("fancybox").attr("rel","lightbox");
+
+        //memanggil fancybox
+        jQuery('.fancybox').fancybox({
+            padding: 0,
+            //mendapatkan alt dari img untuk title fancybox
+            beforeShow : function() {
+                var alt = this.element.find('img').attr('alt');
+                this.inner.find('img').attr('alt', alt);
+                this.title = alt;
+            }
+        });
+    });
+    </script>
+</head>
+<body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+
+<div id="navbar-main">
+    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="menuIcon"><i class="fa fa-lg fa-list-ul"></i> Menu</span>
+            </button>
+            <span class="navbar-brand logoModis"><img class="noBayang" src="assets/img/logo_modis-1_1.png"></span>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html"><i class="fa fa-lg fa-home"></i>&nbsp; Home</a></li>
+                <li><a href="info.html"><i class="fa fa-lg fa-info-circle"></i>&nbsp; Info</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-lg fa-book"></i>&nbsp; Pembelajaran <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="bab1.html">&nbsp; BAB 1 &nbsp; Perkembangan</a></li>
+                        <li><a href="bab2.html">&nbsp; BAB 2 &nbsp; Struktur</a></li>
+                        <li><a href="bab3.html">&nbsp; BAB 3 &nbsp; Proses <em>Booting</em></a></li>
+                        <li><a href="bab4.html">&nbsp; BAB 4 &nbsp; Instalasi</a></li>
+                        <li><a href="bab5.html">&nbsp; BAB 5 &nbsp; Administrasi</a></li>
+                        <li><a href="bab6.html">&nbsp; BAB 6 &nbsp; Pencarian Kesalahan</a></li>
+                    </ul>
+                </li>
+                <li><a href="evaluasi.html"><i class="fa fa-lg fa-tasks"></i>&nbsp; Evaluasi</a></li>
+                <li><a href="bantuan.html"><i class="fa fa-lg fa-question-circle"></i>&nbsp; Bantuan</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</div>
+
+    <!--INFO AWAL-->
+	<div id="kbwrap" class="kbwrap05">
+		<div class="row">	
+			<img src="assets/img/batik1.png" class="img-responsive tengah"></a>
+			<h3 class="centered">#15 Manajemen <em>User</em> dan <em>Group</em></h3>
+			<hr>
+			<a onclick="toggle('tujuan');" href="#tujuan" class="smoothScroll">Tujuan</a> / 
+			<a onclick="toggle('uraianMateri');" href="#uraianMateri" class="smoothScroll">Uraian Materi</a> / 
+			<a onclick="toggle('lembarKerja');" href="#lembarKerja" class="smoothScroll">Lembar Kerja</a> / 
+			<a onclick="toggle('rangkuman');" href="#rangkuman" class="smoothScroll">Rangkuman</a>
+			</p>
+			<br>
+		</div>
+	</div>
+	
+	<div class="container" id="kb05" name="kb05">
+		<br>
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+			<div class="panel panel-default artikel" id="tujuan">
+				<div class="panel-body"> 
+					<h3 class="page-header">Tujuan</h3> 
+    				<p>Pada pembelajaran ini Anda diharapkan:</p>
+					<ul>
+                        <li>Dapat menambah, memodifikasi, dan menghapus <em>user</em>.</li>
+                        <li>Mampu menambah dan menghapus <em>group</em>.</li>
+					</ul>
+                    <hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('uraianMateri');" href="#uraianMateri">Lanjut ke Materi &raquo;</a></p>
+				</div>
+			</div>
+			
+			<div class="panel panel-default artikel" id="uraianMateri" style="display:none;">
+				<div class="panel-body">
+					<h3 class="page-header">Uraian Materi</h3>
+                    <p>Pembelajaran mengenai manajemen <em>user</em> dan <em>group</em> ini dimulai dengan pembahasan mengenai informasi <em>user</em> dan <em>group</em>. Kemudian dilanjutkan <em>file</em> <tt>/etc/passwd</tt> dan <tt>/etc/group</tt>. Setelah itu latihan yang berkaitan dengan bahasan tersebut siap Anda kerjakan. Selamat belajar :)</p>
+
+                    <div class="kb-row-container">
+                    <div class="kb-row" id="informasi">
+    					<a href="#uraianMateri" class="kb-row-handle">Informasi <em>User</em> dan <em>Group</em></a>
+    					<div class="kb-row-content">
+                            <p><strong>Ubuntu</strong> menyimpan informasi akun dari <em>user</em> dan <em>group</em> pada beberapa <em>file</em> di dalam direktori <code>/etc/</code>. Jika seorang <em>administrator</em> membuat <em>user</em> baru, file tersebut harus diedit atau melalui aplikasi tertentu.</p>
+                            <p>Manajemen <em>user</em> dan <em>group</em> dapat dilakukan melalui aplikasi <em>User Accounts</em> pada Ubuntu dan melalui terminal. Aplikasi <em>User Accounts</em> bersifat <em>Graphical User Interface</em> (GUI) sedangkan terminal berbasis teks. Pada pembelajaran ini manajemen <em>user</em> dan <em>group </em>dilakukan melalui terminal karena mempunayi kelebihan dalam skrip yang mudah diomatisasi dari pada GUI.</p>
+    					</div>
+    				</div>
+                    
+                    <div class="kb-row" id="passwd">
+    					<a href="#informasi" class="kb-row-handle"><em>File</em> <tt>/etc/passwd</tt></a>
+    					<div class="kb-row-content">
+                            <p><em>File</em> <tt>/etc/passwd</tt> merupakan <em>file</em> yang berisi daftar <em>user</em> dimana setiap <em>user</em> dipisahkan dengan baris. Adapaun setiap baris berisi informasi mengenai:</p>
+                            <ul>
+                                <li><em><strong>Username</strong></em> &mdash; nama <em>user</em> yang diketik saat login sistem.</li>
+                                <li><em><strong>Password</strong></em> &mdash; berisi <em>pasword</em> yang di-enkripsi (ditampilkan x bila <em>shadow password</em> digunakan)</li>
+                                <li><strong><em>User</em> ID (UID)</strong> &mdash; bilangan numerik yang ekuivalen dengan <em>username</em> yang menjadi acuan sistem.</li>
+                                <li><strong><em>Group</em> ID (GID)</strong> &mdash; bilangan numerik yang ekuivalen dengan nama <em>group</em> yang menjadi acuan sistem.</li>
+                                <li><strong>GECOS</strong> &mdash; nama histori, kolom ini bersifat opsional dan digunakan untuk menyimpan informasi tambahan (seperti nama lengkap user).</li>
+                                <li><em><strong>Home directory</strong></em> &mdash; <em>path absolute</em> (tetap) untuk <em>home directory</em> dari <em>user</em>.</li>
+                                <li><em><strong>Shell</strong></em> &mdash; program yang otomatis dijalankan jika <em>user login</em>.</li>
+                            </ul>
+                            <p>Contoh baris pada <em>file</em> <tt>/etc/passwd</tt> yaitu:</p>
+                            <p><code>diondr:x:1000:1000:Dion D. R.,,,:/home/diondr:/bin/bash</code></p>
+                            <p>Baris di atas menunjukkan <em>user</em> diondr memiliki <em>shadow password,</em> UID dan GID adalah 1000. <em>Home directory</em> pada /home/diondr dan menggunakan <em>shell</em> /bin/bash.</p>
+    					</div>
+    				</div>
+                    
+                    <div class="kb-row">
+    					<a href="#passwd" class="kb-row-handle"><em>File</em> <tt>/etc/group</tt></a>
+    					<div class="kb-row-content">
+                            <p><em>File</em> <tt>/etc/group</tt> adalah <em>file</em> yang berisi daftar <em>group</em> dimana setiap <em>group</em> dipisahkan dengan baris. Adapaun setiap baris berisi informasi mengenai:</p>
+                            <ul>
+                                <li><em><strong>Group name</strong></em> &mdash; nama <em>group</em>.</li>
+                                <li><em><strong>Group password</strong></em> &mdash; berisi <em>pasword</em> yang di-enkripsi (ditampilkan x bila <em>shadow password</em> digunakan)</li>
+                                <li><strong><em>Group</em> ID (GID)</strong> &mdash; bilangan numerik yang ekuivalen dengan nama <em>group</em>.</li>
+                                <li><em><strong>Member list</strong></em> &mdash;&nbsp;daftar <em>user</em> yang menjadi milik <em>group</em>.</li>
+                            </ul>
+                            <p>Contoh baris pada <em>file</em> <tt>/etc/group</tt> yaitu:</p>
+                            <p><code>adm:x:4:diondr</code></p>
+                            <p>Baris diatas menunjukkan, <em>group</em> adm menggunakan <em>shadow password</em>, mempunyai GID 4 dan anggota diondr.</p>
+    					</div>
+    				</div>
+    				</div><!-- kb-row-container-->
+    				<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('lembarKerja');" href="#lembarKerja">Lanjut ke Lembar Kerja &raquo;</a></p>
+				</div><!-- panel-body-->
+			</div>
+
+			<div class="panel panel-default artikel" id="lembarKerja" style="display:none;">
+				<div class="panel-body">
+                    <h3 class="page-header">Lembar Kerja</h3>
+                    <div class="kb-row-container">
+                        <div class="kb-row open" id="alatBahan">
+                            <a href="#lembarKerja" class="kb-row-handle">Alat dan Bahan</a>
+                            <div class="kb-row-content" style="display:block;">
+                                <ul>
+                                    <li>Komputer atau laptop dengan sistem operasi Ubuntu</li>
+                                </ul>
+					       </div>
+                        </div>
+                        
+                        <div class="kb-row" id="petunjuk">
+                            <a href="#alatBahan" class="kb-row-handle">Petunjuk</a>
+                            <div class="kb-row-content">
+                            <ul>
+                                <li>Awali setiap aktivitas dengan do'a, semoga mendapat kemudahan dan keberkahan.</li>
+                                <li>Baca dan pahami langkah-langkah yang ada dengan seksama.</li>
+                                <li>Pastikan komputer dalam keadaan baik dan benar.</li>
+                                <li>Jangan meletakkan benda yang dapat mengeluarkan medan elektromagnetik (<em>handphone</em>, magnet, dan sejenisnya) di dekat komputer.</li>
+                                <li>Gunakan komputer sesuai fungsinya dengan hati-hati.</li>
+                                <li>Kerjakan secara baik, benar, dan sabar.</li>
+                            </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="kb-row" id="latihan">
+                            <a href="#petunjuk" class="kb-row-handle">Latihan</a>
+                            <div class="kb-row-content">
+                            <ol style="margin-left:-20px;">
+                                <li>Hidupkan komputer Anda.</li>
+                                <li>Jalankan <strong>terminal</strong> dan <em>login</em> sebagai <strong><em>root</em></strong>.</li>
+                                <li>Kerjakan latihan-latihan berikut ini.</li>
+                            </ol>
+                            <hr>    
+                            <p><strong>LATIHAN 1. MELIHAT <em>FILE</em></strong> <tt>/etc/passwd</tt> <strong>DAN</strong> <tt>/etc/group</tt></p>
+                            <ol style="margin-left:-20px;">
+                                <li>Lihat isi <em>file</em> <tt>/etc/passwd</tt> dengan perintah:
+                                    <p><code>$ cat /etc/passwd | more</code></p>
+                                    <p>Sebutkan <strong>kolom</strong> apa saja yang terdapat pada setiap baris.</p>
+                                </li>
+                                <li>Lihat isi <em>file</em> <tt>/etc/group</tt> dengan perintah:
+                                    <p><code>$ cat /etc/group | more</code></p>
+                                    <p>Sebutkan <strong>kolom</strong> apa saja yang terdapat pada setiap baris.</p>
+                                </li>
+                            </ol>
+                            <hr>
+                            <p><strong>LATIHAN 2. MENAMBAH <em>GROUP</em></strong></p>
+                            <ol style="margin-left:-20px;">
+                                <li>Buatlah 3 <em>group</em> baru dengan perintah <code>groupadd</code>. Perhatikan informasi <em>group</em> baru pada <em>file</em> <tt>/etc/group</tt>.
+                                    <p><code>$ groupadd teman</code></p>
+                                    <p><code>$ groupadd saudara</code></p>
+                                    <p><code>$ groupadd tetangga</code></p>
+                                    <p><code>$ cat /etc/group</code></p>
+                                </li>
+                            </ol>
+                            <hr>
+                            <p><strong>LATIHAN 3. MENAMBAH <em>USER</em></strong></p>
+                            <ol style="margin-left:-20px;">
+                                <li>Buatlah <em>user</em> baru dengan perintah <code>useradd</code>. Perhatikan perubahan isi <em>file</em> <tt>/etc/passwd</tt> setelah pembuatan <em>user</em> baru. Juga perhatikan apakah <em>home directory</em> setiap <em>user</em> juga dibuat pada saat pembuatan <em>user</em> baru.
+                                    <p><code>$ useradd silvi</code></p>
+                                    <p><code>$ passwd silvi</code></p>
+                                    <p><code>$ grep silvi /etc/passwd</code></p>
+                                    <p><code>$ useradd -m agus</code></p>
+                                    <p><code>$ grep agus /etc/passwd</code></p>
+                                    <p><code>$ ls -l /home</code></p>
+                                </li>
+                                <li>Opsi <tt>–g</tt> pada perintah <tt>useradd</tt> untuk menentukan <em>group</em> dari <em>user</em> yang dibuat.
+                                    <p><code>$ useradd -g tetangga joko</code></p>
+                                    <p><code>$ grep joko /etc/passwd</code></p>
+                                    <p><code>$ useradd -mg teman azizah</code></p>
+                                    <p><code>$ grep azizah /etc/passwd</code></p>
+                                    <p><code>$ ls -l /home</code></p>
+                                </li>
+                            </ol>
+                            <hr>
+                            <p><strong>LATIHAN 4. MEMODIFIKASI <em>GROUP</em> DARI <em>USER</em></strong></p>
+                            <ol style="margin-left:-20px;">
+                                <li>Dengan perintah <code>usermod</code>, modifikasi <em>group</em> dari <em>user</em> digunakan untuk memilih suatu <em>group primer</em> dan kemungkinan juga bagian dari group lain <em>(supplementary group)</em>.<br>
+                                    Untuk memodifikasi group dari suatu <em>user</em> dapat digunakan perintah <tt>usermod</tt>.
+                                    <p><code>$ usermod -g saudara -G teman,tetangga agus</code></p>
+                                    <p><code>$ usermod -g teman -G saudara silvi</code></p>
+                                </li>
+                            </ol>
+                            <hr>
+                            <p><strong>LATIHAN 5. MELIHAT <em>GROUP</em> DARI <em>USER</em></strong></p>
+                            <ol style="margin-left:-20px;">
+                                <li>Lihat <em>group</em> dari seorang <em>user</em> dengan perintah <tt>groups</tt>.
+                                    <p><code>$ groups agus</code></p>
+                                    <p><code>$ groups silvi</code></p>
+                                    <p><code>$ groups joko</code></p>
+                                    <p><code>$ groups azizah</code></p>
+                                </li>
+                            </ol>
+                            <hr>
+                            <p><strong>LATIHAN 6. MENGUBAH PASSWORD <em>USER</em></strong></p>
+                            <ol style="margin-left:-20px;">
+                                <li><em>Root</em> dapat mengubah <em>password</em> dari <em>user</em>.
+                                    <p><code>$ passwd agus</code></p>
+                                </li>
+                                <li><em>Password</em> yang diubah dengan perintah <tt>usermod</tt> merupakan <em>file</em> enkripsi, sehingga tidak dapat digunakan saat login.
+                                    <p><code>$ useradd -g teman dita</code></p>
+                                    <p><code>$ usermod -p dita dita</code></p>
+                                </li>
+                                <li><p>Cobalah <em>login</em> sebagai dita, apakah bisa?</p></li>
+                                <li>Cobalah mengubah <em>password user</em> dengan <em>login</em> pada <em>user</em> yang <strong>bersangkutan</strong>.<br>
+                                    <em>Login</em> sebagai <em>user,</em> dan ubahlah <em>password user</em>.
+                                    <p><code>$ passwd</code></p>
+                                </li>
+                            </ol>
+                            <hr>
+                            <p><strong>LATIHAN 7. MENGHAPUS <em>USER</em></strong></p>
+                            <ol style="margin-left:-20px;">
+                                <li>Hapus <em>user</em> dengan menggunakan perintah <code>userdel</code>. Opsi <tt>-r</tt> untuk menghapus seluruh isi <em>home directory</em>.
+                                    <p><code>$ userdel agus</code></p>
+                                    <p><code>$ userdel silvi</code></p>
+                                    <p><code>$ userdel -r joko</code></p>
+                                    <p><code>$ userdel -r azizah</code></p>
+                                </li>
+                            </ol>
+                            <hr>
+                            <p><strong>LATIHAN 8. MENGHAPUS <em>GROUP</em></strong></p>
+                            <ol style="margin-left:-20px;">
+                                <li>Hapus <em>group</em> dengan menggunakan perintah <tt>groupdel</tt>.
+                                    <p><code>$ groupdel teman</code></p>
+                                    <p><code>$ groupdel saudara</code></p>
+                                    <p><code>$ groupdel tetangga</code></p>
+                                </li>
+                            </ol>
+                            <hr>
+                            <p><strong>LATIHAN 9. MENGHAPUS <em>HOME DIRECTORY</em></strong></p>
+                            <ol style="margin-left:-20px;">
+                                <li>Hapus <em>home directory</em>
+                                    <p><code>$ rm -fR /home/agus</code></p>
+                                    <p><code>$ rm -fR /home/silvi</code></p>
+                                </li>
+                            </ol>
+                            <br>
+                            </div>          
+                        </div>
+                        
+                        <div class="kb-row">
+                            <a href="#latihan" class="kb-row-handle">Tugas</a>
+                            <div class="kb-row-content">
+                                <ol style="margin-left:-20px;">
+                                    <li><p><p>Buatlah 3 <em>group</em> &quot;guru&quot;, &quot;siswa&quot; dan &quot;karyawan&quot;. Perhatikan anggota dari setiap <em>group </em>berikut:</p></p></li>
+                                    <table class="table">
+                                        <tr class="success">
+                                            <td>guru</td>
+                                            <td>siswa</td>
+                                            <td>karyawan</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Aminah</td>
+                                            <td>Budi</td>
+                                            <td>Nur</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Wahid</td>
+                                            <td>Dani</td>
+                                            <td>Santoso</td>
+                                        </tr>
+                                    </table>
+                                    <li><p>Buatlah <em>user</em> untuk setiap <em>group</em> sesuai tabel di atas.</p></li>
+                                    <li><p>Ubahlah <em>password</em> Aminah dan Dani.</p></li>
+                                    <li><p>Lihat keanggotaan dari setiap <em>user</em> (sudah seperti tabel di atas?)</p></li>
+                                    <li><p>Hapus <em>user</em> Budi dan Santoso</p></li>
+                                    <li><p>Analisa hasil dari tugas yang Anda lakukan.</p></li>
+                                    <li><p>Jika sudah selesai, Anda bisa menuliskan atau menceritakan apa saja yang Anda peroleh pada pembelajaran kali ini. Kemudian publikasikan tulisan Anda tersebut pada blog, website, atau media sosial.</p></li>
+                                </ol>
+                            </div>
+                        </div>
+                        
+					</div>
+					<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('rangkuman');" href="#rangkuman">Lanjut ke Rangkuman &raquo;</a></p>
+    			</div>
+    		</div>
+    		
+    		
+    		<div class="panel panel-default artikel" id="rangkuman" style="display:none;">
+				<div class="panel-body">  
+					<h3 class="page-header">Rangkuman</h3>
+                    <p><strong>Informasi</strong> akun dari <em>user</em> dan <em>group</em> disimpan pada beberapa <em>file</em> di dalam direktori /etc/ pada sistem. <em>File</em> <tt>/etc/passwd</tt> merupakan <em>file</em> yang berisi daftar <em>user</em> dimana setiap <em>user</em> dipisahkan dengan baris. Sedangkan <em>file</em> <tt>/etc/group</tt> adalah <em>file</em> yang berisi daftar <em>group</em> dimana setiap <em>group</em> juga dipisahkan dengan baris.</p>
+                    <ul style="margin-left:-20px;">
+                        <li><p>Perintah menambah <em>user</em> baru yaitu <code>useradd &lt;username&gt;</code></p></li>
+                        <li><p>Perintah memodifikasi <em>user</em> yaitu <code>usermod &lt;username&gt;</code></p></li>
+                        <li><p>Perintah merubah <em>password</em> dari <em>user</em> yaitu <code>passwd &lt;username&gt;</code></p></li>
+                        <li><p>Perintah melihat <em>group</em> dari <em>user</em> yaitu <code>groups &lt;username&gt;</code></p></li>
+                        <li><p>Perintah menghapus <em>user</em> yaitu <code>userdel &lt;username&gt;</code></p></li>
+                        <li><p>Perintah menambah <em>group</em> baru yaitu <code>groupadd &lt;groupname&gt;</code></p></li>
+                        <li><p>Perintah menghapus <em>group</em> yaitu <code>groupdel &lt;groupname&gt;</code></p></li>
+                        <li><p>Perintah menghapus <em>home directory</em> yaitu <code>rm -fR /home/&lt;username&gt;</code></p></li>
+                    </ul>
+                    
+                    <br><hr><br><p class="gambar-tengah"><a class="btn btn-success btn-sm smoothScroll" href="kb16.html">Lanjut ke Pembelajaran 16 &raquo;</a></p>
+                    </div>
+    			</div>
+    		</div>
+			
+			</div><!-- col-md-offset-2 col-md-8 -->
+			<a href="#" class="back-to-top"><i class="fa fa-arrow-circle-o-up"></i> <br> ke atas</a>
+		</div><!-- row -->
+	</div><!-- kb02 --> 	
+  		
+	<div id="footerwrap">
+		<div class="container">
+			<p>by <a href="bantuan.html">diondr</a> <i class="fa fa-asterisk"></i> 2014</p>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/retina.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="assets/js/smoothscroll.js"></script>
+	<script type="text/javascript" src="assets/js/jquery-func.js"></script>
+  </body>
+</html>

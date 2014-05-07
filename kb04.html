@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MODIS | Modul Sistem Operasi</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    <link rel="shortcut icon" href="assets/img/favicon_modis-1_1.png">
+
+    <link href='assets/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/main.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/animate-custom.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-font.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-modis.css' rel='stylesheet' type='text/css'>
+    <link href="assets/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" media="screen">
+
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+	<script type="text/javascript" src="assets/js/jmodis.js"></script>
+    <script type="text/javascript" src="assets/fancybox/jquery.fancybox.pack.js"></script>
+    <script>
+    $(document).ready(function() {
+        //semua links dengam akhiran ekstensi gambar
+        var thumbnails = 'a[href$=".gif"],a[href$=".jpg"],a[href$=".jpeg"],a[href$=".png"],a[href$=".GIF"],a[href$=".JPG"],a[href$=".JPEG"],a[href$=".PNG"]';
+
+        //menambah class "fancybox" ke thumbnails dan dijadikan satu group "rel" untuk mengaktifkan tombol previous/next
+        jQuery(thumbnails).addClass("fancybox").attr("rel","lightbox");
+
+        //memanggil fancybox
+        jQuery('.fancybox').fancybox({
+            padding: 0,
+            //mendapatkan alt dari img untuk title fancybox
+            beforeShow : function() {
+                var alt = this.element.find('img').attr('alt');
+                this.inner.find('img').attr('alt', alt);
+                this.title = alt;
+            }
+        });
+    });
+    </script>
+</head>
+<body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+
+<div id="navbar-main">
+    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="menuIcon"><i class="fa fa-lg fa-list-ul"></i> Menu</span>
+            </button>
+            <span class="navbar-brand logoModis"><img class="noBayang" src="assets/img/logo_modis-1_1.png"></span>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html"><i class="fa fa-lg fa-home"></i>&nbsp; Home</a></li>
+                <li><a href="info.html"><i class="fa fa-lg fa-info-circle"></i>&nbsp; Info</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-lg fa-book"></i>&nbsp; Pembelajaran <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="bab1.html">&nbsp; BAB 1 &nbsp; Perkembangan</a></li>
+                        <li><a href="bab2.html">&nbsp; BAB 2 &nbsp; Struktur</a></li>
+                        <li><a href="bab3.html">&nbsp; BAB 3 &nbsp; Proses <em>Booting</em></a></li>
+                        <li><a href="bab4.html">&nbsp; BAB 4 &nbsp; Instalasi</a></li>
+                        <li><a href="bab5.html">&nbsp; BAB 5 &nbsp; Administrasi</a></li>
+                        <li><a href="bab6.html">&nbsp; BAB 6 &nbsp; Pencarian Kesalahan</a></li>
+                    </ul>
+                </li>
+                <li><a href="evaluasi.html"><i class="fa fa-lg fa-tasks"></i>&nbsp; Evaluasi</a></li>
+                <li><a href="bantuan.html"><i class="fa fa-lg fa-question-circle"></i>&nbsp; Bantuan</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</div>
+
+    <!--INFO AWAL-->
+	<div id="kbwrap" class="kbwrap02">
+		<div class="row">	
+			<img src="assets/img/batik1.png" class="img-responsive tengah"></a>
+			<h3 class="centered">#4 Manajemen Memori</h3>
+			<hr>
+			<a onclick="toggle('tujuan');" href="#tujuan" class="smoothScroll">Tujuan</a> / 
+			<a onclick="toggle('uraianMateri');" href="#uraianMateri" class="smoothScroll">Uraian Materi</a> / 
+			<a onclick="toggle('lembarKerja');" href="#lembarKerja" class="smoothScroll">Lembar Kerja</a> / 
+			<a onclick="toggle('rangkuman');" href="#rangkuman" class="smoothScroll">Rangkuman</a>
+			</p>
+			<br>
+		</div>
+	</div>
+	
+	<div class="container" id="kb02" name="kb02">
+		<br>
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+			<div class="panel panel-default artikel" id="tujuan">
+				<div class="panel-body"> 
+					<h3 class="page-header">Tujuan</h3> 
+    				<p>Pada pembelajaran ini Anda diharapkan:</p>
+					<ul>
+                        <li>Dapat menjelaskan manajemen memori pada Linux</li>
+                        <li>Mampu menyajikan manajemen memori pada Linux</li>
+                    </ul>
+                    <hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('uraianMateri');" href="#uraianMateri">Lanjut ke Materi &raquo;</a></p>
+				</div>
+			</div>
+			
+			<div class="panel panel-default artikel" id="uraianMateri" style="display:none;">
+				<div class="panel-body">
+					<h3 class="page-header">Uraian Materi</h3>
+                    <p>Pembelajaran tentang manajemen memori ini terdiri 4 bahasan utama. Pertama dimulai dari bahasan tentang memori secara umum, kemudian memori fisik pada Linux, memori virtual pada Linux, dan yang terakhir yaitu <em>swap</em>. Selamat belajar :)</p>
+				    
+                    <div class="kb-row-container">
+    				<div class="kb-row" id="memori">
+    					<a href="#uraianMateri" class="kb-row-handle">Apa itu Memori?</a>
+    					<div class="kb-row-content">  
+                            <p><strong>Memori</strong> merupakan bagian dari komputer yang berfungsi sebagai tempat penyimpanan informasi yang harus diatur dan dijaga sebaik-baiknya. Sebagian besar komputer memiliki hirarki memori yang terdiri atas tiga level, yaitu:</p>
+                            <ol>
+                                <li>
+                                <p><em><strong>Register</strong></em><strong> </strong>di CPU, berada di level teratas. Informasi yang berada di register dapat diakses dalam satu <em>clock cycle</em> CPU.</p>
+                                </li>
+                                <li>
+                                <p><em><strong>Primary Memory</strong></em><em> (executable memory)</em>, berada di level tengah. Contohnya yaitu RAM <em>(Random Access Memory)</em>. <em>Primary Memory</em> diukur dengan satu <em>byte</em> dalam satu waktu, secara relatif dapat diakses dengan cepat, dan bersifat <em>volatile </em>(informasi bisa hilang ketika komputer dimatikan).</p>
+                                </li>
+                                <li>
+                                <p><em><strong>Secondary Memory</strong></em>, berada di level bawah. Contohnya yaitu <em>harddisk</em>. <em>Secondary Memory</em> diukur sebagai kumpulan dari <em>bytes</em> (block of bytes), waktu aksesnya lambat, dan bersifat non-volatile (informasi tetap tersimpan ketika komputer dimatikan).</p>
+                                </li>
+                            </ol>
+                            <figure class="gambar-tengah img-responsive">
+    							<a href="assets/img/kb04/Memory_module_DDRAM_20-03-2006--pd-2.jpg"><img src="assets/img/kb04/Memory_module_DDRAM_20-03-2006--pd-2.jpg" width="400px" class="img-responsive tengah" alt="RAM, Contoh Primary Memory" title="RAM, Contoh Primary Memory"></a>
+                                <figcaption>Gambar 4.1. &nbsp;&nbsp; RAM, Contoh <em>Primary Memory</em></figcaption>
+    						</figure>
+                            <p>Sebuah program ditempatkan dalam <em>disk</em> dalam bentuk berkas biner yang dapat dieksekusi. Sebelum dieksekusi, sebuah program harus ditempatkan di memori terlebih dahulu. Kumpulan proses yang ada pada <em>disk</em> harus <strong>menunggu</strong> dalam antrian <em>(input queue)</em> sebelum dibawa ke memori dan dieksekusi.</p>
+                            <p>Naaah, salah satu tugas sistem operasi adalah untuk mengatur bagian memori yang sedang digunakan serta mengalokasikan jumlah dan alamat memori yang diperlukan, baik untuk program yang akan berjalan maupun untuk sistem operasi itu sendiri. Tujuan dari manajemen memori antara lain yaitu:</p>
+                            <ul>
+                                <li>Meningkatkan utilitas CPU.</li>
+                                <li>Data dan instruksi dapat diakses dengan cepat oleh CPU.</li>
+                                <li>Efisiensi dalam pemakaian memori yang terbatas.</li>
+                                <li>Transfer dari memori utama ke CPU (dan sebaliknya) dapat lebih efisien.</li>
+                            </ul>
+    					</div>
+    				</div>
+    				
+    				<div class="kb-row" id="memoriFisik">
+    					<a href="#memori" class="kb-row-handle">Memori Fisik pada Linux</a>
+    					<div class="kb-row-content">
+                            <p><strong>Manajemen</strong> memori pada Linux mengandung dua komponen utama yang berkaitan dengan:</p>
+                            <ol>
+                                <li>Pembebasan dan pengalokasian halaman/blok pada main memori.</li>
+                                <li>Penanganan memori virtual.</li>
+                            </ol>
+                            <p>Berdasarkan arsitektur <em>processor </em>Intel x86, Linux memisahkan memori fisik ke dalam tiga zona berbeda, dimana setiap zona mengindentifikasikan blok yang berbeda pada memori fisik. Ketiga zona tersebut adalah:</p>
+                            <ol>
+                                <li>
+                                <p><strong>Zona </strong><em><strong>DMA (Direct Memory Access)</strong></em><br />
+                                Yaitu tempat penanganan kegiatan yang berhubungan dengan transfer data antara CPU dengan I/O. Dalam hal ini DMA akan menggantikan peran CPU sehingga CPU dapat mengerjakan instruksi lainnya.</p>
+                                </li>
+                                <li>
+                                <p><strong>Zona NORMAL</strong><br />
+                                Merupakan tempat di memori fisik dimana penanganan permintaan-permintaan yang berhubungan dengan pemanggilan <em>routine</em> untuk alokasi halaman/blok dalam menjalankan proses.</p>
+                                </li>
+                                <li>
+                                <p><strong>Zona HIGHMEM</strong><br />
+                                Tempat yang merujuk kepada memori fisik yang tidak dipetakan ke dalam ruang alamat kernel.</p>
+                                </li>
+                            </ol>
+                            <p>Adapaun pembagian zona pada arsitektur Intel x86 adalah sebagai berikut.</p>
+                            <table class="table table-hover table-striped">
+                                <tr>
+								    <th>Zona</th>
+								    <th>Memori Fisik</th>
+                                </tr>
+                                <tr>
+								    <td>Zona DMA</td>
+								    <td>&lt; 16 MB</td>
+                                </tr>
+                                <tr>
+								    <td>Zona NORMAL</td>
+								    <td>16 - 896 MB</td>
+                                </tr>
+                                <tr>
+								    <td>Zona HIGHMEM</td>
+								    <td>&gt; 896 MB</td>
+                                </tr>
+                            </table>
+    					</div>
+    				</div>
+    			    				
+                    <div class="kb-row" id="memoriVirtual">
+    				<a href="#memoriFisik" class="kb-row-handle">Memori Virtual pada Linux</a>
+    					<div class="kb-row-content">
+                            <p>Manajemen memori melakukan tugas penting dan kompleks berkaitan dengan:</p>
+                            <ol>
+                                <li>Memori utama sebagai sumber daya yang harus dialokasikan dan dipakai bersama diantara sejumlah proses yang aktif. Agar dapat memanfaatkan prosesor dan fasilitas I/O secara efisien, maka diinginkan memori yang dapat menampung sebanyak mungkin proses.</li>
+                                <li>Upaya agar <em>programmer</em> atau proses tidak dibatasi kapasitas memori fisik di sistem komputer.</li>
+                            </ol>
+
+                            <p>Sistem operasi Linux memanfaatkan memori virtual untuk mendukung kinerja sistem. Sebagai sistem operasi <em>multiprogramming</em>, memori virtual dapat meningkatkan efisiensi sistem.</p>
+                            <p>Sistem memori virtual Linux berperan dalam mengatur beberapa hal:</p>
+                            <ol>
+                                <li>Mengatur ruang alamat supaya dapat dilihat oleh tiap proses.</li>
+                                <li>Membentuk halaman-halaman yang dibutuhkan.</li>
+                                <li>Mengatur lokasi halaman-halaman tersebut dari <em>disk </em>ke memori fisik atau sebaliknya, yang biasa disebut <em>swapping.</em></li>
+                            </ol>
+
+                            <p>Sistem memori virtual Linux juga mengatur dua view berkaitan dengan ruang alamat:</p>
+                            <ol>
+                                <li>
+                                <p><em><strong>Logical View</strong></em><br />
+                                Mendeskripsikan instruksi-instruksi yang diterima oleh sistem memori virtual mengenai susunan ruang alamat.</p>
+                                </li>
+                                <li>
+                                <p><em><strong>Physical View</strong></em><br />
+                                Berupa entri-entri tabel halaman, dimana entri-entrinya akan menentukan apakah halaman itu berada di memori fisik yang sedang dipakai untuk proses atau masih berada di disk yang berarti belum dipakai.</p>
+                                </li>
+                            </ol>
+						</div>
+    				</div>
+                    
+                    <div class="kb-row">
+    				<a href="#memoriVirtual" class="kb-row-handle"><em>Swap</em></a>
+    					<div class="kb-row-content">
+                            <p>Keterbatasan memori fisik mengharuskan Linux mengatur halaman-halaman mana saja yang harus diletakkan di dalam memori fisik <em>(swap-in)</em> dan juga halaman-halaman yang harus dikeluarkan dari memori fisik <em>(swap-out).</em></p>
+                            <p>Dua mekanisme terpenting dalam pengaturan memori virtual dapat dibagi menjadi dua:</p>
+                            <ol>
+                                <li>
+                                <p><em><strong>The pageout-policy algorithm</strong></em><br />
+                                Menentukan halaman-halaman mana saja yang di <em>swap-out</em> dari memori fisik.</p>
+                                </li>
+                                <li>
+                                <p><em><strong>The paging mechanism</strong></em><br />
+                                Menentukan halaman-halaman mana saja yang harus dibawa kembali ke dalam memori. Halaman-halaman ini pernah berada dalam memori sebelumnya.</p>
+                                </li>
+                            </ol>
+                            <p>Mekanisme tersebut cukup penting mengingat kemungkinan adanya halaman-halaman yang sudah tidak dibutuhkan lagi, tetapi masih berada di memori fisik, padahal ada proses yang memiliki prioritas tinggi membutuhkan halaman di memori fisik tetapi masih berada di memori virtual.</p>
+						</div>
+    				</div>
+                    
+    				</div><!-- kb-row-container-->
+    				<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('lembarKerja');" href="#lembarKerja">Lanjut ke Lembar Kerja &raquo;</a></p>
+				</div><!-- panel-body-->
+			</div>
+
+			<div class="panel panel-default artikel" id="lembarKerja" style="display:none;">
+				<div class="panel-body">
+                    <h3 class="page-header">Lembar Kerja</h3>
+                    <div class="kb-row-container">
+                        <div class="kb-row open" id="alatBahan">
+                            <a href="#lembarKerja" class="kb-row-handle">Alat dan Bahan</a>
+                            <div class="kb-row-content" style="display:block;">
+                                <ul>
+                                    <li>Komputer atau laptop</li>
+                                    <li>Buku, artikel, atau sumber lain tentang Linux</li>
+                                </ul>
+					       </div>
+                        </div>
+                        
+                        <div class="kb-row" id="petunjuk">
+                            <a href="#alatBahan" class="kb-row-handle">Petunjuk</a>
+                            <div class="kb-row-content">
+                            <ul>
+                                <li>Awali setiap aktivitas dengan do'a, semoga mendapat kemudahan dan keberkahan.</li>
+                                <li>Baca dan pahami langkah-langkah yang ada dengan seksama.</li>
+                                <li>Pastikan komputer dalam keadaan baik dan benar.</li>
+                                <li>Jangan meletakkan benda yang dapat mengeluarkan medan elektromagnetik (<em>handphone</em>, magnet, dan sejenisnya) di dekat komputer.</li>
+                                <li>Gunakan komputer sesuai fungsinya dengan hati-hati.</li>
+                                <li>Kerjakan secara baik, benar, dan sabar.</li>
+                            </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="kb-row">
+                            <a href="#petunjuk" class="kb-row-handle">Tugas</a>
+                            <div class="kb-row-content">
+                                <ol>
+                                    <li><p>Pastikan alat dan bahan sudah siap.</p></li>
+                                    <li><p>Buatlah sebuah tulisan atau artikel tentang manajemen memori di Linux, mulai dari memori secara umum, kemudian memori fisik dan virtual pada Linux, sampai dengan <em>swap</em>. Buat semenarik mungkin agar dapat mudah dimengerti baik Anda sendiri maupun orang lain.</p></li>
+                                    <li><p>Anda bisa menggunakan bantuan komputer atau laptop untuk memperoleh infromasi tambahan.</p></li>
+                                    <li><p>Kemudian publikasikan tulisan Anda tersebut pada blog, website, atau media sosial.</p></li>
+                                    <li><p>Jika sudah selesai, jangan lupa matikan komputer/laptop dengan benar.</p></li>
+                                </ol>				
+                            </div>
+                        </div>
+                        
+					</div>
+					<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('rangkuman');" href="#rangkuman">Lanjut ke Rangkuman &raquo;</a></p>
+    			</div>
+    		</div>
+    		
+    		
+    		<div class="panel panel-default artikel" id="rangkuman" style="display:none;">
+				<div class="panel-body">  
+					<h3 class="page-header">Rangkuman</h3>
+					<p><strong>Memori</strong> merupakan bagian dari komputer yang berfungsi sebagai tempat penyimpanan informasi yang harus diatur dan dijaga sebaik-baiknya. Sebagian besar komputer memiliki hirarki memori yang terdiri atas tiga level, yaitu:</p>
+                    <ol>
+                        <li><em>Register</em></li>
+                        <li><em>Primary Memory</em></li>
+                        <li><em>Secondary Memory</em></li>
+                    </ol>
+
+                    <p>Tujuan dari manajemen memori antara lain yaitu:</p>
+                    <ul>
+                        <li>Meningkatkan utilitas CPU.</li>
+                        <li>Data dan instruksi dapat diakses dengan cepat oleh CPU.</li>
+                        <li>Efisiensi dalam pemakaian memori yang terbatas.</li>
+                        <li>Transfer dari memori utama ke CPU (dan sebaliknya) dapat lebih efisien.</li>
+                    </ul>
+
+                    <p>Linux memisahkan memori fisik ke dalam tiga zona berbeda, dimana tiap zona mengindentifikasikan blok-blok yang berbeda pada memori fisik. Ketiga zona tersebut adalah:</p>
+                    <ol>
+                        <li>Zona DMA</li>
+                        <li>Zona NORMAL</li>
+                        <li>Zona HIGHMEM</li>
+                    </ol>
+
+                    <p>Sistem memori virtual Linux berperan dalam mengatur beberapa hal:</p>
+                    <ul>
+                        <li>Mengatur ruang alamat supaya dapat dilihat oleh tiap proses.</li>
+                        <li>Membentuk halaman-halaman yang dibutuhkan.</li>
+                        <li>Mengatur lokasi halaman-halaman tersebut dari disk ke memori fisik atau sebaliknya, yang biasa disebut <em>swapping.</em></li>
+                    </ul>
+
+                    <p>Sistem memori virtual Linux juga mengatur dua view berkaitan dengan ruang alamat:</p>
+                    <ol>
+                        <li><em>Logical View </em></li>
+                        <li><em>Physical View </em></li>
+                    </ol>
+
+                    <p>Keterbatasan memori fisik mengharuskan Linux mengatur halaman-halaman mana saja yang harus diletakkan di dalam memori fisik <em>(swap-in)</em> dan juga halaman-halaman yang harus dikeluarkan dari memori fisik <em>(swap-out).</em></p>
+                    <p>Dua mekanisme terpenting dalam pengaturan memori virtual dapat dibagi menjadi dua:</p>
+                    <ol>
+                        <li><em>The pageout-policy algorithm</em></li>
+                        <li><em>The paging mechanism</em><strong> </strong></li>
+                    </ol>
+                    <br><hr><br><p class="gambar-tengah"><a class="btn btn-success btn-sm smoothScroll" href="kb05.html">Lanjut ke Pembelajaran 5 &raquo;</a></p>
+                    </div>
+    			</div>
+    		</div>
+			
+			</div><!-- col-md-offset-2 col-md-8 -->
+			<a href="#" class="back-to-top"><i class="fa fa-arrow-circle-o-up"></i> <br> ke atas</a>
+		</div><!-- row -->
+	</div><!-- kb02 --> 	
+  		
+	<div id="footerwrap">
+		<div class="container">
+			<p>by <a href="bantuan.html">diondr</a> <i class="fa fa-asterisk"></i> 2014</p>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/retina.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="assets/js/smoothscroll.js"></script>
+	<script type="text/javascript" src="assets/js/jquery-func.js"></script>
+  </body>
+</html>

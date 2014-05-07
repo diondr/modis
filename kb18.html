@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MODIS | Modul Sistem Operasi</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    <link rel="shortcut icon" href="assets/img/favicon_modis-1_1.png">
+
+    <link href='assets/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/main.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/animate-custom.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-font.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-modis.css' rel='stylesheet' type='text/css'>
+    <link href="assets/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" media="screen">
+
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+	<script type="text/javascript" src="assets/js/jmodis.js"></script>
+    <script type="text/javascript" src="assets/fancybox/jquery.fancybox.pack.js"></script>
+    <script>
+    $(document).ready(function() {
+        //semua links dengam akhiran ekstensi gambar
+        var thumbnails = 'a[href$=".gif"],a[href$=".jpg"],a[href$=".jpeg"],a[href$=".png"],a[href$=".GIF"],a[href$=".JPG"],a[href$=".JPEG"],a[href$=".PNG"]';
+
+        //menambah class "fancybox" ke thumbnails dan dijadikan satu group "rel" untuk mengaktifkan tombol previous/next
+        jQuery(thumbnails).addClass("fancybox").attr("rel","lightbox");
+
+        //memanggil fancybox
+        jQuery('.fancybox').fancybox({
+            padding: 0,
+            //mendapatkan alt dari img untuk title fancybox
+            beforeShow : function() {
+                var alt = this.element.find('img').attr('alt');
+                this.inner.find('img').attr('alt', alt);
+                this.title = alt;
+            }
+        });
+    });
+    </script>
+</head>
+<body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+
+<div id="navbar-main">
+    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="menuIcon"><i class="fa fa-lg fa-list-ul"></i> Menu</span>
+            </button>
+            <span class="navbar-brand logoModis"><img class="noBayang" src="assets/img/logo_modis-1_1.png"></span>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html"><i class="fa fa-lg fa-home"></i>&nbsp; Home</a></li>
+                <li><a href="info.html"><i class="fa fa-lg fa-info-circle"></i>&nbsp; Info</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-lg fa-book"></i>&nbsp; Pembelajaran <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="bab1.html">&nbsp; BAB 1 &nbsp; Perkembangan</a></li>
+                        <li><a href="bab2.html">&nbsp; BAB 2 &nbsp; Struktur</a></li>
+                        <li><a href="bab3.html">&nbsp; BAB 3 &nbsp; Proses <em>Booting</em></a></li>
+                        <li><a href="bab4.html">&nbsp; BAB 4 &nbsp; Instalasi</a></li>
+                        <li><a href="bab5.html">&nbsp; BAB 5 &nbsp; Administrasi</a></li>
+                        <li><a href="bab6.html">&nbsp; BAB 6 &nbsp; Pencarian Kesalahan</a></li>
+                    </ul>
+                </li>
+                <li><a href="evaluasi.html"><i class="fa fa-lg fa-tasks"></i>&nbsp; Evaluasi</a></li>
+                <li><a href="bantuan.html"><i class="fa fa-lg fa-question-circle"></i>&nbsp; Bantuan</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</div>
+
+    <!--INFO AWAL-->
+	<div id="kbwrap" class="kbwrap06">
+		<div class="row">	
+			<img src="assets/img/batik1.png" class="img-responsive tengah"></a>
+			<h3 class="centered">#18 Pencarian Kesalahan pada Hasil Instalasai Sistem Operasi</h3>
+			<hr>
+			<a onclick="toggle('tujuan');" href="#tujuan" class="smoothScroll">Tujuan</a> / 
+			<a onclick="toggle('uraianMateri');" href="#uraianMateri" class="smoothScroll">Uraian Materi</a> / 
+			<a onclick="toggle('lembarKerja');" href="#lembarKerja" class="smoothScroll">Lembar Kerja</a> / 
+			<a onclick="toggle('rangkuman');" href="#rangkuman" class="smoothScroll">Rangkuman</a>
+			</p>
+			<br>
+		</div>
+	</div>
+	
+	<div class="container" id="kb06" name="kb06">
+		<br>
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+			<div class="panel panel-default artikel" id="tujuan">
+				<div class="panel-body"> 
+					<h3 class="page-header">Tujuan</h3> 
+    				<p>Pada pembelajaran ini Anda diharapkan:</p>
+					<ul>
+                        <li>Dapat menjelaskan pencarian kesalahan pada hasil instalasai Ubuntu.</li>
+                        <li>Mampu melakukan pencarian kesalahan pada hasil instalasai Ubuntu.</li>
+					</ul>
+                    <hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('uraianMateri');" href="#uraianMateri">Lanjut ke Materi &raquo;</a></p>
+				</div>
+			</div>
+			
+			<div class="panel panel-default artikel" id="uraianMateri" style="display:none;">
+				<div class="panel-body">
+					<h3 class="page-header">Uraian Materi</h3>
+                    <p>Pembelajaran mengenai pencarian kesalahan pada hasil instalasai ini dimulai dengan pembahasan tentang kesalahan umum yang sering terjadi pada hasil instalasai. Kemudian prosedur pencarian kesalahan pada hasil instalasi. Setelah itu latihan yang berkaitan dengan bahasan tersebut siap Anda kerjakan. Selamat belajar :)</p>
+
+                    <div class="kb-row-container">
+                    <div class="kb-row" id="umum">
+    					<a href="#uraianMateri" class="kb-row-handle">Kesalahan Umum</a>
+    					<div class="kb-row-content">
+                            <p><strong>Kesalahan</strong> pada hasil instalasi Ubuntu bisa saja terjadi karena beberapa hal. Seperti dibahas pada pembelajaran sebelumnya jenis kerusakan atau kesalahan yang umum terjadi yaitu:</p>
+                            <ul style="margin-left:-20px">
+                                <li>
+                                <p><strong><em>File installer</em> (CD/DVD atau ISO) Ubuntu rusak</strong>, diakibatkan karena <em>file</em> tidak valid.</p>
+                                </li>
+                                <li>
+                                <p><strong>Proses instalasi yang lambat</strong> karena <em>user</em> mencentang pilihan <em>Download updates while installing</em> atau <em>Install this third-party software</em> pada tahap awal instalasi.</p>
+                                </li>
+                                <li>
+                                <p><strong>Sistem operasi lainnya terhapus</strong>, terjadi karena kesalahan dalam memilih tipe instalasi untuk pengaturan partisi <em>harddisk</em>.</p>
+                                </li>
+                                <li>
+                                <p><strong>Tidak bisa <em>booting </em>ke Ubuntu (Virtualalisasi)</strong> dikarenakan <em>processor</em> yang digunakan tidak mendukung kernel yang ada pada <em>installer </em>Ubuntu.</p>
+                                </li>
+                            </ul>
+    					</div>
+    				</div>
+                    <div class="kb-row">
+    					<a href="#umum" class="kb-row-handle">Prosedur Pencarian Kesalahan</a>
+    					<div class="kb-row-content">
+                            <figure class="gambar-tengah img-responsive">
+                                <a href="assets/img/kb17/installation_type.jpg"><img src="assets/img/kb17/installation_type.jpg" class="img-responsive tengah" alt="Pilihan Tipe Instalasi" title="Pilihan Tipe Instalasi"></a>
+                                <figcaption>Gambar 18.1. &nbsp;&nbsp; <em>Pilihan Tipe Instalasi</em></figcaption>
+                            </figure>
+                            <p><strong>Pencarian</strong> kesalahan pada hasil instalasi Ubuntu dapat dilakukan dengan beberapa cara, diantaranya yaitu:</p>
+                            <ul>
+                                <li><p><strong>Mengecek MD5</strong><br> Digunakan untuk mengecek integritas dan validitas dari suatu <em>file</em>.</p></li>
+                                <li><p><strong>Mengecek <em>Defect Disk</em></strong><br> Untuk mengetahui apakah ada kerusakan pada CD/DVD <em>installer</em> yang digunakan.</p></li>
+                                <li><p><strong>Opsi instalasi</strong><br> Saat awal instalasi <em>user</em> mencentang pilihan <em>Download updates while installing</em> atau <em>Install this third-party software</em> yang mengakibatkan lambatnya proses instalasi.</p></li>
+                                <li><p><strong>Opsi tipe instalasi</strong><br> Kesalahan bisa terjadi pada tahap ini sehingga berakibat hilangnya sistem operasi yang sebelumnya terinstall pada komputer.</p></li>
+                                <li><p><strong>Pengaturan <em>processor</em></strong><br> Dilakukan agar mendukung kernel yang digunakan saat instalasi secara virtual.</p></li>
+                            </ul>
+    					</div>
+    				</div>
+    				</div><!-- kb-row-container-->
+    				<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('lembarKerja');" href="#lembarKerja">Lanjut ke Lembar Kerja &raquo;</a></p>
+				</div><!-- panel-body-->
+			</div>
+
+			<div class="panel panel-default artikel" id="lembarKerja" style="display:none;">
+				<div class="panel-body">
+                    <h3 class="page-header">Lembar Kerja</h3>
+                    <div class="kb-row-container">
+                        <div class="kb-row open" id="alatBahan">
+                            <a href="#lembarKerja" class="kb-row-handle">Alat dan Bahan</a>
+                            <div class="kb-row-content" style="display:block;">
+                                <ul>
+                                    <li>Komputer atau laptop</li>
+                                    <li>Koneksi internet</li>
+                                    <li><em>File installer</em> Ubuntu.</li>
+                                    <li><em>File</em> MD5 Ubuntu, Anda bisa mendapatkannya pada halaman <a href="https://help.ubuntu.com/community/UbuntuHashes" target="_blank" title="UbuntuHases">UbuntuHashes</a> (sesuaikan dengan versi <em>file ISO</em> Ubuntu yang Anda gunakan).</p></li>
+                                    <li><em>File installer</em> winMd5Sum, Anda bisa mendapatkannya pada halaman <a href="http://www.nullriver.com/downloads/Install-winMd5Sum.exe">winMd5Sum</a></li>
+                                </ul>
+					       </div>
+                        </div>
+                        
+                        <div class="kb-row" id="petunjuk">
+                            <a href="#alatBahan" class="kb-row-handle">Petunjuk</a>
+                            <div class="kb-row-content">
+                            <ul>
+                                <li>Awali setiap aktivitas dengan do'a, semoga mendapat kemudahan dan keberkahan.</li>
+                                <li>Baca dan pahami langkah-langkah yang ada dengan seksama.</li>
+                                <li>Pastikan komputer dalam keadaan baik dan benar.</li>
+                                <li>Jangan meletakkan benda yang dapat mengeluarkan medan elektromagnetik (<em>handphone</em>, magnet, dan sejenisnya) di dekat komputer.</li>
+                                <li>Gunakan komputer sesuai fungsinya dengan hati-hati.</li>
+                                <li>Kerjakan secara baik, benar, dan sabar.</li>
+                            </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="kb-row" id="latihan">
+                            <a href="#petunjuk" class="kb-row-handle">Latihan</a>
+                            <div class="kb-row-content">
+                            <p><strong>LATIHAN 1. MENGECEK MD5 PADA UBUNTU</strong></p>
+                            <ol style="margin-left:-20px;">
+                                <li>Ubuntu telah menyediakan fasilitas untuk mengecek MD5 tanpa perlu menginstall aplikasi tambahan. Anda bisa melakukannya melalui terminal dengan perintah:
+                                    <p><code>$ md5sum &lt;file_yang_dicek&gt;</code></p>
+                                    <p>Contoh: <code>$ md5sum ubuntu-12.04.4-desktop-i386.iso</code></p>
+                                </li>
+                                <li><p>Kemudian akan ditampilkan baris hasil md5sum.</p></li>
+                                <li><p>Bandingkan apakah sama dengan standar <em>UbuntuHashes</em>.</p></li>
+                            </ol>
+                            <br><hr><br>
+                            <p><strong>LATIHAN 2. MENGECEK MD5 PADA WINDOWS</strong></p>
+                            <ol style="margin-left:-20px;">
+                                <li><p>Sayangnya Windows tidak menyediakan secara langsung md5sum pada sistemnya. Anda harus menginstall aplikasi winMd5Sum yang telah Anda siapkan sebelumnya.</p></li>
+                                <li><p>Setelah winMd5Sum terinstall, buka aplikasi tersebut. Pilih <em>file</em> ISO Ubuntu pada bagian <em>"File Name"</em></p></li>
+                                <li><p>Tunggu sampai proses selesai sehingga terlihat hasilnya pada bagian "MD5 Sum".</p></li>
+                                <li><p><em>Copy</em> kode MD5 (sesuai versi Ubuntu yang dicek) dari <em>UbuntuHashes</em> ke bagian <em> "Compare"</em></p></li>
+                                <li><p>Klik tombol <em>Compare</em> dan lihat hasilnya</p></li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb18/winmd5sum.jpeg"><img src="assets/img/kb18/winmd5sum.jpeg" class="img-responsive tengah" alt="winMd5Sum" title="winMd5Sum"></a>
+                                    <figcaption>Gambar 18.2. &nbsp;&nbsp; winMd5Sum</figcaption>
+                                </figure>
+                            </ol>
+                            <br><hr><br>
+                            <p><strong>LATIHAN 3. MENGECEK <em>DEFECT DISK</em></strong></p>
+                            <ol style="margin-left:-20px;">
+                                <li><p>Pada saat <em>Ubuntu Boot Screen</em> dimulai, terlihat ada gambar <em>keyboard</em> dan orang di bagian bawah.<br> Tekan sembarang tombol pada <em>keyboard</em>.</p></li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb18/01-awal_booting.jpg"><img src="assets/img/kb18/01-awal_booting.jpg" class="img-responsive tengah" alt="Ubuntu Boot Screen" title="Ubuntu Boot Screen"></a>
+                                    <figcaption>Gambar 18.2. &nbsp;&nbsp; <em>Ubuntu Boot Screen</em></figcaption>
+                                </figure>
+                                <li><p>Kemudian akan tampil <em>Ubuntu Main Page Options</em> seperti gambar di bawah ini.</p></li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb18/02-check_disk.jpg"><img src="assets/img/kb18/02-check_disk.jpg" class="img-responsive tengah" alt="Ubuntu Main Page Options" title="Ubuntu Main Page Options"></a>
+                                    <figcaption>Gambar 18.2. &nbsp;&nbsp; <em>Ubuntu Main Page Options</em></figcaption>
+                                </figure>
+                                <li><p>Pilih <em>Check disc for defect</em> dan tekan <em>Enter</em>.</p></li>
+                                <li><p>Maka proses pengecekan akan berjalan.</p></li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb18/03-proses_check.jpg"><img src="assets/img/kb18/03-proses_check.jpg" class="img-responsive tengah" alt="Proses Pengecekan" title="Proses Pengecekan"></a>
+                                    <figcaption>Gambar 18.2. &nbsp;&nbsp; Proses Pengecekan</figcaption>
+                                </figure>
+                                <li><p>Akan ditampilkan hasil pengecekan. Tekan sembarang tombol untuk merestart sistem.</p></li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb18/04-check-selesai.jpg"><img src="assets/img/kb18/04-check-selesai.jpg" class="img-responsive tengah" alt="Pengecekan Selesai" title="Pengecekan Selesai"></a>
+                                    <figcaption>Gambar 18.2. &nbsp;&nbsp; Pengecekan Selesai</figcaption>
+                                </figure>
+                            </ol>
+                            <br><hr><br>
+                            <p><strong>LATIHAN 4. OPSI INSTALASI</strong></p>
+                            <ol style="margin-left:-20px;">
+                                <li><p>Jika saat instalasi Ubuntu berjalan lambat sekali, pertama matikan koneksi internet pada komputer Anda.</p></li>
+                                <li><p>Pada langkah persiapan instalasi, hilangkan centang pada pilihan <em>Download updates while installing</em> atau <em>Install this third-party software</em>.</p></li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb17/info_awal_instalasi.jpg"><img src="assets/img/kb17/info_awal_instalasi.jpg" class="img-responsive tengah" alt="Langkah Persiapan Instalasi" title="Langkah Persiapan Instalasi"></a>
+                                    <figcaption>Gambar 18.2. &nbsp;&nbsp; Langkah Persiapan Instalasi</figcaption>
+                                </figure>
+                                <li><p>Kemudian Anda bisa melanjutkan proses instalasi.</p></li>
+                            </ol>
+                            <br><hr><br>
+                            <p><strong>LATIHAN 5. TIPE INSTALASI</strong></p>
+                            <ol style="margin-left:-20px;">
+                                <li><p>Jika pada hasil instalasi Ubuntu ternyata Anda tidak menemukan sistem operasi lain pada komputer Anda. Kemungkinan besar Anda salah memilih tipe instalasi atau salah mengatur partisi.</p></li>
+                                <li><p>Pada langkah<em> Installation type</em> pastikan pilihan Anda pada <strong><em>Something else</em></strong>.</p></li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb17/installation_type.jpg"><img src="assets/img/kb17/installation_type.jpg" class="img-responsive tengah" alt="Installation Type" title="Installation Type"></a>
+                                    <figcaption>Gambar 18.3. &nbsp;&nbsp; <em>Installation Type</em></figcaption>
+                                </figure>
+                                <li><p>Tentukan partisi yang akan Anda gunakan sebagai sistem Ubuntu. Kemudian atur partisi tersebut untuk sistem Linux.</p></li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb10/12-edit_partisi.jpg"><img src="assets/img/kb10/12-edit_partisi.jpg" class="img-responsive tengah" alt="Pengaturan Partisi untuk Sistem Linux" title="Pengaturan Partisi untuk Sistem Linux"></a>
+                                    <figcaption>Gambar 18.4. &nbsp;&nbsp; Pengaturan Partisi untuk Sistem Linux</figcaption>
+                                </figure>
+                                <li><p>Kemudian Anda bisa melanjutkan ke langkah instalasi selanjutnya.</p></li>
+                            </ol>
+                            <br>
+                            </div>          
+                        </div>
+                        
+                        <div class="kb-row">
+                            <a href="#latihan" class="kb-row-handle">Tugas</a>
+                            <div class="kb-row-content">
+                                <ol style="margin-left:-20px;">
+                                    <li><p>Ada sebuah kesalahan yaitu <em>user</em> tidak bisa <em>booting</em> saat instalasi ubuntu secara virtual menggunakan VirtualBox seperti tampilan di bawah ini.</p></li>
+                                    <figure class="gambar-tengah img-responsive">
+                                        <a href="assets/img/kb18/05-kernel_tidak_cocok.jpg"><img src="assets/img/kb18/05-kernel_tidak_cocok.jpg" class="img-responsive tengah" alt="Tidak Bisa Booting" title="Tidak Bisa Booting"></a>
+                                        <figcaption>Gambar 18.2. &nbsp;&nbsp; Tidak Bisa <em>Booting</em></figcaption>
+                                    </figure>
+                                    <li><p>Lakukan pengaturan pada komputer virtual Anda. Pilih <em>System</em>, kemudian pilih <em>Processor</em>. Centang pada bagian <em>Enable PAE/NX</em>.</p></li>
+                                    <figure class="gambar-tengah img-responsive">
+                                        <a href="assets/img/kb18/07-pengaturan_CPU.jpg"><img src="assets/img/kb18/07-pengaturan_CPU.jpg" class="img-responsive tengah" alt="Pengaturan Processor" title="Pengaturan Processor"></a>
+                                        <figcaption>Gambar 18.2. &nbsp;&nbsp; Pengaturan <em>Processor</em></figcaption>
+                                    </figure>
+                                    <li><p><em>Booting</em> ulang pada komputer virtual Anda.</p></li>
+                                    <li><p>Apakah sekarang Anda bisa <em>booting</em> ke Ubuntu? Analisa mengapa hal tersebut bisa terjadi!</p></li>
+                                    <li><p>Jika sudah selesai, Anda bisa menuliskan atau menceritakan apa saja yang Anda peroleh pada pembelajaran kali ini. Kemudian publikasikan tulisan Anda tersebut pada blog, website, atau media sosial.</p></li>
+                                </ol>
+                            </div>
+                        </div>
+                        
+					</div>
+					<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('rangkuman');" href="#rangkuman">Lanjut ke Rangkuman &raquo;</a></p>
+    			</div>
+    		</div>
+    		
+    		
+    		<div class="panel panel-default artikel" id="rangkuman" style="display:none;">
+				<div class="panel-body">  
+					<h3 class="page-header">Rangkuman</h3>
+                    <p><strong>Kesalahan</strong> pada hasil instalasi Ubuntu bisa saja terjadi karena beberapa hal, diantaranya yaitu <em>file installer</em> (CD/DVD atau ISO) Ubuntu rusak, proses instalasi yang lambat, sistem operasi lainnya terhapus, dan tidak bisa <em>booting </em>ke Ubuntu pada instalasi secara virtual.</p>
+                    <p>Pencarian kesalahan pada hasil instalasi Ubuntu dapat dilakukan dengan beberapa cara, diantaranya yaitu mengecek MD5, mengecek <em>defect disk</em>, opsi instalasi, opsi tipe instalasi, pengaturan <em>processor </em>pada VirtualBox.</p>
+                    
+                    <br><hr><br><p class="gambar-tengah"><a class="btn btn-primary btn-sm smoothScroll" href="evaluasi-6.html">Lanjut ke Evaluasi &raquo;</a></p>
+                    </div>
+    			</div>
+    		</div>
+			
+			</div><!-- col-md-offset-2 col-md-8 -->
+			<a href="#" class="back-to-top"><i class="fa fa-arrow-circle-o-up"></i> <br> ke atas</a>
+		</div><!-- row -->
+	</div><!-- kb02 --> 	
+  		
+	<div id="footerwrap">
+		<div class="container">
+			<p>by <a href="bantuan.html">diondr</a> <i class="fa fa-asterisk"></i> 2014</p>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/retina.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="assets/js/smoothscroll.js"></script>
+	<script type="text/javascript" src="assets/js/jquery-func.js"></script>
+  </body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MODIS | Modul Sistem Operasi</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    <link rel="shortcut icon" href="assets/img/favicon_modis-1_1.png">
+
+    <link href='assets/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/main.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/animate-custom.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-font.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-modis.css' rel='stylesheet' type='text/css'>
+    <link href="assets/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" media="screen">
+
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+	<script type="text/javascript" src="assets/js/jmodis.js"></script>
+    <script type="text/javascript" src="assets/fancybox/jquery.fancybox.pack.js"></script>
+    <script>
+    $(document).ready(function() {
+        //semua links dengam akhiran ekstensi gambar
+        var thumbnails = 'a[href$=".gif"],a[href$=".jpg"],a[href$=".jpeg"],a[href$=".png"],a[href$=".GIF"],a[href$=".JPG"],a[href$=".JPEG"],a[href$=".PNG"]';
+
+        //menambah class "fancybox" ke thumbnails dan dijadikan satu group "rel" untuk mengaktifkan tombol previous/next
+        jQuery(thumbnails).addClass("fancybox").attr("rel","lightbox");
+
+        //memanggil fancybox
+        jQuery('.fancybox').fancybox({
+            padding: 0,
+            //mendapatkan alt dari img untuk title fancybox
+            beforeShow : function() {
+                var alt = this.element.find('img').attr('alt');
+                this.inner.find('img').attr('alt', alt);
+                this.title = alt;
+            }
+        });
+    });
+    </script>
+</head>
+<body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+
+<div id="navbar-main">
+    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="menuIcon"><i class="fa fa-lg fa-list-ul"></i> Menu</span>
+            </button>
+            <span class="navbar-brand logoModis"><img class="noBayang" src="assets/img/logo_modis-1_1.png"></span>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html"><i class="fa fa-lg fa-home"></i>&nbsp; Home</a></li>
+                <li><a href="info.html"><i class="fa fa-lg fa-info-circle"></i>&nbsp; Info</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-lg fa-book"></i>&nbsp; Pembelajaran <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="bab1.html">&nbsp; BAB 1 &nbsp; Perkembangan</a></li>
+                        <li><a href="bab2.html">&nbsp; BAB 2 &nbsp; Struktur</a></li>
+                        <li><a href="bab3.html">&nbsp; BAB 3 &nbsp; Proses <em>Booting</em></a></li>
+                        <li><a href="bab4.html">&nbsp; BAB 4 &nbsp; Instalasi</a></li>
+                        <li><a href="bab5.html">&nbsp; BAB 5 &nbsp; Administrasi</a></li>
+                        <li><a href="bab6.html">&nbsp; BAB 6 &nbsp; Pencarian Kesalahan</a></li>
+                    </ul>
+                </li>
+                <li><a href="evaluasi.html"><i class="fa fa-lg fa-tasks"></i>&nbsp; Evaluasi</a></li>
+                <li><a href="bantuan.html"><i class="fa fa-lg fa-question-circle"></i>&nbsp; Bantuan</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</div>
+
+    <!--INFO AWAL-->
+	<div id="kbwrap" class="kbwrap02">
+		<div class="row">	
+			<img src="assets/img/batik1.png" class="img-responsive tengah"></a>
+			<h3 class="centered">#5 Manajemen <em>Input/Output (I/O)</em></h3>
+			<hr>
+			<a onclick="toggle('tujuan');" href="#tujuan" class="smoothScroll">Tujuan</a> / 
+			<a onclick="toggle('uraianMateri');" href="#uraianMateri" class="smoothScroll">Uraian Materi</a> / 
+			<a onclick="toggle('lembarKerja');" href="#lembarKerja" class="smoothScroll">Lembar Kerja</a> / 
+			<a onclick="toggle('rangkuman');" href="#rangkuman" class="smoothScroll">Rangkuman</a>
+			</p>
+			<br>
+		</div>
+	</div>
+	
+	<div class="container" id="kb02" name="kb02">
+		<br>
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+			<div class="panel panel-default artikel" id="tujuan">
+				<div class="panel-body"> 
+					<h3 class="page-header">Tujuan</h3> 
+    				<p>Pada pembelajaran ini Anda diharapkan:</p>
+					<ul>
+                        <li>Dapat menjelaskan konsep manajemen <em>input/output</em>.</li>
+                        <li>Dapat menjelaskan manajemen <em>input/output</em> pada Linux.</li>
+                        <li>Mampu menyajikan data manajemen <em>input/output</em>.</li>
+					</ul>
+                    <hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('uraianMateri');" href="#uraianMateri">Lanjut ke Materi &raquo;</a></p>
+				</div>
+			</div>
+			
+			<div class="panel panel-default artikel" id="uraianMateri" style="display:none;">
+				<div class="panel-body">
+					<h3 class="page-header">Uraian Materi</h3>
+                    <p>Pembelajaran tentang manajemen <em>input/output</em> ini terdiri 2 bahasan utama. Bahasan pertama akan teruju pada fungsi manajamene I/O. Setelah itu, dilanjutkan dengna manajemen IO pada Linux. Selamat belajar :)</p>
+				    
+                    <div class="kb-row-container">
+                    <div class="kb-row" id="manajemenIO">
+    					<a href="#uraianMateri" class="kb-row-handle">Untuk Apa Manajemen I/O?</a>
+    					<div class="kb-row-content">
+    						<p><strong>Salah satu</strong> tugas sistem operasi adalah mengatur dan mengontrol perangkat <em>input/output</em> (I/O) dan operasi I/O. Manajemen (I/O) tersebut sangat diperlukan karena perangkat I/O sebagai sarana <em>user</em> untuk bisa berkomunikasi dengan komputer. Misalnya seperti <em>keyboard, mouse, speaker, disk drives,</em> dan sebagainya. Manajemen I/O diperlukan agar <em>user</em> dapat langsung menggunakan perangkat I/O tanpa harus menginialisasi terlebih dahulu. Oleh karena itu, dalam setiap sistem operasi selalu terdapat manajemen I/O.</p>
+                            <p>Adanya manajemen I/O memungkinkan perangkat I/O untuk bisa berkomunikasi dengan <em>user</em>. Di dalamnya terdapat I/O <em>manager</em> yang berfungsi menerjemahkan perintah <em>read</em> dan <em>write</em> menjadi <em>read</em> dan <em>write</em> IRP (I/O <em>request packets</em>) yang dilanjutkan oleh <em>driver</em> perangkat. Atau secara mudahnya, I/O <em>manager</em> menyediakan <em>&quot;device driver&quot;</em> yang umum sehingga operasi&nbsp;I/O dapat seragam (membuka, membaca, menulis, menutup). Misalnya <em>user</em> menggunakan operasi yang sama untuk membaca <em>file</em> pada <em>hard-disk</em>, CD-ROM, dan <em>flash disk</em>.</p>
+                            <p>Beberapa fungsi sistem operasi dalam manajemen <em>input/output</em> yaitu:</p>
+                            <ul>
+                                <li><p><strong><em>Buffering</em> (penyanggaan)</strong><br> Menampung data sementara dari/ke perangkat I/O.</p></li>
+                                <li><p><strong><em>Scheduling</em> (Penjadwalan)</strong><br> Melakukan penjadwalan pemakaian I/O sistem supaya lebih efisien.</p></li>
+                                <li><p><strong><em>Spooling</em></strong><br> Meletakkan suatu pekerjaan program pada penyangga, agar setiap perangkat dapat mengaksesnya saat perangkat tersebut siap.</p></li>
+                                <li><p><strong>Menyediakan <em>driver</em> perangkat yang umum</strong><br> <em>Driver</em> digunakan agar sistem operasi dapat memberi perintah untuk melakukan operasi pada perangkat keras I/O yang umum, seperti <em>optical drive</em>, media penyimpanan sekunder, dan layar.</p></li>
+                                <li><p><strong>Menyediakan <em>driver</em> perangkat yang khusus</strong><br> <em>Driver</em> khusus digunakan agar sistem operasi dapat memberi perintah untuk melakukan operasi pada perangkat keras I/O tertentu, seperti kartu suara, kartu grafis, dan modem.</p></li>
+                            </ul>
+    					</div>
+    				</div>
+                        
+                    <div class="kb-row">
+    					<a href="#manajemenIO" class="kb-row-handle">Manajemen I/O Linux</a>
+    					<div class="kb-row-content">
+                            <p><strong>Pada</strong> Linux, semua perangkat <em>input/output </em>(I/O) terlihat <strong>seperti berkas</strong>, perangkat tersebut dapat dibuka, ditutup, dibaca, dan ditulis. Hal-hal itu dilakukan menggunakan <em>system calls</em> yang sama dan standar untuk memanipulasi berkas. Setiap perangkat pada sistem diwakilkan oleh sebuah <em>file</em> khusus perangkat, contohnya yaitu sebuah <em>harddisk</em> diwakilkan dengan sebuah <em>file</em> /dev/sda.</p>
+                            <p>Semua perangkat yang dikontrol oleh <em>driver device</em> yang sama memiliki nomor <em>device</em> besar yang umum. Kemudian ada nomor <em>device</em> kecil yang digunakan untuk membedakan antara device-device yang berbeda dan pengontrol-pengontrolnya. Misalnya setiap partisi dalam suatu <em>harddisk</em> utama memiliki sebuah nomor <em>device</em> kecil yang berbeda yiatu /dev/sda1, /dev/sda2, dan seterusnya.</p>
+                            <p>Linux membagi perangkat atau <em>devices</em> ke dalam tiga kelas yaitu:</p>
+                            <ol>
+                                <li><p><em><strong>Block devices</strong></em><br> Terdiri dari perangkat-perangkat menyimpan, menerima, dan mengirim informasi dalam blok-blok berukuran tertentu. Ukurannya berkisar 128 sampai 1024 byte dan memiliki alamat tersendiri, sehingga memungkinkan <em>user </em>untuk membaca atau menulis blok-blok secara independen, yaitu dapat membaca atau menulis sembarang blok tanpa harus melewati blok-blok lain. Contoh perangkat blok yaitu <em>disk, tape,</em> CD ROM, dan <em>optical disk.</em> Fungsi <em>block devices</em> sendiri didukung oleh 2 sistem komponen, yaitu <em>block buffer cache</em> dan <em>request manager</em>.<em> <strong>Block buffer cache</strong></em> bertugas sebagai <em>pool</em> dari <em>buffer</em> I/O aktif dan <em>cache</em> dari <em>&ldquo;completed I/O&rdquo;</em>. <em><strong>Request manager</strong></em> adalah lapisan <em>software</em> yang mengelola konten <em>read</em> dan <em>write buffer</em> dari dan menuju <em>block-device driver</em>.</p></li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb05/WirelessMouse--pd-2.JPG"><img src="assets/img/kb05/WirelessMouse--pd-2.JPG" width="400px" class="img-responsive tengah" alt="Mouse, Salah satu Character devices" title="Mouse, Salah satu Character devices"></a>
+                                    <figcaption>Gambar 5.1. &nbsp;&nbsp; <em>Mouse</em>, Salah satu <em>Character devices</em></figcaption>
+                                </figure>
+                                <li><p><em><strong>Character devices</strong></em><br> Perangkat yang menerima dan mengirimkan aliran karakter tanpa membentuk suatu struktur blok. Contohnya yaitu <em>printer, mouse</em>, dan perangkat yang bukan <em>disk</em>. Perangkat ini tidak memerlukan <em>random access</em> untuk sebuah <em>block </em>data. Akan tetapi, tiap perangkat telah memiliki berbagai fungsi yang telah terdaftar pada kernel yang diimplementasikan pada <em>file</em> operasi I/O.</p></li>
+                                <li><p><em><strong>Network devices</strong></em><br> Bagian ini berbeda dengan <em>block</em> atau <em>character devices, user</em> harus berkomunikasi secara tidak langsung dengan cara membuka sambungan dengan subsistem jaringan kernel. Data <em>device</em> ini mengandung informasi tentang perangkat jaringan yaitu nama, informasi <em>bus</em>, informasi protokol, jenis, alamat, antrian paket, dan fungsi pendukung.</p></li>
+                            </ol>
+    					</div>
+    				</div>
+                    
+    				</div><!-- kb-row-container-->
+    				<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('lembarKerja');" href="#lembarKerja">Lanjut ke Lembar Kerja &raquo;</a></p>
+				</div><!-- panel-body-->
+			</div>
+
+			<div class="panel panel-default artikel" id="lembarKerja" style="display:none;">
+				<div class="panel-body">
+                    <h3 class="page-header">Lembar Kerja</h3>
+                    <div class="kb-row-container">
+                        <div class="kb-row open" id="alatBahan">
+                            <a href="#lembarKerja" class="kb-row-handle">Alat dan Bahan</a>
+                            <div class="kb-row-content" style="display:block;">
+                                <ul>
+                                    <li>Komputer atau laptop</li>
+                                    <li>Buku, artikel, atau sumber lain tentang Linux</li>
+                                </ul>
+					       </div>
+                        </div>
+                        
+                        <div class="kb-row" id="petunjuk">
+                            <a href="#alatBahan" class="kb-row-handle">Petunjuk</a>
+                            <div class="kb-row-content">
+                            <ul>
+                                <li>Awali setiap aktivitas dengan do'a, semoga mendapat kemudahan dan keberkahan.</li>
+                                <li>Baca dan pahami langkah-langkah yang ada dengan seksama.</li>
+                                <li>Pastikan komputer dalam keadaan baik dan benar.</li>
+                                <li>Jangan meletakkan benda yang dapat mengeluarkan medan elektromagnetik (<em>handphone</em>, magnet, dan sejenisnya) di dekat komputer.</li>
+                                <li>Gunakan komputer sesuai fungsinya dengan hati-hati.</li>
+                                <li>Kerjakan secara baik, benar, dan sabar.</li>
+                            </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="kb-row">
+                            <a href="#petunjuk" class="kb-row-handle">Tugas</a>
+                            <div class="kb-row-content">
+                                <ol>
+                                    <li><p>Pastikan alat dan bahan sudah siap.</p></li>
+                                    <li><p>Buatlah sebuah tulisan atau artikel tentang manajemen <em>input/output</em> pada Linux. Buat semenarik mungkin agar dapat mudah dimengerti baik Anda sendiri maupun orang lain.</p></li>
+                                    <li><p>Anda bisa menggunakan bantuan komputer atau laptop untuk memperoleh infromasi tambahan.</p></li>
+                                    <li><p>Kemudian publikasikan tulisan Anda tersebut pada blog, website, atau media sosial.</p></li>
+                                    <li><p>Jika sudah selesai, jangan lupa matikan komputer/laptop dengan benar.</p></li>
+                                </ol>				
+                            </div>
+                        </div>
+                        
+					</div>
+					<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('rangkuman');" href="#rangkuman">Lanjut ke Rangkuman &raquo;</a></p>
+    			</div>
+    		</div>
+    		
+    		
+    		<div class="panel panel-default artikel" id="rangkuman" style="display:none;">
+				<div class="panel-body">  
+					<h3 class="page-header">Rangkuman</h3>
+                    <p><strong>Manajemen</strong> <em>input/output</em> (I/O) pada sistem operasi sangat diperlukan agar perangkat I/O sebagai sarana <em>user</em> untuk bisa berkomunikasi dengan komputer. Beberapa fungsi sistem operasi dalam manajemen <em>input/output</em> yaitu <em>buffering</em>, <em>scheduling</em>, <em>spooling</em>, menyediakan <em>driver</em> perangkat yang umum dan khusus.</p>
+                    <p><strong>Pada</strong> Linux, semua perangkat <em>input/output </em>(I/O) terlihat <strong>seperti berkas</strong>, perangkat tersebut dapat dibuka, ditutup, dibaca, dan ditulis. Linux membagi perangkat atau <em>devices</em> ke dalam tiga kelas yaitu <em>block devices, character devices, dan betwork devices</em>.</p>
+					<br><hr><br><p class="gambar-tengah"><a class="btn btn-primary btn-sm smoothScroll" href="evaluasi-2.html">Lanjut ke Evaluasi &raquo;</a></p>
+                    </div>
+    			</div>
+    		</div>
+			
+			</div><!-- col-md-offset-2 col-md-8 -->
+			<a href="#" class="back-to-top"><i class="fa fa-arrow-circle-o-up"></i> <br> ke atas</a>
+		</div><!-- row -->
+	</div><!-- kb02 --> 	
+  		
+	<div id="footerwrap">
+		<div class="container">
+			<p>by <a href="bantuan.html">diondr</a> <i class="fa fa-asterisk"></i> 2014</p>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/retina.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="assets/js/smoothscroll.js"></script>
+	<script type="text/javascript" src="assets/js/jquery-func.js"></script>
+  </body>
+</html>

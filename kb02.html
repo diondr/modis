@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MODIS | Modul Sistem Operasi</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    <link rel="shortcut icon" href="assets/img/favicon_modis-1_1.png">
+
+    <link href='assets/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/main.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/animate-custom.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-font.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-modis.css' rel='stylesheet' type='text/css'>
+    <link href="assets/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" media="screen">
+
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+	<script type="text/javascript" src="assets/js/jmodis.js"></script>
+    <script type="text/javascript" src="assets/fancybox/jquery.fancybox.pack.js"></script>
+    <script>
+    $(document).ready(function() {
+        //semua links dengam akhiran ekstensi gambar
+        var thumbnails = 'a[href$=".gif"],a[href$=".jpg"],a[href$=".jpeg"],a[href$=".png"],a[href$=".GIF"],a[href$=".JPG"],a[href$=".JPEG"],a[href$=".PNG"]';
+
+        //menambah class "fancybox" ke thumbnails dan dijadikan satu group "rel" untuk mengaktifkan tombol previous/next
+        jQuery(thumbnails).addClass("fancybox").attr("rel","lightbox");
+
+        //memanggil fancybox
+        jQuery('.fancybox').fancybox({
+            padding: 0,
+            //mendapatkan alt dari img untuk title fancybox
+            beforeShow : function() {
+                var alt = this.element.find('img').attr('alt');
+                this.inner.find('img').attr('alt', alt);
+                this.title = alt;
+            }
+        });
+    });
+    </script>
+</head>
+<body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+
+<div id="navbar-main">
+    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="menuIcon"><i class="fa fa-lg fa-list-ul"></i> Menu</span>
+            </button>
+            <span class="navbar-brand logoModis"><img class="noBayang" src="assets/img/logo_modis-1_1.png"></span>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html"><i class="fa fa-lg fa-home"></i>&nbsp; Home</a></li>
+                <li><a href="info.html"><i class="fa fa-lg fa-info-circle"></i>&nbsp; Info</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-lg fa-book"></i>&nbsp; Pembelajaran <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="bab1.html">&nbsp; BAB 1 &nbsp; Perkembangan</a></li>
+                        <li><a href="bab2.html">&nbsp; BAB 2 &nbsp; Struktur</a></li>
+                        <li><a href="bab3.html">&nbsp; BAB 3 &nbsp; Proses <em>Booting</em></a></li>
+                        <li><a href="bab4.html">&nbsp; BAB 4 &nbsp; Instalasi</a></li>
+                        <li><a href="bab5.html">&nbsp; BAB 5 &nbsp; Administrasi</a></li>
+                        <li><a href="bab6.html">&nbsp; BAB 6 &nbsp; Pencarian Kesalahan</a></li>
+                    </ul>
+                </li>
+                <li><a href="evaluasi.html"><i class="fa fa-lg fa-tasks"></i>&nbsp; Evaluasi</a></li>
+                <li><a href="bantuan.html"><i class="fa fa-lg fa-question-circle"></i>&nbsp; Bantuan</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</div>
+
+    <!--INFO AWAL-->
+	<div id="kbwrap" class="kbwrap02">
+		<div class="row">	
+			<img src="assets/img/batik1.png" class="img-responsive tengah"></a>
+			<h3 class="centered">#2 Arsitektur Sistem Operasi <em>Open Source</em></h3>
+			<hr>
+			<a onclick="toggle('tujuan');" href="#tujuan" class="smoothScroll">Tujuan</a> / 
+			<a onclick="toggle('uraianMateri');" href="#uraianMateri" class="smoothScroll">Uraian Materi</a> / 
+			<a onclick="toggle('lembarKerja');" href="#lembarKerja" class="smoothScroll">Lembar Kerja</a> / 
+			<a onclick="toggle('rangkuman');" href="#rangkuman" class="smoothScroll">Rangkuman</a>
+			</p>
+			<br>
+		</div>
+	</div>
+	
+	<div class="container" id="kb02" name="kb02">
+		<br>
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+			<div class="panel panel-default artikel" id="tujuan">
+				<div class="panel-body"> 
+					<h3 class="page-header">Tujuan</h3> 
+    				<p>Pada pembelajaran ini Anda diharapkan:</p>
+					<ul>
+                        <li>Dapat menjelaskan arsitektur sistem operasi Linux.</li>
+                        <li>Mampu menyajikan arsitektur sistem operasi Linux.</li>
+					</ul>
+                    <hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('uraianMateri');" href="#uraianMateri">Lanjut ke Materi &raquo;</a></p>
+				</div>
+			</div>
+			
+			<div class="panel panel-default artikel" id="uraianMateri" style="display:none;">
+				<div class="panel-body">
+					<h3 class="page-header">Uraian Materi</h3>
+                    <p>Pembelajaran ke-2 ini Anda akan mempelajari arsitektur sistem operasi <em>open source</em> Linux. Arsitektur sistem operasi Linux terdiri dari 4 komponen utama yaitu kernel, <em>shell</em>, utilitas, dan aplikasi. Mari kita bahas satu per satu komponen tersebut.</p>
+				    
+                    <div class="kb-row-container">
+                    
+    				<div class="kb-row" id="kernel">
+    					<a href="#uraianMateri" class="kb-row-handle">Kernel</a>
+    					<div class="kb-row-content">  
+                            <p><strong>Kernel</strong> merupakan inti dari sistem Linux yang mengontrol perangkat keras dan membentuk fungsi dasar. Fungsi-fungsi tersebut antara lain:</p>
+                            <ul>
+                                <li>Pelayanan tanggal dan jam sistem</li>
+                                <li>Manajemen berkas dan penanganan sekuriti</li>
+                                <li>Pelayanan operasional <em>input output</em> (I/O)</li>
+                                <li>Manajemen dan penjadwalan proses</li>
+                                <li>Manajemen memori</li>
+                                <li>Melakukan kegiatan akuntansi sistem</li>
+                                <li>Melakukan penanganan kesalahan dan iterupsi</li>
+                            </ul>
+                            <p>Bagian lain dari Linux, seperti aplikasi dan <em>shell,</em> memanggil kernel untuk membentuk sebuah layanan. Linux menyediakan anatarmuka antara bagian luar kernel dan kernel sendiri berupa <em>system call</em> (pemanggilan sistem). Setiap pemanggilan sistem memerintahkan kernel untuk membentuk layanan tertentu sesuai permintaan program yang memanggilnya. Untuk lebih jelasnya dapat diilustrasikan pada gambar di bawah ini.</p>
+                            <figure class="gambar-tengah img-responsive">
+    							<a href="assets/img/kb02/interaksi_user_os.jpg"><img src="assets/img/kb02/interaksi_user_os.jpg" class="img-responsive tengah" alt="Interaksi antara User dan Sitem Operasi" title="Interaksi antara User dan Sitem Operasi"></a>
+                                <figcaption>Gambar 2.1. &nbsp;&nbsp; Interaksi antara <em>User</em> dan Sitem Operasi</figcaption>
+    						</figure>
+    					</div>
+    				</div>
+    				
+    				<div class="kb-row" id="shell">
+    					<a href="#kernel" class="kb-row-handle"><em>Shell</em></a>
+    					<div class="kb-row-content">
+                            <p><em><strong>Shell</strong></em> adalah penerjemah <em>(command line interpreter) </em>pada sistem Linux. Sering kali <em>shell</em> disebut juga sebagai terminal. Perangkat lunak inilah yang menjadi <strong>jembatan</strong> antara <em>user</em> dengan sistem Linux. <em>User</em> cukup memberikan perintah kemudian <em>shell</em> akan menangani&shy;nya. Perintah tersebut dapat berupa:</p>
+                            <br>
+                            <figure class="gambar-kiri img-responsive">
+    							<a href="assets/img/kb02/terminal.jpeg"><img src="assets/img/kb02/terminal.jpeg" width="350px" class="img-responsive tengah" alt="Terminal pada Linux" title="Terminal pada Linux"></a>
+                                <figcaption>Gambar 2.2. &nbsp;&nbsp; Terminal pada Linux</figcaption>
+    						</figure>
+                            <ul>
+                                <li>
+                                <p><strong>Perintah built-in</strong> yaitu perintah yang merupakan bagian internal dari <em>shell </em>.</p>
+                                </li>
+                                <li>
+                                <p><strong>Perintah eksternal </strong>, perintah yang bukan bagian internal dari <em>shell</em> (dapat berupa utilitas atau program aplikasi) .</p>
+                                </li>
+                            </ul>
+                            <p>Baik pada Linux maupun UNIX, <em>shell </em>digunakan untuk <strong>interaksi</strong> antara <em>user</em> dengan komputernya termasuk juga dalam mengontrol <em>session</em> UNIX dan pemrograman. Unix shell menyediakan sekumpulan instruksi khusus yang dapat diguna&shy;kan untuk membuat program <em>shell scripts</em>. Ada beberapa jenis <em>shell </em>yang umum ditemukan dalam distro Linux, yaitu Bash dan tcsh.</p>
+
+    					</div>
+    				</div>
+    			    				
+                    <div class="kb-row" id="utilitas">
+    				<a href="#shell" class="kb-row-handle">Utilitas</a>
+    					<div class="kb-row-content">
+                            <p><strong>Utilitas</strong> <em>(utility)</em><em><strong> </strong></em>merupakan program yang disediakan sistem Linux untuk melaksanakan tugas tertentu. Banyak sekali utilitas dengan berbagai fungsinya. Beberapa kelompok utilitas dilihat dari fungsinya yaitu:</p>
+                            <ul>
+                                <li>
+                                <p><strong>Utilitas manajemen berkas dan direktori </strong><br />
+                                Utilitas kelompok ini sangat bemanfaat untuk melakukan tugas yang berhubungan dengan berkas dan direktori, misalnya untuk membuat direktori dan menghapus berkas.</p>
+                                </li>
+                                <li>
+                                <p><strong>Utilitas penyunting berkas </strong><br />
+                                Utilitas ini sering disebut <em>editor</em>, sangat bermanfaat untuk membuat program atau menyimpan informasi tertentu ke dalam berkas.</p>
+                                </li>
+                                <li>
+                                <p><strong>Utilitas penunjang komunikasi dan jaringan </strong><br />
+                                Utilitas ini bermanfaat untuk melakukan komunikasi antar pemakai. Bahkan pemakai dapat mentransfer data antar sistem.</p>
+                                </li>
+                                <li>
+                                <p><strong>Utilitas administrasi sistem </strong><br />
+                                Utilitas ini berguna bagi administrator sistem untuk mengelola sistem. Misalnya untuk menciptakan nama pemakai baru dan mendaftarkan printer pada sistem.</p>
+                                </li>
+                                <li>
+                                <p><strong>Utilitas penganalisis unjuk kerja sistem </strong><br />
+                                Utilitas ini dapat digunakan oleh <em>administrator </em>sistem untuk menganalisis unjuk kerja sistem, sehingga dapat melakukan pengaturan guna meningkatkan unjuk kerja.</p>
+                                </li>
+                                <li>
+                                <p><strong>Utilitas pemrograman C</strong>.<br />
+                                Utilitas ini berguna untuk membuat program aplikasi dengan bahasa pemrograman C</p>
+                                </li>
+                                <li>
+                                <p><strong>Utilitas untuk keperluan <em>backup</em> dan <em>restore</em></strong><br />
+                                Utilitas ini bermanfaat untuk menyalin atau memindahkan data atau program ke media eksternal (CD, flashdisk, dll) ataupun sebaliknya, yaitu dari media eksternal ke komputer.</p>
+                                </li>
+                            </ul>
+						</div>
+    				</div>
+                    
+    				<div class="kb-row">
+    				<a href="#utilitas" class="kb-row-handle">Aplikasi</a>
+    					<div class="kb-row-content">
+                            <figure class="gambar-kanan img-responsive">
+    							<a href="assets/img/kb02/libreoffice.jpg"><img src="assets/img/kb02/libreoffice.jpg" width="350px" class="img-responsive tengah" alt="Program Aplikasi LibreOffice" title="Program Aplikasi LibreOffice"></a>
+                                <figcaption>Gambar 2.3. &nbsp;&nbsp; Aplikasi LibreOffice</figcaption>
+    						</figure>
+                            <p><strong>Aplikasi</strong> merupakan program-program yang dibuat oleh <em>user</em> untuk memenuhi kebutuhannya dalam menggunakan komputer. Program-program tersebut dapat dibuat dengan menggunakan sejumlah utilitas, perintah <em>built-in</em> pada <em>shell</em>, atau dibuat dengan bahasa pemrograman seperti C, COBOL, atau Python dan berbagai <em>development tool</em> seperti Oracle dan Informix.</p>
+                            <p>Aplikasi juga dapat berupa suatu paket yang diperoleh dari pemasok perangkat lunak. Pada distro Linux, ubuntu misalnya, banyak menyediakan aplikasi yang siap digunakan seperti aplikasi perkantoran LibreOffice, <em>browser </em>Mozilla Firefox, editor gambar GIMP, editor suara Audacity dan masih banyak lagi yang dapat kita <em>install</em> untuk menggunakannya lebih lanjut.</p>
+						</div>
+    				</div>
+                    
+    				</div><!-- kb-row-container-->
+    				<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('lembarKerja');" href="#lembarKerja">Lanjut ke Lembar Kerja &raquo;</a></p>
+				</div><!-- panel-body-->
+			</div>
+
+			<div class="panel panel-default artikel" id="lembarKerja" style="display:none;">
+				<div class="panel-body">
+                    <h3 class="page-header">Lembar Kerja</h3>
+                    <div class="kb-row-container">
+                        <div class="kb-row open" id="alatBahan">
+                            <a href="#lembarKerja" class="kb-row-handle">Alat dan Bahan</a>
+                            <div class="kb-row-content" style="display:block;">
+                                <ul>
+                                    <li>Komputer atau laptop</li>
+                                    <li>Buku, artikel, atau sumber lain tentang Linux</li>
+                                </ul>
+					       </div>
+                        </div>
+                        
+                        <div class="kb-row" id="petunjuk">
+                            <a href="#alatBahan" class="kb-row-handle">Petunjuk</a>
+                            <div class="kb-row-content">
+                            <ul>
+                                <li>Awali setiap aktivitas dengan do'a, semoga mendapat kemudahan dan keberkahan.</li>
+                                <li>Baca dan pahami langkah-langkah yang ada dengan seksama.</li>
+                                <li>Pastikan komputer dalam keadaan baik dan benar.</li>
+                                <li>Jangan meletakkan benda yang dapat mengeluarkan medan elektromagnetik (<em>handphone</em>, magnet, dan sejenisnya) di dekat komputer.</li>
+                                <li>Gunakan komputer sesuai fungsinya dengan hati-hati.</li>
+                                <li>Kerjakan secara baik, benar, dan sabar.</li>
+                            </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="kb-row">
+                            <a href="#petunjuk" class="kb-row-handle">Tugas</a>
+                            <div class="kb-row-content">
+                                <ol>
+                                    <li><p>Pastikan alat dan bahan sudah siap.</p></li>
+                                    <li><p>Buatlah sebuah tulisan atau artikel mengenai arsitektur sistem operasi Linux, termasuk kernel, <em>shell</em>, ulititas, dan aplikasi. Buat semenarik mungkin agar dapat mudah dimengerti baik Anda sendiri maupun orang lain.</p></li>
+                                    <li><p>Anda bisa menggunakan bantuan komputer atau laptop untuk memperoleh infromasi tambahan.</p></li>
+                                    <li><p>Kemudian publikasikan tulisan Anda tersebut pada blog, website, atau media sosial.</p></li>
+                                    <li><p>Jika sudah selesai, jangan lupa matikan komputer/laptop dengan benar.</p></li>
+                                </ol>				
+                            </div>
+                        </div>
+                        
+					</div>
+					<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('rangkuman');" href="#rangkuman">Lanjut ke Rangkuman &raquo;</a></p>
+    			</div>
+    		</div>
+    		
+    		
+    		<div class="panel panel-default artikel" id="rangkuman" style="display:none;">
+				<div class="panel-body">  
+					<h3 class="page-header">Rangkuman</h3>
+					<p><strong>Arsitektur</strong> sistem operasi Linux terdiri dari 4 komponen utama yaitu kernel, <em>shell</em>, utilitas, dan program aplikasi. Kernel merupakan inti dari sistem Linux yang mengontrol perangkat keras dan membentuk beberapa fungsi dasar pada sistem operasi. <em>Shell</em> adalah penerjemah <em>(command line interpreter) </em>pada sistem Linux. <em>Shell </em>digunakan untuk interaksi antara <em>user </em>dengan komputernya. Utilitas merupakan program yang disediakan sistem Linux untuk melaksanakan tugas tertentu. Utilitas terdiri dari berbagai jenis dan fungsinya masing-masing. Aplikasi adalah program-program yang dibuat oleh <em>user </em>untuk memenuhi kebutuhannya dalam menggunakan komputer. Aplikasi juga dapat berupa suatu paket yang diperoleh dari pemasok perangkat lunak.</p>
+                    <br><hr><br><p class="gambar-tengah"><a class="btn btn-success btn-sm smoothScroll" href="kb03.html">Lanjut ke Pembelajaran 3 &raquo;</a></p>
+                    </div>
+    			</div>
+    		</div>
+			
+			</div><!-- col-md-offset-2 col-md-8 -->
+			<a href="#" class="back-to-top"><i class="fa fa-arrow-circle-o-up"></i> <br> ke atas</a>
+		</div><!-- row -->
+	</div><!-- kb02 --> 	
+  		
+	<div id="footerwrap">
+		<div class="container">
+			<p>by <a href="bantuan.html">diondr</a> <i class="fa fa-asterisk"></i> 2014</p>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/retina.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="assets/js/smoothscroll.js"></script>
+	<script type="text/javascript" src="assets/js/jquery-func.js"></script>
+  </body>
+</html>

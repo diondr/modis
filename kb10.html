@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MODIS | Modul Sistem Operasi</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    <link rel="shortcut icon" href="assets/img/favicon_modis-1_1.png">
+
+    <link href='assets/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/main.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/animate-custom.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-font.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-modis.css' rel='stylesheet' type='text/css'>
+    <link href="assets/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" media="screen">
+
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+	<script type="text/javascript" src="assets/js/jmodis.js"></script>
+    <script type="text/javascript" src="assets/fancybox/jquery.fancybox.pack.js"></script>
+    <script>
+    $(document).ready(function() {
+        //semua links dengam akhiran ekstensi gambar
+        var thumbnails = 'a[href$=".gif"],a[href$=".jpg"],a[href$=".jpeg"],a[href$=".png"],a[href$=".GIF"],a[href$=".JPG"],a[href$=".JPEG"],a[href$=".PNG"]';
+
+        //menambah class "fancybox" ke thumbnails dan dijadikan satu group "rel" untuk mengaktifkan tombol previous/next
+        jQuery(thumbnails).addClass("fancybox").attr("rel","lightbox");
+
+        //memanggil fancybox
+        jQuery('.fancybox').fancybox({
+            padding: 0,
+            //mendapatkan alt dari img untuk title fancybox
+            beforeShow : function() {
+                var alt = this.element.find('img').attr('alt');
+                this.inner.find('img').attr('alt', alt);
+                this.title = alt;
+            }
+        });
+    });
+    </script>
+</head>
+<body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+
+<div id="navbar-main">
+    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="menuIcon"><i class="fa fa-lg fa-list-ul"></i> Menu</span>
+            </button>
+            <span class="navbar-brand logoModis"><img class="noBayang" src="assets/img/logo_modis-1_1.png"></span>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html"><i class="fa fa-lg fa-home"></i>&nbsp; Home</a></li>
+                <li><a href="info.html"><i class="fa fa-lg fa-info-circle"></i>&nbsp; Info</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-lg fa-book"></i>&nbsp; Pembelajaran <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="bab1.html">&nbsp; BAB 1 &nbsp; Perkembangan</a></li>
+                        <li><a href="bab2.html">&nbsp; BAB 2 &nbsp; Struktur</a></li>
+                        <li><a href="bab3.html">&nbsp; BAB 3 &nbsp; Proses <em>Booting</em></a></li>
+                        <li><a href="bab4.html">&nbsp; BAB 4 &nbsp; Instalasi</a></li>
+                        <li><a href="bab5.html">&nbsp; BAB 5 &nbsp; Administrasi</a></li>
+                        <li><a href="bab6.html">&nbsp; BAB 6 &nbsp; Pencarian Kesalahan</a></li>
+                    </ul>
+                </li>
+                <li><a href="evaluasi.html"><i class="fa fa-lg fa-tasks"></i>&nbsp; Evaluasi</a></li>
+                <li><a href="bantuan.html"><i class="fa fa-lg fa-question-circle"></i>&nbsp; Bantuan</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</div>
+
+    <!--INFO AWAL-->
+	<div id="kbwrap" class="kbwrap04">
+		<div class="row">	
+			<img src="assets/img/batik1.png" class="img-responsive tengah"></a>
+			<h3 class="centered">#10 Instalasi Ubuntu metode <em>Multibooting</em></h3>
+			<hr>
+			<a onclick="toggle('tujuan');" href="#tujuan" class="smoothScroll">Tujuan</a> / 
+			<a onclick="toggle('uraianMateri');" href="#uraianMateri" class="smoothScroll">Uraian Materi</a> / 
+			<a onclick="toggle('lembarKerja');" href="#lembarKerja" class="smoothScroll">Lembar Kerja</a> / 
+			<a onclick="toggle('rangkuman');" href="#rangkuman" class="smoothScroll">Rangkuman</a>
+			</p>
+			<br>
+		</div>
+	</div>
+	
+	<div class="container" id="kb04" name="kb04">
+		<br>
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+			<div class="panel panel-default artikel" id="tujuan">
+				<div class="panel-body"> 
+					<h3 class="page-header">Tujuan</h3> 
+    				<p>Pada pembelajaran ini Anda diharapkan:</p>
+					<ul>
+                        <li>Dapat menjelaskan prinsip instalasi Ubuntu dengan metode <em>multibooting</em>.</li>
+                        <li>Dapat menjelaskan prinsip alokasi partisi <em>harddisk</em> pada instalasi metode <em>multibooting</em>.</li>
+                        <li>Mampu melakukan pengaturan partisi <em>harddisk</em> untuk instalasi metode <em>multibooting</em>.</li>
+                        <li>Mampu melakukan instalasi Ubuntu dengan metode <em>multibooting</em>.</li>
+					</ul>
+                    <hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('uraianMateri');" href="#uraianMateri">Lanjut ke Materi &raquo;</a></p>
+				</div>
+			</div>
+			
+			<div class="panel panel-default artikel" id="uraianMateri" style="display:none;">
+				<div class="panel-body">
+					<h3 class="page-header">Uraian Materi</h3>
+                    <p>Pembelajaran mengenai instalasi Ubuntu dengan metode <em>multibooting</em> ini terdiri 2 bahasan utama. Pertama bahasan akan tertuju pada <em>multibooting</em> itu sendiri, kemudian dilanjutkan dengan alokasi <em>harddisk</em>. selamat belajar :)</p>
+				    
+                    <div class="kb-row-container">
+                    <div class="kb-row" id="mutlibooting">
+    					<a href="#uraianMateri" class="kb-row-handle"><em>Multibooting</em></a>
+    					<div class="kb-row-content">
+							<br><figure class="gambar-kanan img-responsive">
+    							<br><img src="assets/img/kb10/multibooting.jpg" width="170px" class="img-responsive tengah" alt="Multibooting" title="Multibooting">
+                                <br><figcaption>Gambar 10.1. &nbsp;&nbsp; <em>Multibooting</em></figcaption>
+    						</figure>
+    						<p><strong>Metode</strong> instalasi sistem operasi <em>multibooting</em> yaitu suatu cara untuk menginstall lebih dari satu sistem operasi pada suatu komputer. Misalnya ada suatu komputer yang didalamnya telah terinstall satu sistem operasi yaitu Windows, kita dapat menginstall sistem operasi lain berdampingan dengan Windows tersebut. Metode <em>multibooting </em>ini tidak akan memberatkan kinerja komputer, hanya saja kita membutuhkan <em>space harddisk</em> tersendiri untuk menginstal OS yang kedua, ketiga, dan seterusnya.</p>
+							<p>Dalam pembelajaran ini, anggap saja komputer kita sudah ada satu OS yaitu Windows. Kemudian kita akan menginstal Ubuntu secara <em>multibooting</em> berdampingan dengan Windows. Sehingga nantinya komputer kita terdapat 2 OS yaitu Windows dan Ubuntu.</p>
+							<p>Secara umum ada dua cara instalasi secara <em>multibooting</em> Windows dengan Ubuntu.</p>
+							<ol>
+								<li>
+								<p>Menggunakan <em>Wubi Installer. </em>Dengan cara ini kita seolah-olah menginstall Ubuntu sebagai suatu aplikasi pada sistem Windows. Nantinya Ubuntu akan berada pada satu partisi dengan Windows.</p>
+								</li>
+								<li>
+								<p>Menginstal Ubuntu secara terpisah pada partisi <em>harddisk </em>lain. Dengan cara ini kita perlu mempersiapkan satu partisi kosnong dari <em>harddisk</em> kita. Nantinya kita akan menginstal Ubuntu pada partisi tersebut.</p>
+								</li>
+							</ol>
+                            <p>Pada pembelajaran kali ini kita akan menginstall ubuntu secara <em>multibooting</em> dengan menggunakan cara yang ke-2 tersebut.</p>
+    					</div>
+    				</div>
+    				
+    				<div class="kb-row">
+    					<a href="#mutlibooting" class="kb-row-handle">Alokasi <em>Harddisk</em></a>
+    					<div class="kb-row-content">
+                            <br>
+                            <figure class="gambar-kiri img-responsive" style="padding-top:20px;">
+    							<img src="assets/img/kb10/alokasi_hdd-1.jpg" width="300px" class="img-responsive tengah" alt="Pengaturan Harddisk" title="Pengaturan Harddisk">
+                                <br><figcaption>Gambar 10.2. &nbsp;&nbsp;  Pengaturan <em>Harddisk</em></figcaption>
+    						</figure>
+                            <p><strong>Salah satu</strong> hal yang perlu diperhatikan dalam metode instalasi <em>multibooting</em> yaitu pengaturan <em>harddisk.</em> Anda perlu mengalokasikan 1 partisi kosong yang nantinya digunakan sebagai tempat untuk instalasi Ubuntu dengan metode <em>multibooting</em>.</p>
+                            <p>Misal besar <em>harddisk</em> komputer adalah <strong>320 GB</strong> dan terbagi dalam 3 partisi, yaitu <strong>C:</strong> (80GB), <strong>D:</strong> (140 GB), dan <strong>E:</strong> (100 GB). Lalu, kita akan menggunakan partisi <strong>E:</strong> tersebut sebagai tempat untuk menginstal Ubuntu. Sebelum digunakan, jika ada data pada partisi <strong>E: </strong>tersebut, kita perlu mengosongi atau memindahkan isinya terlebih dahulu. Setelah benar-benar kosong, selanjutnya diatur dengan aplikasi <strong>GParted</strong>.</p>
+    					</div>
+    				</div>
+    				</div><!-- kb-row-container-->
+    				<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('lembarKerja');" href="#lembarKerja">Lanjut ke Lembar Kerja &raquo;</a></p>
+				</div><!-- panel-body-->
+			</div>
+
+			<div class="panel panel-default artikel" id="lembarKerja" style="display:none;">
+				<div class="panel-body">
+                    <h3 class="page-header">Lembar Kerja</h3>
+                    <div class="kb-row-container">
+                        <div class="kb-row open" id="alatBahan">
+                            <a href="#lembarKerja" class="kb-row-handle">Alat dan Bahan</a>
+                            <div class="kb-row-content" style="display:block;">
+                                <ul>
+                                    <li>Komputer atau laptop</li>
+                                    <li>Satu partisi <em>harddisk</em> kosong</li>
+                                    <li><em>Installer</em> (CD/DVD) Ubuntu 12.04</li>
+                                </ul>
+					       </div>
+                        </div>
+                        
+                        <div class="kb-row" id="petunjuk">
+                            <a href="#alatBahan" class="kb-row-handle">Petunjuk</a>
+                            <div class="kb-row-content">
+                            <ul>
+                                <li>Awali setiap aktivitas dengan do'a, semoga mendapat kemudahan dan keberkahan.</li>
+                                <li>Baca dan pahami langkah-langkah yang ada dengan seksama.</li>
+                                <li>Pastikan komputer dalam keadaan baik dan benar.</li>
+                                <li>Jangan meletakkan benda yang dapat mengeluarkan medan elektromagnetik (handphone, magnet, dan sejenisnya) di dekat komputer.</li>
+                                <li>Gunakan komputer sesuai fungsinya dengan hati-hati.</li>
+                                <li>Kerjakan secara baik, benar, dan sabar.</li>
+                            </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="kb-row" id="latihan">
+                            <a href="#petunjuk" class="kb-row-handle">Latihan</a>
+                            <div class="kb-row-content">
+                            <p>Pada latihan ini Anda akan mengatur partisi <em>harddisk</em> yang akan digunakan untu menginstall Ubuntu dengan metode <em>multibooting.</em> <strong>Siap?</strong></p>
+                            <ol style="margin-left:-20px;">
+                                <li>Hidupkan komputer dan masukkan CD/DVD <em>installer</em> Ubuntu 12.04 ke dalam komputer yang akan diinstall.</li>
+                                <li>Atur BIOS agar <em>booting</em> pertama melalui CD/DVD.</li>
+                                <li>Jika sudah maka akan tampil proses <em>booting</em> Ubuntu.</li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb10/01-booting.jpg"><img src="assets/img/kb10/01-booting.jpg" width="500px" class="img-responsive tengah" alt="Proses Booting" title="Proses Booting"></a>
+                                    <figcaption>Gambar 10.3. &nbsp;&nbsp; Proses <em>Booting</em></figcaption>
+                                </figure>
+                                <li>
+                                <p>Kemudian pilih <em><strong>Try</strong></em><strong> Ubuntu</strong><em><strong>.</strong></em></p>
+                                </li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb10/02-pilih_try.jpg"><img src="assets/img/kb10/02-pilih_try.jpg" class="img-responsive tengah" width="500px" alt="Try Ubuntu" title="Try Ubuntu"></a>
+                                    <figcaption>Gambar 10.4. &nbsp;&nbsp; <em>Try</em> Ubuntu</figcaption>
+                                </figure>
+                                <li>
+                                <p>Jika sudah muncul <em>desktop</em> awal Ubuntu, klik menu Dash Home (ikon Ubuntu kiri atas). Lalu ketikan &ldquo;gparted&rdquo; (tanpa tanda petik) dan klik ikon GParted untuk menjalankannya.</p>
+                                </li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb10/03-buka_gparted.jpg"><img src="assets/img/kb10/03-buka_gparted.jpg" class="img-responsive tengah" width="500px" alt="Custom Setup" title="Custom Setup"></a>
+                                    <figcaption>Gambar 10.5. &nbsp;&nbsp; Membuka GParted</figcaption>
+                                </figure>
+                                <li>
+                                <p>Aplikasi GParted akan berjalan dan akan terlihat susuan partisi <em>harddisk</em> seperti pada gambar 10.6. Terlihat bahwa ada partisi <strong>/dev/sda3</strong> sebesar 100 GB. Partisi tersebut merupakan partisi <strong>E:</strong> pada Windows yang akan kita gunakan untuk menginstal Ubuntu. (Sesuaikan dengan partisi pada komputer Anda).</p>
+                                </li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb10/04-awal_susunan_partisi.jpg"><img src="assets/img/kb10/04-awal_susunan_partisi.jpg" class="img-responsive tengah" width="500px" alt="Custom Setup" title="Custom Setup"></a>
+                                    <figcaption>Gambar 10.6. &nbsp;&nbsp; Susunan Awal Partisi <em>Harddisk </em></figcaption>
+                                </figure>
+                                <li>
+                                <p>Klik kanan pada partisi <strong>/dev/sda3</strong> tersebut, kemudian pilih <strong>Delete</strong>.</p>
+                                </li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb10/05-delete.jpg"><img src="assets/img/kb10/05-delete.jpg" class="img-responsive tengah" width="400px" alt="Custom Setup" title="Custom Setup"></a>
+                                    <figcaption>Gambar 10.7. &nbsp;&nbsp; Hapus Partisi</figcaption>
+                                </figure>
+                                <li>
+                                <p>Setelah terhapus maka partisi akan berurbah menjadi <em>&ldquo;unallocated&rdquo;</em>. Pastikan tetap pada partisi tersebut, lalu klik <strong>ikon tambah</strong> <strong>partisi</strong> (pojok kiri atas). Kemudian akan muncul jendela baru <em>&ldquo;Create New Partition&rdquo;</em>, pada bagian <em>&ldquo;Create as&rdquo; </em>pilih <strong>Extended Partition</strong>. Jika sudah klik <strong>Add</strong>.</p>
+                                </li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb10/06-add_extended.jpg"><img src="assets/img/kb10/06-add_extended.jpg" class="img-responsive tengah" width="500px" alt="Custom Setup" title="Custom Setup"></a>
+                                    <figcaption>Gambar 10.8. &nbsp;&nbsp; Menambah <em>Extended Partition</em></figcaption>
+                                </figure>
+                                <li>
+                                <p>Setelah dibuat <em>extended partition</em>, sekarang Anda dapat mengisi partisi tersebut dengan <em>logical partition</em> sebeser 30 GB yang nanti kita gunakan untuk sistem Ubuntu.</p>
+                                <p>Pastikan partisi <em><strong>unallocated</strong></em> tetap terpilih, lalu klik lalu klik <strong>ikon tambah</strong> <strong>partisi</strong> (pojok kiri atas). Kemudian akan muncul jendela baru &ldquo;Create New Partition&rdquo;, pada bagian <em>&ldquo;New size (MiB)&rdquo;</em> isikan <strong>30720</strong> (berasal dari 30 GB = 30 &times; 1024 = 3027).</p>
+                                <p>Pada bagian <em>&ldquo;Create as&rdquo; </em>otomatis sudah <em>Logical Partition</em>. Lalu pada bagian <em>&ldquo;File system&rdquo; </em>pilih <strong>ext4. </strong>Jika sudah klik <strong>add</strong>.</p>
+                                </li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb10/07-add_buat_sistem.jpg"><img src="assets/img/kb10/07-add_buat_sistem.jpg" class="img-responsive tengah" width="500px" alt="Custom Setup" title="Custom Setup"></a>
+                                    <figcaption>Gambar 10.9. &nbsp;&nbsp; Menambah Partisi untuk Sistem Ubuntu</figcaption>
+                                </figure>
+                                <li>
+                                <p>Selanjutnya buat partisi <em>linux-swap</em> yang besarnya 2 &times; RAM. Dalam modul ini besar RAM komputer adalah 2 GB jadi besar swap adalah 2 &times; 2 GB = 4 GB. (Sesuaikan dengan besar RAM komputer Anda.</p>
+                                <p>Lakukan seperti langkah 9, hanya saja pada bagian <em>&ldquo;New size (MiB)&rdquo;</em> isikan <strong>4096</strong>. Bagian <em>&ldquo;File system&rdquo;</em> pilih <strong>linux-swap</strong>. Jika sudah klik <strong>Add</strong>.</p>
+                                </li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb10/08-add_swap.jpg"><img src="assets/img/kb10/08-add_swap.jpg" class="img-responsive tengah" width="400px" alt="Custom Setup" title="Custom Setup"></a>
+                                    <figcaption>Gambar 10.10. &nbsp;&nbsp; Menambah Partisi untuk <em>Swap</em></figcaption>
+                                </figure>
+                                <li>
+                                <p>Sampai disini, sudah terbuat 2 partisi baru untuk sistem Ubuntu (30 GB) dan <em>linux-swap</em> (4 GB), jadi masih ada &ldquo;bonus&rdquo; sebesar 66 GB sebagai sisanya. Anda dapat menggunakannya untuk menyimpan data-data pada partisi &ldquo;bonus&rdquo; tersebut.</p>
+                                <p>Lakukan seperti langkah 9, hanya saja pada bagian <em>&ldquo;Free space following (MiB)&rdquo;</em> isikan <strong>0</strong>, yang berati kita tidak menyisakan <em>space harddisk </em>alias menggunakannya semua. Bagian <em>&ldquo;File system&rdquo;</em> pilih <strong>fat32</strong>. Pada bagian &ldquo;Label&rdquo; tambahkan nama partisi agar lebih mudah dikenali (contoh &ldquo;Data Bonus&rdquo;). Jika sudah klik <strong>Add</strong>.</p>
+                                </li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb10/09-add_bonus.jpg"><img src="assets/img/kb10/09-add_bonus.jpg" class="img-responsive tengah" width="400px" alt="Custom Setup" title="Custom Setup"></a>
+                                    <figcaption>Gambar 10.11. &nbsp;&nbsp; Menambah Partisi untuk Data</figcaption>
+                                </figure>							
+                                <li>
+                                <p>Pastikan partisi sudah sesuai dengan susunan yang direncanakan. Jika sudah, klik <strong>ikon</strong> <strong>centang</strong> pada <em>toolbar</em> atas untuk memproses partisi yang sudah kita atur sebelumnya. Kemudian proses akan berajalan dan jika sudah selesai kita bisa mengakhiri aplikasi Gparted.</p>
+                                </li>
+                                <figure class="gambar-tengah img-responsive">
+                                    <a href="assets/img/kb10/10-partisi_oke.jpg"><img src="assets/img/kb10/10-partisi_oke.jpg" class="img-responsive tengah" width="400px" alt="Custom Setup" title="Custom Setup"></a>
+                                    <figcaption>Gambar 10.12. &nbsp;&nbsp; Memproses Pengaturan Partisi</figcaption>
+                                </figure>
+                                <li>Jika sudah selesai, silakan mengerjakan &ldquo;tugas&rdquo; di bawah ini.</li>
+                            </ol>
+                            </div>
+                        </div>
+                        
+                        <div class="kb-row">
+                            <a href="#latihan" class="kb-row-handle">Tugas</a>
+                            <div class="kb-row-content">
+                                <p>Setelah pengaturan <em>harddisk</em> selesai, kini tugas Anda adalah menginstall Ubuntu ke dalam komputer secara <em>multibooting</em>.</p>
+                                <p>Proses instalasi tidak jauh berbeda dengan metode <em>clean install</em>. Akan tetapi ada beberapa perbedaan pada beberapa langkah yaitu:</p>
+                                <ol style="margin-left:-20px;">
+                                    <li>Pada langkah <em>&quot;Installation type&quot;</em> pilih <em><strong>Something Else.</strong></em></li>
+                                    <figure class="gambar-tengah img-responsive">
+                                        <a href="assets/img/kb10/11-something_else.jpg"><img src="assets/img/kb10/11-something_else.jpg" class="img-responsive tengah" width="400px" alt="Something Else" title="Something Else"></a>
+                                        <figcaption>Gambar 10.13. &nbsp;&nbsp; <em>Something Else</em></figcaption>
+                                    </figure>
+                                    <li>
+                                    <p>Kemudian akan muncul susuan partisi dari <em>harddisk</em> Anda, pilih partisi yang akan kita jadikan sistem Ubuntu (misal <strong>/dev/sda5</strong>). Lalu klik <em><strong>Change </strong></em>dan akan muncul jendela baru <em>&ldquo;Edit Partition&rdquo;, </em>lakukan pengaturan sebagai berikut:</p>
+                                    <ul>
+                                        <li>Pada <em>&ldquo;Use as&rdquo;</em> pilih <strong>Ext4 journaling file system</strong></li>
+                                        <li><strong>Centang </strong>pada bagain <em>&ldquo;Format the partition&rdquo;</em></li>
+                                        <li>Pada <em>&ldquo;Mount point&rdquo;</em> pilih <strong>/</strong></li>
+                                    </ul>
+                                    </li>
+                                    <figure class="gambar-tengah img-responsive">
+                                        <a href="assets/img/kb10/12-edit_partisi.jpg"><img src="assets/img/kb10/12-edit_partisi.jpg" class="img-responsive tengah" width="500px" alt="Edit Partisi" title="Edit Partisi"></a>
+                                        <figcaption>Gambar 10.14. &nbsp;&nbsp; <em>Edit</em> Partisi</figcaption>
+                                    </figure>
+                                </ol>
+                                <p>Selamat mengerjakan! :)</p>
+                                <p>Setelah selesai, Anda bisa menuliskan atau menceritakan apa saja yang Anda peroleh pada pembelajaran kali ini. Kemudian publikasikan tulisan Anda tersebut pada blog, website, atau media sosial.</p>
+                            </div>
+                        </div>
+                        
+					</div>
+					<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('rangkuman');" href="#rangkuman">Lanjut ke Rangkuman &raquo;</a></p>
+    			</div>
+    		</div>
+    		
+    		
+    		<div class="panel panel-default artikel" id="rangkuman" style="display:none;">
+				<div class="panel-body">  
+					<h3 class="page-header">Rangkuman</h3>
+					<p><strong>Metode</strong> instalasi sistem operasi <em>multibooting</em> yaitu suatu cara untuk menginstall lebih dari satu sistem operasi pada suatu komputer. Misalnya yaitu pada suatu komputer dapat diinstall sistem operasi Windows berdampingan dengan Ubuntu. Secara umum ada dua cara instalasi secara <em>multibooting</em> Windows dengan Ubuntu, yaitu dengan menggunakan <em>Wubi Installer</em> dan menginstal Ubuntu secara terpisah pada partisi <em>harddisk </em>lain.</p>
+                    <p>Pada pembelajaran ini cara yang digunakan adalah cara ke-2 tersebut. Hal yang perlu diperhatikan dalam metode instalasi <em>multibooting</em> dengan cara ke-2 yaitu pengaturan <em>harddisk.</em> Perlu dialokasikan 1 partisi kosong yang digunakan sebagai tempat untuk instalasi Ubuntu.</p>
+                    <br><hr><br><p class="gambar-tengah"><a class="btn btn-success btn-sm smoothScroll" href="kb11.html">Lanjut ke Pembelajaran 11 &raquo;</a></p>
+                    </div>
+    			</div>
+    		</div>
+			
+			</div><!-- col-md-offset-2 col-md-8 -->
+			<a href="#" class="back-to-top"><i class="fa fa-arrow-circle-o-up"></i> <br> ke atas</a>
+		</div><!-- row -->
+	</div><!-- kb02 --> 	
+  		
+	<div id="footerwrap">
+		<div class="container">
+			<p>by <a href="bantuan.html">diondr</a> <i class="fa fa-asterisk"></i> 2014</p>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/retina.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="assets/js/smoothscroll.js"></script>
+	<script type="text/javascript" src="assets/js/jquery-func.js"></script>
+  </body>
+</html>

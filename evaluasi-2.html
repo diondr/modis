@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MODIS | Modul Sistem Operasi</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    <link rel="shortcut icon" href="assets/img/favicon_modis-1_1.png">
+
+    <link href='assets/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/main.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/animate-custom.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-font.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-modis.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/jQuizMe.css' rel='stylesheet' type='text/css' />
+</head>
+<body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+
+<div id="navbar-main">
+    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="menuIcon"><i class="fa fa-lg fa-list-ul"></i> Menu</span>
+            </button>
+            <span class="navbar-brand logoModis"><img class="noBayang" src="assets/img/logo_modis-1_1.png"></span>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html"><i class="fa fa-lg fa-home"></i>&nbsp; Home</a></li>
+                <li><a href="info.html"><i class="fa fa-lg fa-info-circle"></i>&nbsp; Info</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-lg fa-book"></i>&nbsp; Pembelajaran <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="bab1.html">&nbsp; BAB 1 &nbsp; Perkembangan</a></li>
+                        <li><a href="bab2.html">&nbsp; BAB 2 &nbsp; Struktur</a></li>
+                        <li><a href="bab3.html">&nbsp; BAB 3 &nbsp; Proses <em>Booting</em></a></li>
+                        <li><a href="bab4.html">&nbsp; BAB 4 &nbsp; Instalasi</a></li>
+                        <li><a href="bab5.html">&nbsp; BAB 5 &nbsp; Administrasi</a></li>
+                        <li><a href="bab6.html">&nbsp; BAB 6 &nbsp; Pencarian Kesalahan</a></li>
+                    </ul>
+                </li>
+                <li><a href="evaluasi.html"><i class="fa fa-lg fa-tasks"></i>&nbsp; Evaluasi</a></li>
+                <li><a href="bantuan.html"><i class="fa fa-lg fa-question-circle"></i>&nbsp; Bantuan</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div id="infowrap" class="evaluasiWrap">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            <div class="panel panel-default artikel" id="evaluasi">
+                <div class="panel-body">
+                    <h3 class="page-header">Evaluasi 2</h3>
+                    <div id="quizArea"></div>
+                </div>
+                <br><br>
+            </div>
+        </div>
+    </div><!-- row -->
+    </div><!-- container -->
+</div>
+
+<div id="footerwrap">
+    <div class="container">
+        <p>by <a href="bantuan.html">diondr</a> <i class="fa fa-asterisk"></i> 2014</p>
+    </div>
+</div>
+
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/retina.js"></script>
+<script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="assets/js/smoothscroll.js"></script>
+<script type="text/javascript" src="assets/js/jquery-func.js"></script>
+<script type="text/javascript" src="assets/js/jmodis.js"></script>
+<script type="text/javascript" src="assets/js/jQuizMe-2.2.1.js"></script>
+<script type="text/javascript">
+    $(function($) {
+        var quizMulti = {
+            multiList: [{
+                ques: "Komponen utama Arsitektur sistem operasi Linux yaitu....",
+                ans: "Kernel, shell, utilitas, dan aplikasi",
+                ansSel: ["Kernel, shell, utilitas, dan terminal",
+                        "Kernel, shell, dan utilitas",
+                        "Shell, utilitas, dan aplikasi",
+                        "Kernel, shell, utilitas, aplikasi, dan program"]
+            }, {
+                ques: "Yang bukan fungsi dasar Kernel yaitu....?",
+                ans: "Melakukan kegiatan akuntansi berkas",
+                ansSel: ["Manajemen memori",
+                         "Melakukan kegiatan akuntansi sistem",
+                         "Pelayanan operasional input output (I/O)",
+                         "Manajemen berkas dan penanganan sekuriti"]
+            }, {
+                ques: "Utilitas yang digunakan untuk menyalin atau memindahkan data atau program ke media eksternal ataupun sebaliknya adalah....",
+                ans: "Utilitas untuk keperluan backup dan restore",
+                ansSel: ["Utilitas penganalisis unjuk kerja sistem ", "Utilitas administrasi sistem", "Utilitas penyunting berkas", "Utilitas manajemen berkas dan direktori"]
+            }, {
+                ques: "Secara garis besar penjadwalan <em>processor</em> dibagi menjadi....",
+                ans: "Preemptive &  non preemptive.",
+                ansSel: ["Multilevel Queue & Multilevel Feedback Queue",
+                         "Shortest Job First & Longest Job First",
+                         "Burst I/O & Burst Processor",
+                         "First Come First Serve & Shortest Job First"]
+            }, {
+                ques: "Karakteristik dari algoritma penjadwalan <em>multilevel queue</em> adalah....",
+                ans: "Membagi beberapa antrian yang akan diberi prioritas berdasarkan tingkatan",
+                ansSel: ["Membagi beberapa antrian yang akan diberi prioritas berdasarkan tingkatan dan dapat pindah antrian",
+                         "Proses-proses digilir dengan jatah time quantum yang sama",
+                         "Mendahulukan proses dengan CPU burst terkecil",
+                         "Mendahulukan prioritas terbesar"]
+            }, {
+                ques: "Urutan level memori pada komputer dari yang teratas sampai terendah yaitu....",
+                ans: "Register, primary memory, secondary memory",
+                ansSel: ["Primary memory, secondary memory, register",
+                         "Primary memory, register, secondary memory",
+                         "Primary memory, secondary memory, random memory",
+                         "Random memory, primary memory, secondary memory"]
+            }, {
+                ques: "Zona memory pada Linux yang berhubungan dengan transfer data antara CPU dengan I/O adalah....",
+                ans: "Zona DMA",
+                ansSel: ["Zona normal", "Zona highmem", "Zona aman", "Zona standar"]
+            }, {
+                ques: "Fungsi <em>swap</em> pada Linux adalah....",
+                ans: "Mengatasi keterbatasan memori fisik",
+                ansSel: ["Menentukan halaman-halaman yang harus dikeluarkan dari memori fisik",
+                         "Menentukan halaman-halaman yang harus dimasukkan ke memori fisik",
+                         "Mengatur halaman-halaman pada memori virtual",
+                         "Mengatur halaman-halaman pada memori fisik"]
+            }, {
+                ques: "Yang bukan merupakan fungsi sistem operasi dalam manajemen <em>input/output</em> yaitu....",
+                ans: "Reading",
+                ansSel: ["Buffering", "Scheduling", "Spooling", "Penyanggaan"]
+            }, {
+                ques: "Pada Linux, <em>mouse</em> termasuk dalam <em>device</em> kelompok....",
+                ans: "Character devices",
+                ansSel: ["Network devices", "Block devices", "Block buffer cache", "Request manager"]
+            } ]
+        },
+
+            options = {
+                animationType: 0,
+                disableDelete: true,
+                showHTML: true,
+                showWrongAns: true,
+                showFeedback: false,
+                showAnsInfo: false,
+                title: "&nbsp;",
+                intro: "Sudah siap untuk memulai evaluasi ini?"
+            },
+
+            indonesia = {
+                ans: {
+                    corrAns: "<strong>Jawaban yang benar:</strong>",
+                    praise: "<strong>Anda Benar! :)</strong>",
+                    yourAns: "<strong>Jawaban Anda:</strong>"
+                },
+                btn: {
+                    begin: ["Mulai ->"],
+                    next: ["Lanjut"],
+                    help: [""],
+                    restart: ["Mulai evaluasi lagi?"],
+                    quit: ["&nbsp;"],
+                    quitNo: ["Tidak"],
+                    quitYes: ["Ya"],
+                    details: ["Detail"]
+                },
+                stats: {
+                    right: "Jawaban benar",
+                    wrong: "Jawaban salah",
+                    tried: "Jumlah soal",
+                    score: "Nilai Anda",
+                    rate: "Rating"
+                }
+            };
+
+        options.statusUpdate = function(quizInfo, $quiz) {
+            if (quizInfo.hasQuit && quizInfo.score >= 75) {
+                var berhasil = ("<div class='sudah'>" +
+                    "<h4>Selamat! :)</h4>" +
+                    "<blockquote>" +
+                    "<p>Anda telah memenuhi kriteria minimal Lulus. Anda bisa..</p>" +
+                    "<p>" +
+                    "<span class='berhasil'><a href='bab3.html'>lanjut ke Bab selanjutnya &raquo;</a></<span>" +
+                    "</p>" +
+                    "<p>Namun, jika belum puas, Anda bisa mengulang Evaluasi atau Bab 2 ini :)</p>" +
+                    "</blockquote>" +
+                    "</div>"
+                );
+                $($quiz).find(".q-extraStat").html(berhasil);
+            } else {
+                $($quiz).find(".q-extraStat").html("<div class='gagal'>" +
+                    "Anda <strong>belum memenuhi</strong> kriteria kelulusan minimal :( <br> Silakan coba evaluasi ini lagi atau Anda bisa mengulang bagian yang belum mengerti pada Bab 2 ini." +
+                    "</div>");
+            }
+        };
+        $("#quizArea").jQuizMe(quizMulti, options, indonesia);
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MODIS | Modul Sistem Operasi</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    <link rel="shortcut icon" href="assets/img/favicon_modis-1_1.png">
+
+    <link href='assets/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/main.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/animate-custom.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-font.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-modis.css' rel='stylesheet' type='text/css'>
+    <link href="assets/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" media="screen">
+
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+	<script type="text/javascript" src="assets/js/jmodis.js"></script>
+    <script type="text/javascript" src="assets/fancybox/jquery.fancybox.pack.js"></script>
+    <script>
+    $(document).ready(function() {
+        //semua links dengam akhiran ekstensi gambar
+        var thumbnails = 'a[href$=".gif"],a[href$=".jpg"],a[href$=".jpeg"],a[href$=".png"],a[href$=".GIF"],a[href$=".JPG"],a[href$=".JPEG"],a[href$=".PNG"]';
+
+        //menambah class "fancybox" ke thumbnails dan dijadikan satu group "rel" untuk mengaktifkan tombol previous/next
+        jQuery(thumbnails).addClass("fancybox").attr("rel","lightbox");
+
+        //memanggil fancybox
+        jQuery('.fancybox').fancybox({
+            padding: 0,
+            //mendapatkan alt dari img untuk title fancybox
+            beforeShow : function() {
+                var alt = this.element.find('img').attr('alt');
+                this.inner.find('img').attr('alt', alt);
+                this.title = alt;
+            }
+        });
+    });
+    </script>
+</head>
+<body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+
+<div id="navbar-main">
+    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="menuIcon"><i class="fa fa-lg fa-list-ul"></i> Menu</span>
+            </button>
+            <span class="navbar-brand logoModis"><img class="noBayang" src="assets/img/logo_modis-1_1.png"></span>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html"><i class="fa fa-lg fa-home"></i>&nbsp; Home</a></li>
+                <li><a href="info.html"><i class="fa fa-lg fa-info-circle"></i>&nbsp; Info</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-lg fa-book"></i>&nbsp; Pembelajaran <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="bab1.html">&nbsp; BAB 1 &nbsp; Perkembangan</a></li>
+                        <li><a href="bab2.html">&nbsp; BAB 2 &nbsp; Struktur</a></li>
+                        <li><a href="bab3.html">&nbsp; BAB 3 &nbsp; Proses <em>Booting</em></a></li>
+                        <li><a href="bab4.html">&nbsp; BAB 4 &nbsp; Instalasi</a></li>
+                        <li><a href="bab5.html">&nbsp; BAB 5 &nbsp; Administrasi</a></li>
+                        <li><a href="bab6.html">&nbsp; BAB 6 &nbsp; Pencarian Kesalahan</a></li>
+                    </ul>
+                </li>
+                <li><a href="evaluasi.html"><i class="fa fa-lg fa-tasks"></i>&nbsp; Evaluasi</a></li>
+                <li><a href="bantuan.html"><i class="fa fa-lg fa-question-circle"></i>&nbsp; Bantuan</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</div>
+
+    <!--INFO AWAL-->
+	<div id="kbwrap" class="kbwrap05">
+		<div class="row">	
+			<img src="assets/img/batik1.png" class="img-responsive tengah"></a>
+			<h3 class="centered">#16 Manajemen Aplikasi</h3>
+			<hr>
+			<a onclick="toggle('tujuan');" href="#tujuan" class="smoothScroll">Tujuan</a> / 
+			<a onclick="toggle('uraianMateri');" href="#uraianMateri" class="smoothScroll">Uraian Materi</a> / 
+			<a onclick="toggle('lembarKerja');" href="#lembarKerja" class="smoothScroll">Lembar Kerja</a> / 
+			<a onclick="toggle('rangkuman');" href="#rangkuman" class="smoothScroll">Rangkuman</a>
+			</p>
+			<br>
+		</div>
+	</div>
+	
+	<div class="container" id="kb05" name="kb05">
+		<br>
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+			<div class="panel panel-default artikel" id="tujuan">
+				<div class="panel-body"> 
+					<h3 class="page-header">Tujuan</h3> 
+    				<p>Pada pembelajaran ini Anda diharapkan:</p>
+					<ul>
+                        <li>Dapat mengetahui konsep manajemen aplikasi.</li>
+                        <li>Mampu memmanajemen aplikasi menggunakan dpkg</li>
+                        <li>Mampu memmanajemen aplikasi menggunakan apt</li>
+					</ul>
+                    <hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('uraianMateri');" href="#uraianMateri">Lanjut ke Materi &raquo;</a></p>
+				</div>
+			</div>
+			
+			<div class="panel panel-default artikel" id="uraianMateri" style="display:none;">
+				<div class="panel-body">
+					<h3 class="page-header">Uraian Materi</h3>
+                    <p>Pembelajaran mengenai manajemen aplikasi ini dimulai dengan pembahasan mengenai konsep manajemen aplikasi. Kemudian dilanjutkan dengan manajemen aplikasi menggunakan <strong>dpkg</strong> dan <strong>apt</strong>. Setelah itu latihan yang berkaitan dengan bahasan tersebut siap Anda kerjakan. Selamat belajar :)</p>
+                    
+                    <div class="kb-row-container">
+                    <div class="kb-row" id="konsep">
+    					<a href="#uraianMateri" class="kb-row-handle">Konsep Manajemen Aplikasi</a>
+    					<div class="kb-row-content">
+                            <p><strong>Sistem</strong> Linux memiliki manajemen paket aplikasi yang berbeda sesuai dengan distribusi atau distronya. Aplikasi di dalamnya dapat ditambah atau dikurangi dengan beberapa cara. Manajemen aplikasi yang paling populer adalah Debian <em>Package</em> (dpkg) pada distro debian dan Red Hat <em>Package Management</em> (RPM) pada distribusi berbasis Red Hat.</p>
+                            <p>Ubuntu sebagai turunan dari Debian, maka dalam sistemnya pun mengadopsi milik Debian. Dalam pembelajaran ini akan dibahas manajemen aplikasi melalui <strong>dpkg</strong> dan <strong>apt</strong>.</p>
+    					</div>
+    				</div>
+                    
+                    <div class="kb-row" id="dpkg">
+    					<a href="#konsep" class="kb-row-handle">Manajemen Aplikasi dengan <tt>dpkg</tt></a>
+    					<div class="kb-row-content">
+                            <p><b><tt>dpkg</tt></b> merupakan suatu sistem untuk memanajemen paket Debian. <tt>dpkg</tt> juga digunakan pada distro varian debian lainnya, termasuk Ubuntu. <em>File</em> yang digunakan <tt>dpkg</tt> adalah yang berjenis <strong>.deb</strong></p>
+                            <p>Jika menggunakan <tt>dpkg</tt> kita tidak harus terkoneksi dengan internet. Asalkan tersedia <em>file</em> .deb pada komputer maka <em>file</em> tersbut bisa langsung diintsall pada komputer. Namun, jika ada paket lain yang dibutuhkan <em>(dependency)</em> kurang, maka kita harus mendownload atau mengisntall paket lain tersebut terlebih dahulu.</p>
+    					</div>
+    				</div>
+                    <div class="kb-row">
+    					<a href="#dpkg" class="kb-row-handle">Manajemen Aplikasi dengan <tt>apt</tt></a>
+    					<div class="kb-row-content">
+                            <p><b><tt>apt</tt></b> merupakan perintah yang dijalankan melalui terminal untuk mencari dan memanajemen paket aplikasi. Manajemen melalui <tt>apt</tt> terbilang lebih "canggih" daripada dpkg karena bisa menginstall paket aplikasi beserta <em>file-file</em> lain yang dibutuhkan langsung dari <em>server repository</em>. Akan tetapi, karena langsung dari <em>server repository</em> maka dibutuhkan koneksi internet untuk menjalankan apt ini.</p>
+                            <p>Perintah yang umum digunakan dalam <tt>apt</tt> yaitu <tt>apt-get</tt> dan <tt>apt-cache</tt>. <tt>apt-get</tt> digunakan untuk mendownload dan menginstall paket aplikasi, sedangkan <tt>apt-cache</tt> untuk mencari informasi tentang paket aplikasi.</p>
+    					</div>
+    				</div>
+    				</div><!-- kb-row-container-->
+    				<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('lembarKerja');" href="#lembarKerja">Lanjut ke Lembar Kerja &raquo;</a></p>
+				</div><!-- panel-body-->
+			</div>
+
+			<div class="panel panel-default artikel" id="lembarKerja" style="display:none;">
+				<div class="panel-body">
+                    <h3 class="page-header">Lembar Kerja</h3>
+                    <div class="kb-row-container">
+                        <div class="kb-row open" id="alatBahan">
+                            <a href="#lembarKerja" class="kb-row-handle">Alat dan Bahan</a>
+                            <div class="kb-row-content" style="display:block;">
+                                <ul>
+                                    <li>Komputer atau laptop dengan sistem operasi Ubuntu</li>
+                                    <li>Koneksi internet</li>
+                                    <li><em>File</em> <tt>ubuntu-tweak_0.8.6-1_all.deb</tt>, bisa Anda <em>download</em> di http://ubuntu-tweak.com/</li>
+                                </ul>
+					       </div>
+                        </div>
+                        
+                        <div class="kb-row" id="petunjuk">
+                            <a href="#alatBahan" class="kb-row-handle">Petunjuk</a>
+                            <div class="kb-row-content">
+                            <ul>
+                                <li>Awali setiap aktivitas dengan do'a, semoga mendapat kemudahan dan keberkahan.</li>
+                                <li>Baca dan pahami langkah-langkah yang ada dengan seksama.</li>
+                                <li>Pastikan komputer dalam keadaan baik dan benar.</li>
+                                <li>Jangan meletakkan benda yang dapat mengeluarkan medan elektromagnetik (<em>handphone</em>, magnet, dan sejenisnya) di dekat komputer.</li>
+                                <li>Gunakan komputer sesuai fungsinya dengan hati-hati.</li>
+                                <li>Kerjakan secara baik, benar, dan sabar.</li>
+                            </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="kb-row" id="latihan">
+                            <a href="#petunjuk" class="kb-row-handle">Latihan</a>
+                            <div class="kb-row-content">
+                            <ol style="margin-left:-20px;">
+                                <li>Hidupkan komputer Anda.</li>
+                                <li>Jalankan <strong>terminal</strong> dan <em>login</em> sebagai <strong><em>root</em></strong>.</li>
+                                <li>Kerjakan latihan-latihan berikut ini.</li>
+                            </ol>
+                            <hr>    
+                            <p><strong>LATIHAN 1. MANAJEMEN APLIKASI DENGAN dpkg</strong></p>
+                            <ol style="margin-left:-20px;">
+                                <li>Menginstall <em>file</em> *.deb dengan perintah:
+                                    <p><code>$ dpkg -i &lt;namaFile&gt;</code></p>
+                                    <p>Contoh akan menginstall aplikasi "Ubuntu Tweak" dimana sudah ada <em>file</em> <tt>ubuntu-tweak_0.8.6-1_all.deb</tt> yang disiapkan.</p>
+                                    <p><code>$ dpkg -i ubuntu-tweak_0.8.6-1_all.deb</code></p>
+                                </li>
+                                <li>Mengetahui apakah paket aplikasi terinstall atau tidak:
+                                    <p><code>$ dpkg -s &lt;namaPaket&gt;</code></p>
+                                    Contoh:
+                                    <p><code>$ dpkg -s gedit</code></p>
+                                    <p><code>$ dpkg -s audacious</code></p>
+                                    <p><code>$ dpkg -s firefox | more</code></p>
+                                </li>
+                                <li>Menghapus paket aplikasi dengan perintah:
+                                    <p><code>$ dpkg -r &lt;namaPaket&gt;</code></p>
+                                    <p>Contoh akan menghapus aplikasi "Ubuntu Tweak". Tidak perlu menulis nama <em>file</em> <tt>ubuntu-tweak_0.8.6-1_all.deb</tt> secara penuh, cukup nama aplikasinya saja.</p>
+                                    <p><code>$ dpkg -r ubuntu-tweak</code></p>
+                                </li>
+                            </ol>
+                            <br><hr><br>
+                            <p><strong>LATIHAN 2. MANAJEMEN APLIKASI DENGAN apt</strong></p>
+                            <ol style="margin-left:-20px;">
+                                <li>Pastikan komputer Anda terhubung dengan internet untuk mejalankan latihan ini.</li>
+                                <li>Lakukan <em>update</em> terlebih dahulu dengan perintah:
+                                    <p><code>$ apt-get update</code></p>
+                                    <p>Tunggu sampai proses <em>update</em> selesai.</p>
+                                </li>
+                                <li>Menginstall suatu paket aplikasi:
+                                    <p><code>$ apt-get install &lt;namaPaket&gt;</code></p>
+                                    Contoh akan menginstall <em>game</em> "snake4":
+                                    <p><code>$ apt-get install snake4</code></p>
+                                </li>
+                                <li>Mengetahui info suatu paket aplikasi:
+                                    <p><code>$ apt-cache show &lt;namaPaket&gt;</code></p>
+                                    Contoh:
+                                    <p><code>$ apt-cache show snake4</code></p>
+                                    <p><code>$ apt-cache show audacious | more</code></p>
+                                </li>
+                                <li>Memperbarui paket aplikasi ke versi yang lebih baru:
+                                    <p><code>$ apt-get update</code></p>
+                                    <p><code>$ apt-get upgrade</code></p>
+                                </li>
+                                <li>Menghapus paket aplikasi:
+                                    <p><code>$ apt-get remove &lt;namaPaket&gt;</code></p>
+                                    Contoh akan menghapus <em>game</em> "snake4":
+                                    <p><code>$ apt-get remove snake4</code></p>
+                                </li>
+                                <li>Menghapus paket aplikasi besera <em>file</em> konfigurasi:
+                                    <p><code>$ apt-get purge &lt;namaPaket&gt;</code></p>
+                                    <p>Contoh: <code>$ apt-get purge snake4</code></p>
+                                </li>
+                            </ol>
+                            <br>
+                            </div>          
+                        </div>
+                        
+                        <div class="kb-row">
+                            <a href="#latihan" class="kb-row-handle">Tugas</a>
+                            <div class="kb-row-content">
+                                <ol style="margin-left:-20px;">
+                                    <li>Cari informasi tentang aplikasi "geany" apakah sudah terinstall atau belum.</li>
+                                    <li>Jika belum, <em>install</em> aplikasi tersebut dengan <tt>apt</tt>.</li>
+                                    <li>Setelah selesai, coba jalankan aplikasi tersebut.</li>
+                                    <li>Hapus aplikasi tersebut beserta <em>file</em> konfigurasinya.</li>
+                                    <li>Cari informasi aplikasi tersebut apakah sudah terhapus atau belum.</li>
+                                    <li><p>Analisa hasil dari tugas yang Anda lakukan.</p></li>
+                                    <li><p>Jika sudah selesai, Anda bisa menuliskan atau menceritakan apa saja yang Anda peroleh pada pembelajaran kali ini. Kemudian publikasikan tulisan Anda tersebut pada blog, website, atau media sosial.</p></li>
+                                </ol>
+                            </div>
+                        </div>
+                        
+					</div>
+					<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('rangkuman');" href="#rangkuman">Lanjut ke Rangkuman &raquo;</a></p>
+    			</div>
+    		</div>
+    		
+    		
+    		<div class="panel panel-default artikel" id="rangkuman" style="display:none;">
+				<div class="panel-body">  
+					<h3 class="page-header">Rangkuman</h3>
+                    <p><strong>Sistem</strong> Linux memiliki manajemen paket aplikasi yang berbeda sesuai dengan distribusi atau distronya. Ubuntu sebagai turunan dari Debian, maka dalam sistemnya pun mengadopsi milik Debian yaitu manajemen aplikasi dpkg.</p>
+                    <p><strong><tt>dpkg</tt></strong> merupakan suatu sistem untuk memanajemen paket Debian. Perintah yang sering digunakan yaitu:</p>
+                    <ul>
+                        <li>Menginstall <em>file</em> *.deb: <code>$ dpkg -i &lt;namaFile&gt;</code></li>
+                        <li>Mengetahui apakah paket aplikasi terinstall atau tidak: <code>$ dpkg -i &lt;namaFile&gt;</code></li>
+                        <li>Menghapus paket aplikasi: <code>$ dpkg -r &lt;namaPaket&gt;</code></li>
+                    </ul>
+                    <p><strong><tt>apt</tt></strong> merupakan perintah yang dijalankan melalui terminal untuk mencari dan memanajemen paket aplikasi melalui <em>server repository</em>. Perintah yang sering digunakan yaitu:</p>
+                    <ul>
+                        <li><em>Update</em>:<code> $ apt-get update</code></li>
+                        <li>Menginstall paket aplikasi: <code>$ apt-get install &lt;namaPaket&gt;</code></li>
+                        <li>Mengetahui info paket aplikasi: <code>$ apt-cache show &lt;namaPaket&gt;</code></li>
+                        <li>Memperbarui aplikasi:<br />
+                        <code>$ apt-get upgrade</code><br />
+                        <code>$ apt-get upgrade</code></li>
+                        <li>Menghapus paket aplikasi: <code>$ apt-get remove &lt;namaPaket&gt;</code></li>
+                        <li>Menghapus paket aplikasi besera <em>file</em> konfigurasi: <code>$ apt-get purge &lt;namaPaket&gt;</code></li>
+                    </ul>
+                    
+                    <br><hr><br><p class="gambar-tengah"><a class="btn btn-primary btn-sm smoothScroll" href="evaluasi-5.html">Lanjut ke Evaluasi &raquo;</a></p>
+                    </div>
+    			</div>
+    		</div>
+			
+			</div><!-- col-md-offset-2 col-md-8 -->
+			<a href="#" class="back-to-top"><i class="fa fa-arrow-circle-o-up"></i> <br> ke atas</a>
+		</div><!-- row -->
+	</div><!-- kb02 --> 	
+  		
+	<div id="footerwrap">
+		<div class="container">
+			<p>by <a href="bantuan.html">diondr</a> <i class="fa fa-asterisk"></i> 2014</p>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/retina.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="assets/js/smoothscroll.js"></script>
+	<script type="text/javascript" src="assets/js/jquery-func.js"></script>
+  </body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MODIS | Modul Sistem Operasi</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    <link rel="shortcut icon" href="assets/img/favicon_modis-1_1.png">
+
+    <link href='assets/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/main.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/animate-custom.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-font.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-modis.css' rel='stylesheet' type='text/css'>
+    <link href="assets/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" media="screen">
+
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+	<script type="text/javascript" src="assets/js/jmodis.js"></script>
+    <script type="text/javascript" src="assets/fancybox/jquery.fancybox.pack.js"></script>
+    <script>
+    $(document).ready(function() {
+        //semua links dengam akhiran ekstensi gambar
+        var thumbnails = 'a[href$=".gif"],a[href$=".jpg"],a[href$=".jpeg"],a[href$=".png"],a[href$=".GIF"],a[href$=".JPG"],a[href$=".JPEG"],a[href$=".PNG"]';
+
+        //menambah class "fancybox" ke thumbnails dan dijadikan satu group "rel" untuk mengaktifkan tombol previous/next
+        jQuery(thumbnails).addClass("fancybox").attr("rel","lightbox");
+
+        //memanggil fancybox
+        jQuery('.fancybox').fancybox({
+            padding: 0,
+            //mendapatkan alt dari img untuk title fancybox
+            beforeShow : function() {
+                var alt = this.element.find('img').attr('alt');
+                this.inner.find('img').attr('alt', alt);
+                this.title = alt;
+            }
+        });
+    });
+    </script>
+</head>
+<body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+
+<div id="navbar-main">
+    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="menuIcon"><i class="fa fa-lg fa-list-ul"></i> Menu</span>
+            </button>
+            <span class="navbar-brand logoModis"><img class="noBayang" src="assets/img/logo_modis-1_1.png"></span>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html"><i class="fa fa-lg fa-home"></i>&nbsp; Home</a></li>
+                <li><a href="info.html"><i class="fa fa-lg fa-info-circle"></i>&nbsp; Info</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-lg fa-book"></i>&nbsp; Pembelajaran <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="bab1.html">&nbsp; BAB 1 &nbsp; Perkembangan</a></li>
+                        <li><a href="bab2.html">&nbsp; BAB 2 &nbsp; Struktur</a></li>
+                        <li><a href="bab3.html">&nbsp; BAB 3 &nbsp; Proses <em>Booting</em></a></li>
+                        <li><a href="bab4.html">&nbsp; BAB 4 &nbsp; Instalasi</a></li>
+                        <li><a href="bab5.html">&nbsp; BAB 5 &nbsp; Administrasi</a></li>
+                        <li><a href="bab6.html">&nbsp; BAB 6 &nbsp; Pencarian Kesalahan</a></li>
+                    </ul>
+                </li>
+                <li><a href="evaluasi.html"><i class="fa fa-lg fa-tasks"></i>&nbsp; Evaluasi</a></li>
+                <li><a href="bantuan.html"><i class="fa fa-lg fa-question-circle"></i>&nbsp; Bantuan</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</div>
+
+    <!--INFO AWAL-->
+	<div id="kbwrap" class="kbwrap05">
+		<div class="row">	
+			<img src="assets/img/batik1.png" class="img-responsive tengah"></a>
+			<h3 class="centered">#12 Peintah Dasar Sistem Operasi Linux</h3>
+			<hr>
+			<a onclick="toggle('tujuan');" href="#tujuan" class="smoothScroll">Tujuan</a> / 
+			<a onclick="toggle('uraianMateri');" href="#uraianMateri" class="smoothScroll">Uraian Materi</a> / 
+			<a onclick="toggle('lembarKerja');" href="#lembarKerja" class="smoothScroll">Lembar Kerja</a> / 
+			<a onclick="toggle('rangkuman');" href="#rangkuman" class="smoothScroll">Rangkuman</a>
+			</p>
+			<br>
+		</div>
+	</div>
+	
+	<div class="container" id="kb05" name="kb05">
+		<br>
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+			<div class="panel panel-default artikel" id="tujuan">
+				<div class="panel-body"> 
+					<h3 class="page-header">Tujuan</h3> 
+    				<p>Pada pembelajaran ini Anda diharapkan:</p>
+					<ul>
+                        <li>Dapat menjelaskan perintah-perintah dasar sistem operasi Linux.</li>
+                        <li>Mampu menjalankan perintah-perintah dasar sistem operasi Linux.</li>
+					</ul>
+                    <hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('uraianMateri');" href="#uraianMateri">Lanjut ke Materi &raquo;</a></p>
+				</div>
+			</div>
+			
+			<div class="panel panel-default artikel" id="uraianMateri" style="display:none;">
+				<div class="panel-body">
+					<h3 class="page-header">Uraian Materi</h3>
+                    <p>Pembelajaran mengenai perintah-perintah dasar sistem operasi Linux ini dimulai dengan pengenalan terminal, kemudian format perintah Linux. Setelah itu Anda bisa mencoba perintah-perintah dasar Linux pada bagian Latihan. Selamat belajar :)</p>
+				    
+                    <div class="kb-row-container">
+                    <div class="kb-row" id="pengenalanTerminal">
+    					<a href="#uraianMateri" class="kb-row-handle">Pengenalan Terminal</a>
+    					<div class="kb-row-content">
+							<p><strong>Setelah</strong> sistem operasi Ubuntu terinstal pada komputer, kita bisa langsung menggunakannya untuk berbagai keperluan. Sebagai pengenalan, kita perlu belajar tentang perintah dasar sistem operasi Linux. Perintah tersebut berupa baris kata-kata yang dioperasikan melalui <strong>terminal</strong>. Secara tampilan memang kurang begitu menarik, karena hanya berupa teks saja. Namun, perintah-perintah tersebut nantinya akan sangat berguna untuk pelajaran tentang teknik komputer dan jaringan pada tingkat selanjutnya.</p>
+                            <figure class="gambar-tengah img-responsive">
+		    					<a href="assets/img/kb12/terminal.jpg"><img src="assets/img/kb12/terminal.jpg" class="img-responsive tengah" alt="Terminal pada Linux" title="Terminal pada Linux"></a>
+		    					<figcaption>Gambar 12.1. &nbsp;&nbsp; Terminal pada Linux</figcaption>
+		    				</figure>
+                            <p>Cara membuka terminal, ketik saja &ldquo;terminal&rdquo; pada <em>Dash Home</em> Ubuntu Anda atau pada <em>keyboard </em>tekan<em> </em><kbd>Ctrl+Alt+T</kbd>. Tampilan awal terminal dapat dilihat pada gambar 12.1.</p>
+                            <p>Terlihat bahwa terdapat baris <code>diondr@diondr-1014:~$</code> yang berati:</p>
+                            <p><code>diondr</code> Nama user yang sedang aktif</p>
+                            <p><code>diondr-1014</code> Nama komputer</p>
+                            <p><code>~</code> direktori folder yang sedang aktif. Tanda ~ menunjukkan bahwa Anda sedang berada pada direktori /home</p>
+                            <p><code>$</code> Menandakan <em>user</em> yang aktif adalah user biasa. Tanda $ akan berubah menjadi # jika <em>user</em> yang aktif adalah <em>root.</em></p>
+    					</div>
+    				</div>
+    				
+    				<div class="kb-row">
+    					<a href="#pengenalanTerminal" class="kb-row-handle">Format Perintah Linux</a>
+    					<div class="kb-row-content">
+                            <p>Format standar parintah instruksi Linux adalah sebagai berikut:</p>
+                            <p><code>$ NamaInstruksi [pilihan] [argumen]</code></p>
+                            <p>Dari format di atas, <code>pilihan</code> merupakan <em>option</em> yang dimulai dengan tanda <code>&ndash;</code> (minus). Tanda [...] menunjukkan bahwa pilihan atau argumen bersifat opsional, jadi bisa kosong, satu, atau beberapa. Contoh:</p>
+                            <p><code>$ ls</code> tanpa pilihan &amp; argumen</p>
+                            <p><code>$ ls -a</code> <em>option</em> adalah -a = all, tanpa argumen</p>
+                            <p><code>$ ls /bin</code> tanpa <em>option</em>, argumen adalah bin</p>
+                            <p><code>$ ls /bin /usr</code> terdapat 2 argumen</p>
+                            <p><code>$ ls -l /usr</code> 1 <em>option </em>(-l) dan 1 argumen (/usr)</p>
+                            <p><code>$ ls -la /etc</code> 2 <em>option </em>(-l dan -a) dan 1 argumen (/etc)</p>
+                            <hr><p>Untuk membatalkan perintah yang Anda instruksikan kepada sistem, pada <em>keyborard</em> Anda bisa mengetikkan <kbd>Ctrl+c</kbd> atau <kbd>Ctrl+z</kbd>. Dengan begitu perintah yang sedang diproses oleh sistem akan terhenti.</p>
+                            <p>Pada saat menuliskan perintah pada terminal juga perlu diperhatikan beberapa hal, yaitu:</p>
+                            <ul>
+                                <li>
+                                <p><strong>Case Sensitive</strong> (penggunaan huruf besar dan huruf kecil). Dalam menuliskan perintah harus diperhatikan apakah perintah tersebut menggunakan huruf besar atau kecil. Karena huruf besar dan kecil diartikan berbeda. Jika ada kekeliruan maka akan terjadi <em>error</em> atau perintah tidak akan dijalankan.</p>
+                                </li>
+                                <li>
+                                <p><strong>Penggunaan tanda baca dan spasi </strong>. Anda harus meneliti penggunaan titik (.), koma (,), <em>slash</em> (/) atau <em>backslash</em> (\). Begitu juga dengan spasi. Karena jika terjadi kesalahan dalam penggunaan tanda baca dan spasi, perintah juga tidak dapat dijalankan.</p>
+                                </li>
+                                <li>
+                                <p><strong>Ejaan kata</strong> dari perintah yang digunakan. Anda harus memastikan perintah sudah benar ejaan katanya.</p>
+                                </li>
+                            </ul>
+    					</div>
+    				</div>
+    				</div><!-- kb-row-container-->
+    				<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('lembarKerja');" href="#lembarKerja">Lanjut ke Lembar Kerja &raquo;</a></p>
+				</div><!-- panel-body-->
+			</div>
+
+			<div class="panel panel-default artikel" id="lembarKerja" style="display:none;">
+				<div class="panel-body">
+                    <h3 class="page-header">Lembar Kerja</h3>
+                    <div class="kb-row-container">
+                        <div class="kb-row open" id="alatBahan">
+                            <a href="#lembarKerja" class="kb-row-handle">Alat dan Bahan</a>
+                            <div class="kb-row-content" style="display:block;">
+                                <ul>
+                                    <li>Komputer atau laptop dengan sistem operasi Ubuntu</li>
+                                </ul>
+					       </div>
+                        </div>
+                        
+                        <div class="kb-row" id="petunjuk">
+                            <a href="#alatBahan" class="kb-row-handle">Petunjuk</a>
+                            <div class="kb-row-content">
+                            <ul>
+                                <li>Awali setiap aktivitas dengan do'a, semoga mendapat kemudahan dan keberkahan.</li>
+                                <li>Baca dan pahami langkah-langkah yang ada dengan seksama.</li>
+                                <li>Pastikan komputer dalam keadaan baik dan benar.</li>
+                                <li>Jangan meletakkan benda yang dapat mengeluarkan medan elektromagnetik (<em>handphone</em>, magnet, dan sejenisnya) di dekat komputer.</li>
+                                <li>Gunakan komputer sesuai fungsinya dengan hati-hati.</li>
+                                <li>Kerjakan secara baik, benar, dan sabar.</li>
+                            </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="kb-row" id="latihan">
+                            <a href="#petunjuk" class="kb-row-handle">Latihan</a>
+                            <div class="kb-row-content">
+                            <ol style="margin-left:-20px;">
+                                <li>Hidupkan komputer dan <em>login </em>ke Ubuntu.</li>
+                                <li>Jalankan <strong>terminal</strong>.</li>
+                                <li>Kerjakan latihan-latihan berikut ini.</li>
+                                <br>
+                                <li><p>Melihat identitas diri (nomor id dan group id)
+                                    <br><code>$ id</code></p>
+                                </li>
+                                <li><p>Melihat tanggal saat ini
+                                    <br><code>$ date</code></p>
+                                </li>
+                                <li><p>Melihat kalender
+                                    <br><code>$ cal 5 2014</code></p>
+                                    <p><code>$ cal -y</code></p>
+                                </li>
+                                <li><p>Melihat identitas komputer
+                                    <br><code>$ hostname </code></p>
+                                    <p><code>$ uname </code></p>
+                                    <p><code>$ uname -a</code></p>
+                                </li>
+                                <li><p>Melihat informasi penggunaan <em>disk</em>
+                                    <br><code>$ df</code></p>
+                                    <p><code>$ df -h</code></p>
+                                </li>
+                                <li><p>Mengetahui <em>user</em> siapa saja yang sedang aktif
+                                    <br><code>$ w </code></p>
+                                    <p><code>$ who </code></p>
+                                    <p><code>$ whoami</code></p>
+                                </li>
+                                <li><p>Menggunakan manual (petunjuk)
+                                    <br><code>$ man ls</code></p>
+                                    <p><code>$ man man</code></p>
+                                </li>
+                                <li><p>Mencari perintah yang <strong>deskripsinya mengandung</strong> kata kunci yang dicari
+                                    <br><code>$ apropos date</code></p>
+                                    <p><code>$ apropos mail</code></p>
+                                    <p><code>$ apropos telnet</code></p>
+                                </li>
+                                <li><p>Mencari perintah yang tepat <strong>sama persis</strong> kata kunci yang dicari
+                                    <br><code>$ whatis date</code></p>
+                                    <p><code>$ whatis sudo</code></p>
+                                </li>
+                                <li><p>Menghapus layar
+                                    <br><code>$ clear</code></p>
+                                </li>
+                                <li><p>Menampilkan direktori yang sedang aktif
+                                    <br><code>$ pwd</code></p>
+                                </li>
+                                <li><p>Manipulasi berkas <em>(file)</em> dan direktori <em>(folder)</em></p>
+                                <ul style="margin-left:-20px;">
+                                    <li>Menampilkan isi suatu direktori
+                                        <p><code>ls</code></p>
+                                    </li>
+                                    <li>Menampilkan isi direktori beserta informasi lengkap
+                                        <p><code>ls -l</code></p>
+                                    </li>
+                                    <li>Menampilkan semua <em>file</em> atau direktori termasuk yang tersembunyi
+                                        <p><code>ls -a</code></p>
+                                    </li>
+                                    <li>Menampilkan isi direktori <em>root</em>
+                                        <p><code>ls /</code></p>
+                                    </li>
+                                    <li>Menampilkan isi suatu direktori
+                                        <p><code>ls /usr</code></p>
+                                    </li>
+                                </ul>
+                                </li>
+                                <li><p>Membuat <em>file</em> baru
+                                    <br><code>$ touch ini_file_baru</code></p>
+                                </li>
+                                <li><p>Mengkopi suatu file
+                                    <br><code>$ cp ini_file_baru ini_file_baru2</code></p>
+                                    <p>Berikan opsi &ndash;i pada cp untuk pertanyaan interaktif (ketikkan huruf Y untuk melanjutkan mengkopi)<br/>
+                                    <code>$ cp -i ini_file_baru ini_file_baru3</code></p>
+                                    <p><code>$ cp -i ini_file_baru ini_file_baru3</code></p>
+                                    <p>Lihat hasilnya dengan perintah
+                                    <br><code>$ ls</code></p>
+                                </li>
+                                <li><p>Membuat direktori (folder) baru
+                                    <br><code>$ mkdir folder_baru</code></p>
+                                </li>
+                                <li><p>Mengkopi ke dalam direktori
+                                    <br><code>$ cp ini_file_baru folder_baru</code></p>
+                                    <p><code>$ cp ini_file_baru2 ini_file_baru3 folder_baru</code></p>
+                                </li>
+                                <li><p>Masuk ke dalam direktori
+                                    <br><code>$ cd folder_baru</code></p>
+                                    <p>Lihat hasilnya
+                                    <br><code>$ ls</code></p>
+                                </li>
+                                <li><p>Mengubah nama file
+                                    <br><code>$ mv ini_file_baru ini_file_baru4</code></p>
+                                    <p><code>$ ls</code></p>
+                                </li>
+                                <li><p>Memindahkan file ke direktori lain. Bila argumen terakhir adalah nama direktori, maka berkas-berkas akan dipindahkan ke direktori tersebut.
+                                    <br><code>$ mkdir folder2</code></p>
+                                    <p><code>$ mv ini_file_baru3 ini_file_baru4 folder2</code></p>
+                                </li>
+                                <li><p>Menghapus file
+                                    <br><code>$ rm ini_file_baru</code></p>
+                                    <p><code>$ rm -i ini_file_baru_2</code></p>
+                                    <p><code>$ ls</code></p>
+                                </li>
+                            </ol>
+                            </div>
+                        </div>
+                        
+                        <div class="kb-row">
+                            <a href="#latihan" class="kb-row-handle">Tugas</a>
+                            <div class="kb-row-content">
+                                <ol style="margin-left:-20px;">
+                                <li><p>Buatlah sebuah rangkuman dari latihan yang telah Anda lakukan sebelumnya dalam bentuk tabel seperti di bawah ini.</p></li>
+                                <table class="table table-hover table-bordered">
+                                    <tr class="success">
+                                        <th>Perintah</th>
+                                        <th>Kegunaan</th>
+                                        <th>Format</th>
+                                    </tr>
+                                    <tr>
+                                        <td><tt>id</tt></td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><tt>date</tt></td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><tt>cal</tt></td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><tt>hostname</tt></td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><em>--dan setersunya--</em></td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </table>
+                                <li><p>Jika sudah selesai, Anda bisa menuliskan atau menceritakan apa saja yang Anda peroleh pada pembelajaran kali ini. Kemudian publikasikan tulisan Anda tersebut pada blog, website, atau media sosial.</p></li>
+                                </ol>
+                            </div>
+                        </div>
+                        
+					</div>
+					<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('rangkuman');" href="#rangkuman">Lanjut ke Rangkuman &raquo;</a></p>
+    			</div>
+    		</div>
+    		
+    		
+    		<div class="panel panel-default artikel" id="rangkuman" style="display:none;">
+				<div class="panel-body">  
+					<h3 class="page-header">Rangkuman</h3>
+					<p>Perintah-perintah dasar sistem operasi Linux dapat dioperasika melalui terminal pada Linux. Adapaun cara membuka terminal yaitu ketik &ldquo;terminal&rdquo; pada <em>Dash Home</em> Ubuntu Anda atau pada <em>keyboard </em>tekan<em> </em><kbd>Ctrl+Alt+T</kbd>.</p>
+                    <p>Format standar instruksi Linux adalah:</p>
+                    <p><code>$ NamaInstruksi [pilihan] [argumen]</code></p>
+                    <p>Dari format tersebut, <code>pilihan</code> merupakan <em>option</em> yang dimulai dengan tanda <code>&ndash;</code> (minus). Tanda [...] menunjukkan bahwa pilihan atau argumen bersifat opsional, jadi bisa kosong, satu, atau beberapa.</p>
+                    <p>Perintah-perintah dasar pada Linux dapat digunakan melihat identitas, tanggal, <em>user</em>, menggunakan petunjuk, mencari psampai memanipulasi berkas &amp; file,</p>
+
+                    <br><hr><br><p class="gambar-tengah"><a class="btn btn-success btn-sm smoothScroll" href="kb13.html">Lanjut ke Pembelajaran 13 &raquo;</a></p>
+                    </div>
+    			</div>
+    		</div>
+			
+			</div><!-- col-md-offset-2 col-md-8 -->
+			<a href="#" class="back-to-top"><i class="fa fa-arrow-circle-o-up"></i> <br> ke atas</a>
+		</div><!-- row -->
+	</div><!-- kb02 --> 	
+  		
+	<div id="footerwrap">
+		<div class="container">
+			<p>by <a href="bantuan.html">diondr</a> <i class="fa fa-asterisk"></i> 2014</p>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/retina.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="assets/js/smoothscroll.js"></script>
+	<script type="text/javascript" src="assets/js/jquery-func.js"></script>
+  </body>
+</html>

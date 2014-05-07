@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MODIS | Modul Sistem Operasi</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    <link rel="shortcut icon" href="assets/img/favicon_modis-1_1.png">
+
+    <link href='assets/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/main.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/animate-custom.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-font.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-modis.css' rel='stylesheet' type='text/css'>
+    <link href="assets/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" media="screen">
+</head>
+<body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+
+<div id="navbar-main">
+    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="menuIcon"><i class="fa fa-lg fa-list-ul"></i> Menu</span>
+            </button>
+            <span class="navbar-brand logoModis"><img class="noBayang" src="assets/img/logo_modis-1_1.png"></span>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html"><i class="fa fa-lg fa-home"></i>&nbsp; Home</a></li>
+                <li><a href="info.html"><i class="fa fa-lg fa-info-circle"></i>&nbsp; Info</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-lg fa-book"></i>&nbsp; Pembelajaran <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="bab1.html">&nbsp; BAB 1 &nbsp; Perkembangan</a></li>
+                        <li><a href="bab2.html">&nbsp; BAB 2 &nbsp; Struktur</a></li>
+                        <li><a href="bab3.html">&nbsp; BAB 3 &nbsp; Proses <em>Booting</em></a></li>
+                        <li><a href="bab4.html">&nbsp; BAB 4 &nbsp; Instalasi</a></li>
+                        <li><a href="bab5.html">&nbsp; BAB 5 &nbsp; Administrasi</a></li>
+                        <li><a href="bab6.html">&nbsp; BAB 6 &nbsp; Pencarian Kesalahan</a></li>
+                    </ul>
+                </li>
+                <li><a href="evaluasi.html"><i class="fa fa-lg fa-tasks"></i>&nbsp; Evaluasi</a></li>
+                <li><a href="bantuan.html"><i class="fa fa-lg fa-question-circle"></i>&nbsp; Bantuan</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</div>
+
+    <!--INFO AWAL-->
+	<div id="kbwrap" class="kbwrap02">
+		<div class="row">	
+			<img src="assets/img/batik1.png" class="img-responsive tengah"></a>
+			<h3 class="centered">#3 Penjadwalan <em>Processor</em></h3>
+			<hr>
+			<a onclick="toggle('tujuan');" href="#tujuan" class="smoothScroll">Tujuan</a> / 
+			<a onclick="toggle('uraianMateri');" href="#uraianMateri" class="smoothScroll">Uraian Materi</a> / 
+			<a onclick="toggle('lembarKerja');" href="#lembarKerja" class="smoothScroll">Lembar Kerja</a> / 
+			<a onclick="toggle('rangkuman');" href="#rangkuman" class="smoothScroll">Rangkuman</a>
+			</p>
+			<br>
+		</div>
+	</div>
+	
+	<div class="container" id="kb02" name="kb02">
+		<br>
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+			<div class="panel panel-default artikel" id="tujuan">
+				<div class="panel-body"> 
+					<h3 class="page-header">Tujuan</h3> 
+    				<p>Pada pembelajaran ini Anda diharapkan:</p>
+					<ul>
+                        <li>Dapat menjelaskan penjadwalan <em>processor</em> pada Linux.</li>
+                        <li>Mampu menyajikan penjadwalan <em>processor</em> pada Linux.</li>
+					</ul>
+                    <hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('uraianMateri');" href="#uraianMateri">Lanjut ke Materi &raquo;</a></p>
+				</div>
+			</div>
+			
+			<div class="panel panel-default artikel" id="uraianMateri" style="display:none;">
+				<div class="panel-body">
+					<h3 class="page-header">Uraian Materi</h3>
+                    <p>Pada pembelajaran ke-3 ini Anda akan mempelajari mengenai penjadwalan <em>processor</em>. Pembahasan dimulai dari penjadwalan <em>processor</em> secara umum, kemudian siklus <em>brust</em>, penjadwalan <em>preemptive,</em> penjadwalan <em>non preemptive</em>, sampai algoritma penjadwalan. Selamat belajar :)</p>
+				    
+                    <div class="kb-row-container">
+                    <div class="kb-row" id="penjadwalanProcessor">
+    					<a href="#uraianMateri" class="kb-row-handle">Penjadwalan <em>Processor</em></a>
+    					<div class="kb-row-content">
+    						<figure class="gambar-kiri img-responsive">
+    				            <a href="assets/img/kb03/Processor--by-sa_Andrew%20Dunn-1.jpg"><img src="assets/img/kb03/Processor--by-sa_Andrew%20Dunn-1.jpg" width="200px" class="img-responsive tengah" alt="Processor" title="Processor"></a><br>
+                                <figcaption>Gambar 3.1. &nbsp;&nbsp;<em>Processor</em></figcaption>
+    				        </figure>
+                            <p><strong><em>Processor</em></strong> atau CPU pada komputer merupakan tempat dimana proses-proses dari program dijalankan. Agar penggunaan CPU dapat berjalan dengan maksimal perlu adanya pengaturan waktu untuk menjalankan program. Pengaturan itu adalah tugas sistem operasi agar proses berjalan sepanjang waktu dan memperkecil waktu <em>idle </em>(menunggu). Oleh karena itu perlu adanya penjadwalan proses-proses yang ada pada sistem.</p>
+                            <p>Penjadwalan <em>processor</em> adalah suatu proses pengaturan atau penjadwalan proses-proses yang ada di dalam komputer. Dimana proses-proses tersebut berjalan dalam pola yang disebut Siklus <em>Burst</em> yang akan dijelaskan pada kegiatan belajar ini. Penjadwalan <em>processor</em> secara garis besar dibagi menjadi 2, yaitu penjadwalan <em>preemptive </em>dan penjadwalan <em>non preemptive</em>.</p>
+    					</div>
+    				</div>
+                                                
+                    <div class="kb-row" id="siklusBrust">
+    					<a href="#penjadwalanProcessor" class="kb-row-handle">Siklus <em>Burst</em> CPU – I/O</a>
+    					<div class="kb-row-content">  
+                            <p><strong>Keberhasilan</strong> dari penjadwalan <em>processor</em> tergantung dari beberapa bagian <em>processor</em>. Pengeksekusian dari proses tersebut terdiri atas siklus &ldquo;CPU ekskusi&rdquo; dan &ldquo;I/O <em>Wait</em>&rdquo;. Proses hanya akan bolak-balik dari dua state ini, inilah yang disebut Siklus <em>Burst</em> CPU-I/O. Pengeksekusian proses dimulai dengan <em>Burst</em> CPU, setelah itu diikuti oleh <em>Burst </em>I/O, kemudian <em>Burst</em> CPU lagi lalu <em>Burst</em> I/O lagi, dan seterusnya dilakukan secara bergiliran. <em>Burst </em>CPU terakhir akan berakhir dengan permintaan sistem untuk mengakhiri pengeksekusian melalui <em>Burst</em> I/O lagi. Kejadian siklus Burst akan dijelaskan pada gambar berikut.</p>
+                            <figure class="gambar-tengah img-responsive">
+    							<a href="assets/img/kb03/burts-1.jpg"><img src="assets/img/kb03/burts-1.jpg" width="400px" class="img-responsive tengah" alt="Siklus Burst" title="Siklus Burst"></a>
+                                <figcaption>Gambar 3.2. &nbsp;&nbsp; Siklus <em>Burst</em></figcaption>
+    						</figure>
+                            <p>Dari gambar di atas dapat kita lihat bahwa <em>Burst</em> CPU <em>time</em> yang lama jarang terjadi karena kebanyakan proses akan melakukan antara <em>output</em> ke layar atau <em>file</em>, maupun meminta input dari user atau <em>file</em> sehingga situasi dimana proses bekerja dengan memory dan register dalam jangka waktu lama tidak terlalu banyak ditemukan.</p>
+    					</div>
+    				</div>
+    				
+    				<div class="kb-row" id="preemptive">
+    					<a href="#siklusBrust" class="kb-row-handle">Penjadwalan <em>Preemptive</em></a>
+    					<div class="kb-row-content">
+                            <p><strong>Penjadwalan</strong> <em>processor</em> mungkin akan dijalankan ketika proses dalam keadaan:</p>
+                            <ol>
+                                <li>Berubah dari <em>running state </em>ke <em>waiting state</em>.</li>
+                                <li>Berubah dari <em>running state</em> ke <em>ready state</em>.</li>
+                                <li>Berubah dari <em>waiting state</em> ke <em>ready state</em>.</li>
+                                <li>Dihentikan.</li>
+                            </ol>
+                            <p>Penjadwalan <em>preemptive </em>adalah kemampuan sistem operasi untuk <strong>memberhentikan sementara </strong>proses yang sedang berjalan untuk memberi ruang kepada proses yang prioritasnya lebih tinggi. Penjadwalan ini bisa saja termasuk penjadwalan proses atau I/O. Penjadwalan <em>preemptive </em>memungkinkan sistem untuk lebih bisa menjamin bahwa setiap proses mendapat sebuah waktu khusus untuk beroperasi. Dan juga membuat sistem lebih cepat merespon terhadap <em>event</em> dari luar (contohnya seperti ada data yang masuk) yang membutuhkan reaksi cepat dari satu atau beberapa proses. Membuat penjadwalan yang Preemptive mempunyai keuntungan yaitu sistem lebih responsif daripada sistem yang memakai penjadwalan <em>non preemptive</em>.</p>
+                            <p>Penjadwalan nomor (2) dan (3) bersifat <em>preemptive</em> sedangkan (1) dan (4) bersifat <em>non preemptive</em>. Pada Linux penjadwalan yang digunakan bersifat <em>preemptive. </em>Bahkan beberapa penjadwalan sistem operasi pada Linux tersebut, memiliki kemampuan <em>preemptive</em> terhadap <em>system call</em>-nya <em>(preemptible kernel)</em>.</p>
+    					</div>
+    				</div>
+    			    				
+                    <div class="kb-row" id="nonPreemptive">
+    				<a href="#preemptive" class="kb-row-handle">Penjadwalan <em>Non Preemptive</em></a>
+    					<div class="kb-row-content">
+                            <p><strong>Penjadwalan</strong> <em>non preemptive</em> merupakan salah satu jenis penjadwalan dimana sistem operasi tidak pernah melakukan pergantian dari proses yang sedang berjalan ke proses yang lain. Dengan kata lain, proses yang sedang berjalan tidak bisa diganggu keberadaannya.</p>
+                            <p>Penjadwalan <em>non preemptive</em> terjadi ketika proses hanya:</p>
+                            <ol>
+                                <li>Berubah dari <em>running state</em> ke <em>waiting state</em>.</li>
+                                <li>Dihentikan.</li>
+                            </ol>
+                            <p>Hal tersebut berarti CPU menjaga proses sampai proses itu pindah ke <em>waiting state</em> ataupun dihentikan (proses tidak diganggu). Tentu saja Linux tidak menggunakan metode penjadwalan ini.</p>
+						</div>
+    				</div>
+                    
+                    <div class="kb-row">
+    				<a href="#nonPreemptive" class="kb-row-handle">Algoritma Penjadwalan <em>Processor</em></a>
+    					<div class="kb-row-content">
+                            <p><strong>Penjadwalan</strong> berkaitan dengan permasalahan memutuskan proses mana yang akan dilaksanakan dalam suatu sistem. Proses yang belum mendapat jatah alokasi dari CPU akan mengantri di <em>ready queue</em>. Algoritma diperlukan untuk mengatur giliran proses-proses yang ada di <em>ready queue</em> yang mengantri untuk dialokasikan ke CPU. Terdapat berbagai macam algoritma, antara lain yaitu:</p>
+                            <ol>
+                                <li>
+                                <p><em><strong>First Come First Serve.</strong></em>
+                                <br>Algoritma ini mendahulukan proses yang lebih dulu datang. Kelemahannya, <em>waiting time</em> rata-rata cukup lama.</p>
+                                </li>
+                                <li>
+                                <p><em><strong>Shortest Job First.</strong></em>
+                                <br>Algoritma ini mendahulukan proses dengan CPU <em>burst</em> terkecil sehingga akan mengurangi <em>waiting time</em> rata-rata.</p>
+                                </li>
+                                <li>
+                                <p><em><strong>Priority Scheduling.</strong></em>
+                                <br><em>Priority Scheduling</em> mendahulukan prioritas terbesar. Kelemahannya, prioritas kecil tidak mendapat jatah CPU Hal ini dapat diatasi dengan <em>aging </em>yaitu semakin lama lama menunggu, prioritas semakin tinggi.</p>
+                                </li>
+                                <li>
+                                <p><em><strong>Round Robin.</strong></em>
+                                <br>Algoritma ini menggilir proses-proses yang ada diantrian dengan jatah <em>time </em> <em>quantum</em> yang sama. Jika waktu habis, CPU dialokasikan ke proses selanjutnya.</p>
+                                </li>
+                                <li>
+                                <p><em><strong>Multilevel Queue.</strong></em>
+                                <br><em>Multilevel Queue</em> bersifat membagi beberapa antrian yang akan diberi prioritas berdasarkan tingkatan. Tingkatan lebih tinggi menjadi prioritas utama.</p>
+                                </li>
+                                <li>
+                                <p><em><strong>Multilevel Feedback Queue.</strong></em>
+                                <br>Pada dasarnya sama dengan <em>Multilevel Queue,</em> yang membedakannya adalah pada algoritma ini diizinkan untuk pindah antrian.</p>
+                                </li>
+                            </ol>
+                            <p>Keenam algoritma penjadwalan memiliki karakteristik beserta keunggulan dan kelemahannya masing-masing. Akan tetapi, <em>Multilevel Feedback Queue Scheduling</em> sebagai algoritma yang paling kompleks, adalah algoritma yang paling banyak digunakan saat ini.</p>
+						</div>
+    				</div>
+    				</div><!-- kb-row-container-->
+    				<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('lembarKerja');" href="#lembarKerja">Lanjut ke Lembar Kerja &raquo;</a></p>
+				</div><!-- panel-body-->
+			</div>
+
+			<div class="panel panel-default artikel" id="lembarKerja" style="display:none;">
+				<div class="panel-body">
+                    <h3 class="page-header">Lembar Kerja</h3>
+                    <div class="kb-row-container">
+                        <div class="kb-row open" id="alatBahan">
+                            <a href="#lembarKerja" class="kb-row-handle">Alat dan Bahan</a>
+                            <div class="kb-row-content" style="display:block;">
+                                <ul>
+                                    <li>Komputer atau laptop</li>
+                                    <li>Buku, artikel, atau sumber lain tentang Linux</li>
+                                </ul>
+					       </div>
+                        </div>
+                        
+                        <div class="kb-row" id="petunjuk">
+                            <a href="#alatBahan" class="kb-row-handle">Petunjuk</a>
+                            <div class="kb-row-content">
+                            <ul>
+                                <li>Awali setiap aktivitas dengan do'a, semoga mendapat kemudahan dan keberkahan.</li>
+                                <li>Baca dan pahami langkah-langkah yang ada dengan seksama.</li>
+                                <li>Pastikan komputer dalam keadaan baik dan benar.</li>
+                                <li>Jangan meletakkan benda yang dapat mengeluarkan medan elektromagnetik (<em>handphone</em>, magnet, dan sejenisnya) di dekat komputer.</li>
+                                <li>Gunakan komputer sesuai fungsinya dengan hati-hati.</li>
+                                <li>Kerjakan secara baik, benar, dan sabar.</li>
+                            </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="kb-row">
+                            <a href="#petunjuk" class="kb-row-handle">Tugas</a>
+                            <div class="kb-row-content">
+                                <ol>
+                                    <li><p>Pastikan alat dan bahan sudah siap.</p></li>
+                                    <li><p>Buatlah sebuah tulisan atau artikel tentang penjadwalan <em>processor</em>. Bagan dimulai dari penjadwalan <em>processor</em> secara umum, kemudian siklus <em>brust</em>, penjadwalan <em>preemptive,</em> penjadwalan <em>non preemptive</em>, sampai algoritma penjadwalan. Buat semenarik mungkin agar dapat mudah dimengerti baik Anda sendiri maupun orang lain.</p></li>
+                                    <li><p>Anda bisa menggunakan bantuan komputer atau laptop untuk memperoleh infromasi tambahan.</p></li>
+                                    <li><p>Kemudian publikasikan tulisan Anda tersebut pada blog, website, atau media sosial.</p></li>
+                                    <li><p>Jika sudah selesai, jangan lupa matikan komputer/laptop dengan benar.</p></li>
+                                </ol>				
+                            </div>
+                        </div>
+                        
+					</div>
+					<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('rangkuman');" href="#rangkuman">Lanjut ke Rangkuman &raquo;</a></p>
+    			</div>
+    		</div>
+    		
+    		
+    		<div class="panel panel-default artikel" id="rangkuman" style="display:none;">
+				<div class="panel-body">  
+					<h3 class="page-header">Rangkuman</h3>
+					<p><strong>Penjadwalan</strong> <em>processor</em> atau CPU adalah pemilihan proses dari antrian <em>ready</em> untuk dapat dieksekusi. Penjadwalan <em>processor </em>merupakan konsep dari <em>multiprogramming</em>, dimana CPU digunakan secara bergantian untuk proses yang berbeda. Suatu proses terdiri dari dua siklus yaitu <em>Burst</em> I/O dan <em>Burst</em> CPU yang dilakukan bergantian hingga proses selesai. Penjadwalan <em>processor</em> mungkin dijalankan ketika proses:</p>
+                    <ol>
+                        <li>Berubah dari <em>running state </em>ke <em>waiting state</em>.</li>
+                        <li>Berubah dari <em>running state</em> ke <em>ready state</em>.</li>
+                        <li>Berubah dari <em>waiting state</em> ke <em>ready state</em>.</li>
+                        <li>Dihentikan.</li>
+                    </ol>
+                    <p>Proses 2 dan 3 adalah proses pada Penjadwalan <em>Preemptive</em>, dimana proses tersebut boleh di-<em>interrupt</em>, sedangkan 1 dan 4 adalah proses pada Penjadwalan <em>Non Preemptive</em>, dimana proses tidak bisa di-<em>interrupt</em>. Penjadwalan yang digunakan pada Linux yaitu penjadwalan yang bersifat <em>preemptive.</em></p>
+                    <br><hr><br><p class="gambar-tengah"><a class="btn btn-success btn-sm smoothScroll" href="kb04.html">Lanjut ke Pembelajaran 4 &raquo;</a></p>
+                    </div>
+    			</div>
+    		</div>
+			
+			</div><!-- col-md-offset-2 col-md-8 -->
+			<a href="#" class="back-to-top"><i class="fa fa-arrow-circle-o-up"></i> <br> ke atas</a>
+		</div><!-- row -->
+	</div><!-- kb02 --> 	
+  		
+	<div id="footerwrap">
+		<div class="container">
+			<p>by <a href="bantuan.html">diondr</a> <i class="fa fa-asterisk"></i> 2014</p>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery-func.js"></script>
+	<script type="text/javascript" src="assets/js/retina.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="assets/js/smoothscroll.js"></script>
+	<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+	<script type="text/javascript" src="assets/js/jmodis.js"></script>
+    <script type="text/javascript" src="assets/fancybox/jquery.fancybox.pack.js"></script>
+    <script>
+    $(document).ready(function() {
+        //semua links dengam akhiran ekstensi gambar
+        var thumbnails = 'a[href$=".gif"],a[href$=".jpg"],a[href$=".jpeg"],a[href$=".png"],a[href$=".GIF"],a[href$=".JPG"],a[href$=".JPEG"],a[href$=".PNG"]';
+
+        //menambah class "fancybox" ke thumbnails dan dijadikan satu group "rel" untuk mengaktifkan tombol previous/next
+        jQuery(thumbnails).addClass("fancybox").attr("rel","lightbox");
+
+        //memanggil fancybox
+        jQuery('.fancybox').fancybox({
+            padding: 0,
+            //mendapatkan alt dari img untuk title fancybox
+            beforeShow : function() {
+                var alt = this.element.find('img').attr('alt');
+                this.inner.find('img').attr('alt', alt);
+                this.title = alt;
+            }
+        });
+    });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MODIS | Modul Sistem Operasi</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    <link rel="shortcut icon" href="assets/img/favicon_modis-1_1.png">
+
+    <link href='assets/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/main.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/animate-custom.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-font.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-modis.css' rel='stylesheet' type='text/css'>
+    <link href="assets/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" media="screen">
+
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+	<script type="text/javascript" src="assets/js/jmodis.js"></script>
+    <script type="text/javascript" src="assets/fancybox/jquery.fancybox.pack.js"></script>
+    <script>
+    $(document).ready(function() {
+        //semua links dengam akhiran ekstensi gambar
+        var thumbnails = 'a[href$=".gif"],a[href$=".jpg"],a[href$=".jpeg"],a[href$=".png"],a[href$=".GIF"],a[href$=".JPG"],a[href$=".JPEG"],a[href$=".PNG"]';
+
+        //menambah class "fancybox" ke thumbnails dan dijadikan satu group "rel" untuk mengaktifkan tombol previous/next
+        jQuery(thumbnails).addClass("fancybox").attr("rel","lightbox");
+
+        //memanggil fancybox
+        jQuery('.fancybox').fancybox({
+            padding: 0,
+            //mendapatkan alt dari img untuk title fancybox
+            beforeShow : function() {
+                var alt = this.element.find('img').attr('alt');
+                this.inner.find('img').attr('alt', alt);
+                this.title = alt;
+            }
+        });
+    });
+    </script>
+</head>
+<body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+
+<div id="navbar-main">
+    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="menuIcon"><i class="fa fa-lg fa-list-ul"></i> Menu</span>
+            </button>
+            <span class="navbar-brand logoModis"><img class="noBayang" src="assets/img/logo_modis-1_1.png"></span>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html"><i class="fa fa-lg fa-home"></i>&nbsp; Home</a></li>
+                <li><a href="info.html"><i class="fa fa-lg fa-info-circle"></i>&nbsp; Info</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-lg fa-book"></i>&nbsp; Pembelajaran <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="bab1.html">&nbsp; BAB 1 &nbsp; Perkembangan</a></li>
+                        <li><a href="bab2.html">&nbsp; BAB 2 &nbsp; Struktur</a></li>
+                        <li><a href="bab3.html">&nbsp; BAB 3 &nbsp; Proses <em>Booting</em></a></li>
+                        <li><a href="bab4.html">&nbsp; BAB 4 &nbsp; Instalasi</a></li>
+                        <li><a href="bab5.html">&nbsp; BAB 5 &nbsp; Administrasi</a></li>
+                        <li><a href="bab6.html">&nbsp; BAB 6 &nbsp; Pencarian Kesalahan</a></li>
+                    </ul>
+                </li>
+                <li><a href="evaluasi.html"><i class="fa fa-lg fa-tasks"></i>&nbsp; Evaluasi</a></li>
+                <li><a href="bantuan.html"><i class="fa fa-lg fa-question-circle"></i>&nbsp; Bantuan</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</div>
+
+    <!--INFO AWAL-->
+	<div id="kbwrap" class="kbwrap05">
+		<div class="row">	
+			<img src="assets/img/batik1.png" class="img-responsive tengah"></a>
+			<h3 class="centered">#13 Operasi <em>File</em> &amp; Struktur Direktori</h3>
+			<hr>
+			<a onclick="toggle('tujuan');" href="#tujuan" class="smoothScroll">Tujuan</a> / 
+			<a onclick="toggle('uraianMateri');" href="#uraianMateri" class="smoothScroll">Uraian Materi</a> / 
+			<a onclick="toggle('lembarKerja');" href="#lembarKerja" class="smoothScroll">Lembar Kerja</a> / 
+			<a onclick="toggle('rangkuman');" href="#rangkuman" class="smoothScroll">Rangkuman</a>
+			</p>
+			<br>
+		</div>
+	</div>
+	
+	<div class="container" id="kb05" name="kb05">
+		<br>
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+			<div class="panel panel-default artikel" id="tujuan">
+				<div class="panel-body"> 
+					<h3 class="page-header">Tujuan</h3> 
+    				<p>Pada pembelajaran ini Anda diharapkan:</p>
+					<ul>
+                        <li>Dapat menjelaskan organisasi <em>file</em> dan struktur direktori pada Linux.</li>
+                        <li>Mampu melakukan operasi <em>file</em> dan struktur direktori pada Linux.</li>
+					</ul>
+                    <hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('uraianMateri');" href="#uraianMateri">Lanjut ke Materi &raquo;</a></p>
+				</div>
+			</div>
+			
+			<div class="panel panel-default artikel" id="uraianMateri" style="display:none;">
+				<div class="panel-body">
+					<h3 class="page-header">Uraian Materi</h3>
+                    <p>Pembelajaran mengenai operasi <em>file</em> &amp; struktur direktori ini dimulai dengan pembahasan tentang organisasi <em>file</em> dan direktori standar. Kemudian dilanjutkan dengan properti <em>file</em>, <em>symbolic link</em>, melihat tipe <em>file</em>, mencari <em>file</em>, dan mencari teks pada <em>file</em>. Setelah itu latihan yang berkaitan dengan bahasan tersebut siap Anda kerjakan. Selamat belajar :)</p>
+				    
+                    <div class="kb-row-container">
+                    <div class="kb-row" id="organisasiFile">
+    					<a href="#uraianMateri" class="kb-row-handle">Organisasi <em>File</em></a>
+    					<div class="kb-row-content">
+							<p><strong>Linux</strong> memiliki sistem <em>file</em> menyerupai pepohonan <em>(tree)</em>, yaitu dimulai dari <em>root</em>, kemudian direktori dan sub dirrektori. Sistem <em>file</em> pada Linux diatur secara hirarki, yaitu dimulai dari root dengan simbol &ldquo;/&rdquo;.</p>
+                            <p>Kita dapat menciptakan <em>file</em> dan <em>direktori</em> mulai dari <em>root</em> sampai ke bawah. Direktori dapat berisi <em>file-file</em> dan direktori lagi (disebut juga subdirektori).</p>
+    					</div>
+    				</div>
+    				
+    				<div class="kb-row" id="direktoriStandar">
+    					<a href="#organisasiFile" class="kb-row-handle">Direktori Standar</a>
+    					<div class="kb-row-content">
+                            <p><strong>Setelah</strong> proses instalasi, Linux otomatis menciptakan direktori-direktori yang dibuat berdasarkan <em>Filesystem Hierachy Standart</em> (FHS). FHS merupakan seperangkat petunjuk untuk penempatan <em>file</em> dan direktori pada sistem operasi yang mirip UNIX. Tujuannya agar dapat mendukung penggunaan aplikasi, program administrasi sistem, pengembangan program, skrip, dan dapat menyatukan dokumentasi dari sistem.</p>
+                            <p>Adapun direktori sesuai dengan FHS antara lain adalah sebagai berikut:</p>
+                            <table class="table table-hover table-striped">
+                                <tr class="success">
+                                    <th>Direktori</th>
+                                    <th>Deskripsi</th>
+                                </tr>
+                                <tr>
+                                    <td><p>/</p></td>
+                                    <td><p>Merupakan <em>root folder</em>, menduduki posisi puncakdalam hirarki. Direktori ini membawahi semua direktori, sehingga penulisan direktori lainnya menggunakan tanda / didepannya yang menunjukkan direktori tersebut dibawah <em>root</em>.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>/bin</p></td>
+                                    <td><p>Berisi program <em>binary</em> dasar yang dibutuhkan oleh sistem maupun <em>user</em>.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>/boot</p></td>
+                                    <td><p>Berisi program dan data yang dibutuhkan pada saat melakukan proses <em>booting</em> sistem.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><p>/dev</p></td>
+                                    <td><p>Direktori tempat dimana <em>device</em> diproses.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>/etc</p></td>
+                                    <td><p>Berisi <em>file</em> konfigurasi sistem.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>/home</p></td>
+                                    <td><p>Direktori tempat menyimpan data <em>user</em>. Setiap <em>user</em> yang terdaftar secara otomatis akan dibuatkan direktori pada /home.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>/lib</p></td>
+                                    <td><p>Berisi file-file <em>library</em> dari aplikasi yang terdapat pada sistem.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>/media</p></td>
+                                    <td><p>Berisi media yang dapat dipasang dan dilepas pada komputer. Misal saat Anda memasang <em>flash disk</em> ke komputer, maka Anda bisa menemukan direktori <em>flash disk</em> di /media. Media lainnya yaitu CD/DVD ROM, <em>floppy disk,</em> <em>harddsik</em> <em>eksternal, </em>dsb.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>/mnt</p></td>
+                                    <td><p>Direktori tempat pengaitan sistem sementara.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>/opt</p></td>
+                                    <td><p>Berisi paket aplikasi tambahan yang diinstall ke dalam sistem.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>/proc</p></td>
+                                    <td><p><em>Filesystem</em> untuk menjalankan proses.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>/root</p></td>
+                                    <td><p>Direktori <em>home</em> untuk <em>user root</em>.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>/sbin</p></td>
+                                    <td><p>Berisi program <em>biner</em> yang dibutuhkan untuk menjalankan sistem. Aplikasi pada direktori ini biasanya hanya bisa dijalankan oleh <em>administrator</em> atau <em>root</em>.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>/tmp</p></td>
+                                    <td><p>Direktori tempat menyimpan <em>file</em> yang bersifat sementara.</p></td>
+                                </tr>
+                                <tr>
+                                    <td>/usr</td>
+                                    <td><p>Berisi program-program yang bisa di akses oleh user. Dalam direktori ini ada sub direktori /usr/bin dan /usr/sbin yang menyimpan aplikasi<em> executable</em> yang fungsinya sama dengan <em>file-file</em> pada direktori /bin dan /sbin.</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>/var</p></td>
+                                    <td><p>Untuk menyimpan <em>file-file</em> yang isinya sering berubah, seperti <em>database, user mail, </em>dsb. Di dalamnya ada sub direktori /var/log yang berisi <em>log files</em> yang menyimpan informasi tentang aktivitas sistem.</p></td>
+                                </tr>
+                            </table>
+    					</div>
+    				</div>
+                        
+                    <div class="kb-row" id="propertiFile">
+    					<a href="#direktoriStandar" class="kb-row-handle">Properti <em>File</em></a>
+    					<div class="kb-row-content">
+							<p><strong><em>File</em></strong> pada Linux memiliki beberapa properti atau atribut. Beberapa diantaranya yaitu:</p>
+                            <ul>
+                                <li><strong>Tipe <em>File</em></strong> yaitu dapat berupa:</li>
+                            </ul>
+                            <table class="table table-hover table-striped">
+                                <tr class="success">
+                                    <th scope="col">Karakter</th>
+                                    <th scope="col">Arti</th>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td><em>File</em> biasa</td>
+                                </tr>
+                                <tr>
+                                    <td>d</td>
+                                    <td>Direktori</td>
+                                </tr>
+                                <tr>
+                                    <td>l</td>
+                                    <td><em>Symbolic link</em></td>
+                                </tr>
+                                <tr>
+                                    <td>b</td>
+                                    <td><em>Block special file</em></td>
+                                </tr>
+                                <tr>
+                                    <td>c</td>
+                                    <td><em>Character special file</em></td>
+                                </tr>
+                                <tr>
+                                    <td>s</td>
+                                    <td><em>Socket link</em></td>
+                                </tr>
+                                <tr>
+                                    <td>p</td>
+                                    <td>FIFO</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+
+                            <ul>
+                                <li><strong>Izin akses</strong> menentukan hak akses terhadap suatu <em>file.</em></li>
+                                <li><strong>Jumlah <em>link</em></strong> merupakan banyak <em>link</em> pada suatu <em>file.</em></li>
+                                <li><strong>Pemilik</strong> menentukan siapa pemilik <em>file.</em></li>
+                                <li><strong><em>Group</em></strong> menentukan <em>group</em> pemilik <em>file.</em></li>
+                                <li><strong>Ukuran <em>file</em></strong> berupa besar <em>file </em>yang dinyatakan dalam <em>byte.</em></li>
+                                <li><strong>Waktu pembuatan</strong> berupa informasi kapan <em>file</em> terakhir dimodifikasi.</li>
+                                <li><strong>Nama <em>file</em></strong></li>
+                            </ul>
+                            <p>Gambar 13.2 berikut adalah contoh properti suatu <em>file</em> yang dapat diperoleh dengan perintah <code>ls -l nama_file</code> </p>
+                            <figure class="gambar-tengah img-responsive">
+		    					<a href="assets/img/kb13/properti_file.png"><img src="assets/img/kb13/properti_file.png" class="img-responsive tengah" alt="Properti Suatu File" title="Properti Suatu File"></a>
+		    					<figcaption>Gambar 13.2. &nbsp;&nbsp; Properti Suatu <em>File</em></figcaption>
+		    				</figure>
+    					</div>
+    				</div>
+                        
+                    <div class="kb-row" id="symbolicLink">
+    					<a href="#propertiFile" class="kb-row-handle"><em>Symbolic Link</em></a>
+    					<div class="kb-row-content">
+                            <p><strong>Sebelum</strong> membahas <em>symbolic link, </em>terdapat <em><strong>link</strong></em> yang merupakan sebuah cara untuk memberikan lebih dari satu nama <em>file</em> dengan data yang sama. Bila <em>file</em> asli dihapus, maka data yang baru juga terhapus. Adapaun formatnya yaitu:</p>
+                            <p><code>ln file_asli file_duplikat</code></p>
+                            <p><tt>file_duplikat</tt> disebut <em>hard link</em> dimana kedua <em>file</em> akan muncul sama, mengakibatkan jumlah link atau <em>link count</em>&nbsp; = 2). Jika salah satu <tt>file_asli</tt> atau <tt>file_duplikat</tt> dirubah, maka perubahan akan terjadi pada kedua file tersebut.</p>
+                            <p><em>Symbolic link</em> diperlukan bila suatu <em>file</em> dibuat <em>&ldquo;link&rdquo;</em> dengan direktori/<em>file</em> yang berada pada partisi yang berbeda. Tipe file menjadi <tt>l</tt> <em>(link)</em> dan <em>file</em> tersebut menunjuk ke <em>file </em>aslinya. Formatnya yaitu:</p>
+                            <p><code>ln -s /FULLPATH/file_asli /FULLPATH/file_duplikat</code></p>
+                            <p>Pilihan <tt>-s</tt> <em>(shortcut)</em> merupakan bentuk <em>soft link</em> dimana jumlah <em>link count</em> pada <em>file</em> asal tidak berubah. Pada bentuk <em>soft link</em>, <em>symbolic link</em> dapat dilakukan pada file yang tidak ada, sedangkan pada <em>hard link</em> tidak bisa. Perbedaan lain, <em>symbolic link</em> dapat dibentuk melalui media <em>disk</em> atau partisi yang berbeda, tetapi pada <em>hard link</em> terbatas pada <em>partisi disk</em> yang sama.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="kb-row" id="tipeFile">
+    					<a href="#symbolicLink" class="kb-row-handle">Melihat Tipe <em>File</em></a>
+    					<div class="kb-row-content">
+                            <p>Suatu <em>file</em> dapat dilihat tipenya menggunakan format:</p>
+                            <p><code>file fileName(s)</code></p>
+                            <p>Tipe <em>file</em> akan ditampilkan seperti contoh berikut:</p>
+                            <p style="font-size:11px;"><tt><b>$ file halo.txt info.html</b><br>
+                                halo.txt:      ASCII text<br>
+                                info.html:     HTML document</tt></p>
+                        </div>
+                    </div>
+                        
+                    <div class="kb-row" id="mencariFile">
+    					<a href="#tipeFile" class="kb-row-handle">Mencari <em>File</em></a>
+    					<div class="kb-row-content">
+                            <p>Apabila ingin mencari <em>file</em> dapat digunakan perintah:</p>
+                            <ul>
+                                <li>
+                                <p><tt><b>find</b></tt><br />
+                                Format: <code>find <em>directory</em> -name <em>targetfile</em> -print</code><br />
+                                Untuk mencari <em>file</em> yang bernama <em>targetfile</em>.</p>
+                                </li>
+                                <li>
+                                <p><tt><b>which</b></tt><br />
+                                Format: <code>which <em>command</em></code><br />
+                                Untuk mengetahui letak <em>system utility</em>.</p>
+                                </li>
+                                <li>
+                                <p><tt><b>locate</b></tt><br />
+                                Format: <code>locate <em>string</em></code><br />
+                                Untuk mencari <em>file</em> pada semua direktori dengan lebih cepat dan ditampilkan dengan <em>path</em> yang penuh.</p>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                        
+                    <div class="kb-row">
+    					<a href="#mencariFile" class="kb-row-handle">Mencari Teks pada <em>File</em></a>
+    					<div class="kb-row-content">
+                            <p>Untuk mencari teks pada <em>file</em> digunakan perintah <tt>grep</tt> <em>(General RegularExpression Print)</em> dengan format:</p>
+                            <code>grep <em>option pattern files</em></code>
+                            <p>Grep akan mencari <em>file</em> sesuai nama dengan pattern yang diberikan dan akan menampilkan baris yang sesuai.</p>
+                        </div>
+                    </div>
+                        
+    				</div><!-- kb-row-container-->
+    				<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('lembarKerja');" href="#lembarKerja">Lanjut ke Lembar Kerja &raquo;</a></p>
+				</div><!-- panel-body-->
+			</div>
+
+			<div class="panel panel-default artikel" id="lembarKerja" style="display:none;">
+				<div class="panel-body">
+                    <h3 class="page-header">Lembar Kerja</h3>
+                    <div class="kb-row-container">
+                        <div class="kb-row open" id="alatBahan">
+                            <a href="#lembarKerja" class="kb-row-handle">Alat dan Bahan</a>
+                            <div class="kb-row-content" style="display:block;">
+                                <ul>
+                                    <li>Komputer atau laptop dengan sistem operasi Ubuntu</li>
+                                </ul>
+					       </div>
+                        </div>
+                        
+                        <div class="kb-row" id="petunjuk">
+                            <a href="#alatBahan" class="kb-row-handle">Petunjuk</a>
+                            <div class="kb-row-content">
+                            <ul>
+                                <li>Awali setiap aktivitas dengan do'a, semoga mendapat kemudahan dan keberkahan.</li>
+                                <li>Baca dan pahami langkah-langkah yang ada dengan seksama.</li>
+                                <li>Pastikan komputer dalam keadaan baik dan benar.</li>
+                                <li>Jangan meletakkan benda yang dapat mengeluarkan medan elektromagnetik (<em>handphone</em>, magnet, dan sejenisnya) di dekat komputer.</li>
+                                <li>Gunakan komputer sesuai fungsinya dengan hati-hati.</li>
+                                <li>Kerjakan secara baik, benar, dan sabar.</li>
+                            </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="kb-row" id="latihan">
+                            <a href="#petunjuk" class="kb-row-handle">Latihan</a>
+                            <div class="kb-row-content">
+                            <ol style="margin-left:-20px;">
+                                <li>Hidupkan komputer dan <em>login </em>ke Ubuntu.</li>
+                                <li>Jalankan <strong>terminal</strong>.</li>
+                                <li>Kerjakan latihan-latihan berikut ini.</li>
+                            </ol>
+                            <hr>    
+                            <p><strong>LATIHAN 1. DIREKTORI</strong></p>
+                            <ol style="margin-left:-20px;">
+                                <li>
+                                Melihat direktori Home.
+                                <p><code>$ pwd</code>
+                                <p><code>$ echo $HOME</code></p>
+                                </li>
+                                <li>
+                                Melihat direktori terkini dan <em>parent </em>direktori.
+                                <p><code>$ pwd</code>
+                                <p><code>$ cd .</code></p>
+                                <p><code>$ pwd</code></p>
+                                <p><code>$ cd ..</code></p>
+                                <p><code>$ pwd</code></p>
+                                <p><code>$ cd</code></p>
+                                </li>
+                                <li>
+                                Membuat satu direktori, lebih dari satu direktori, dan sub direktori.
+                                <p><code>$ pwd</code></p>
+                                <p><code>$ mkdir A B C A/D A/E B/F A/D/A</code></p>
+                                <p><code>$ ls</code></p>
+                                <p><code>$ ls A</code></p>
+                                <p><code>$ ls A/D</code></p>
+                                </li>
+                                <li>
+                                Menghapus direktori (satu atau lebih). Operasi ini hanya dapat dilakukan pada direktori kosong dan hanya dapat dihapus oleh pemiliknya, kecuali bila diberikan ijin aksesnya.
+                                <p><code>$ rmdir B</code>&nbsp; <em>(ada pesan error, mengapa?)</em></p>
+                                <p><code>$ ls B</code></p>
+                                <p><code>$ rmdir B/ B</code></p>
+                                <p><code>$ ls B</code>&nbsp; <em>(ada pesan error, mengapa?)</em></p>
+                                </li>
+                                <li>
+                                Navigasi direktori dengan instruksi <code>cd</code> untuk pindah dari satu direktori ke direktori lain.
+                                <p><code>$ pwd</code></p>
+                                <p><code>$ ls</code></p>
+                                <p><code>$ cd A</code></p>
+                                <p><code>$ pwd</code></p>
+                                <p><code>$ cd ..</code></p>
+                                <p><code>$ pwd</code></p>
+                                <p><code>$ cd /home/&lt;user&gt;/C</code></p>
+                                <p><code>$ pwd</code></p>
+                                <p><code>$ cd /&lt;user&gt;/C</code>&nbsp; <em>(ada pesan error, mengapa?)</em></p>
+                                <p><code>$ pwd</code></p>
+                                </li>
+                            </ol>
+                            <hr>
+                            <p><strong>LATIHAN 2. MANIPULASI <em>FILE</em></strong></p>
+                            <ol style="margin-left:-20px;">
+                                <li>
+                                Perintah <tt>cp</tt> untuk mengkopi file atau seluruh direktori.
+                                <p><code>$ touch contoh</code></p>
+                                <p><code>$ cp contoh contoh1</code></p>
+                                <p><code>$ ls</code></p>
+                                <p><code>$ cp contoh A</code></p>
+                                <p><code>$ ls A</code></p>
+                                <p><code>$ cp contoh contoh1 A/D</code></p>
+                                <p><code>$ ls A/D</code></p>
+                                </li>
+                                <li>
+                                Perintah <tt>mv</tt> untuk memindah <em>file.</em>
+                                <p><code>$ cp contoh1 contoh2</code></p>
+                                <p><code>$ cp contoh1 contoh3</code></p>
+                                <p><code>$ ls</code></p>
+                                <p><code>$ mv contoh1 A</code></p>
+                                <p><code>$ ls A</code></p>
+                                <p><code>$ mv contoh2 contoh3 A/D</code></p>
+                                <p><code>$ ls A/D</code></p>
+                                </li>
+                                <li>
+                                Perintah <tt>rm</tt> untuk menghapus <em>file.</em>
+                                <p><code>$ cp contoh contoh4</code></p>
+                                <p><code>$ ls</code></p>
+                                <p><code>$ rm contoh4</code></p>
+                                <p><code>$ ls</code></p>
+                                <p><code>$ rm A</code>&nbsp; <em>(ada pesan error, mengapa?)</em></p>
+                                <p><code>$ ls</code></p>
+                                <p><code>$ rm -rf A</code></p>
+                                <p><code>$ ls</code></p>
+                                </li>
+                            </ol>
+                            <hr>
+                            <p><strong>LATIHAN 3. <em>SYMBOLIC LINK</em></strong></p>
+                                Membuat <em>shortcut (file link)</em>
+                                <p><code>$ echo "Halo apa kabar" > halo.txt</code></p>
+                                <p><code>$ ls -l</code></p>
+                                <p><code>$ ln halo.txt z</code></p>
+                                <p><code>$ ls -l</code></p>
+                                <p><code>$ cat z</code></p>
+                                <p><code>$ mkdir folderKu</code></p>
+                                <p><code>$ ln z folderKu/halo.juga</code></p>
+                                <p><code>$ cat folderKu/halo.juga</code></p>
+                                <p><code>$ ln -s z bye.txt</code></p>
+                                <p><code>$ ls -l z bye.txt</code></p>
+                                <p><code>$ cat bye.txt</code></p>
+                            <hr>
+                            <p><strong>LATIHAN 4. MELIHAT TIPE <em>FILE</em></strong></p>
+                                <p><code>$ ls -l</code></p>
+                                <p><code>$ file halo.txt</code></p>
+                                <p><code>$ file bye.txt halo.txt</code></p>
+                            <hr>
+                            <p><strong>LATIHAN 5. MENCARI <em>FILE</em></strong></p>
+                            <ol style="margin-left:-20px;">
+                                <li>
+                                Perintah <em><tt>find</tt></em>
+                                <p><code>$ find /home -name &quot;*.txt&quot; -print &gt; myerror.txt</code></p>
+                                <p><code>$ cat myerror.txt</code></p>
+                                <p><code>$ find . -name &quot;*.txt&quot; -exec wc -l &#39;{}&#39; &#39;;&#39;</code></p>
+                                </li>
+                                <li>
+                                Perintah <em><tt>which</tt></em>
+                                <p><code>$ which ls</code></p>
+                                </li>
+                                <li>
+                                Perintah <em><tt>locate</tt></em>
+                                <p><code>$ locate &quot;*.txt&quot;</code></p>
+                                </li>
+                            </ol>
+                            <hr>
+                            <p><strong>LATIHAN 6. MENCARI TEKS PADA <em>FILE</em></strong></p>
+                                <p><code>$ grep Halo .txt</code></p>
+                            <br>
+                            </div>          
+                        </div>
+                        
+                        <div class="kb-row">
+                            <a href="#latihan" class="kb-row-handle">Tugas</a>
+                            <div class="kb-row-content">
+                                <ol style="margin-left:-20px;">
+                                <li><p>Analisa hasil tampilan pada latihan di atas</p></li>
+                                <li><p>Pada latihan 1 nomor 3 buatlah pohon dari struktur <em>file</em> dan direktori yang ada.</p></li>
+                                <li><p>Ada beberapa pesan <em>error</em> pada lahithan di atas, jelaskan penyebabnya!</p></li>
+                                <li><p>Jika sudah selesai, Anda bisa menuliskan atau menceritakan apa saja yang Anda peroleh pada pembelajaran kali ini. Kemudian publikasikan tulisan Anda tersebut pada blog, website, atau media sosial.</p></li>
+                                </ol>
+                            </div>
+                        </div>
+                        
+					</div>
+					<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('rangkuman');" href="#rangkuman">Lanjut ke Rangkuman &raquo;</a></p>
+    			</div>
+    		</div>
+    		
+    		
+    		<div class="panel panel-default artikel" id="rangkuman" style="display:none;">
+				<div class="panel-body">  
+					<h3 class="page-header">Rangkuman</h3>
+					<p><strong>Linux</strong> memiliki sistem <em>file</em> menyerupai pepohonan <em>(tree)</em>, yaitu dimulai dari <em>root</em> (simbol &quot;/&quot;), kemudian direktori dan sub dirrektori.</p>
+                    <p>Setelah proses instalasi, Linux otomatis menciptakan direktori-direktori yang dibuat berdasarkan <em>Filesystem Hierachy Standart</em> (FHS).</p>
+                    <p><em>File</em> pada Linux memiliki beberapa properti yaitu tipe <em>file</em>, izin akses, jumlah <em>link</em>, pemilik, <em>group</em>, ukuran, waktu pembuatan, dan nama <em>file</em>.</p>
+                    <p><em>Symbolic link</em> diperlukan bila suatu <em>file</em> dibuat <em>&ldquo;link&rdquo;</em> dengan direktori/<em>file</em> yang berada pada partisi yang berbeda.</p>
+                    <p>Suatu <em>file</em> dapat dilihat tipenya menggunakan format: <code>file fileName(s)</code></p>
+                    <p>Apabila ingin mencari <em>file</em> dapat digunakan perintah <em>find, which, </em>dan<em> locate.</em></p>
+                    <p>Untuk mencari teks pada <em>file</em> digunakan perintah <tt>grep</tt> dengan format: <code>grep <em>option pattern files</em></code></p>
+
+                    <br><hr><br><p class="gambar-tengah"><a class="btn btn-success btn-sm smoothScroll" href="kb14.html">Lanjut ke Pembelajaran 14 &raquo;</a></p>
+                    </div>
+    			</div>
+    		</div>
+			
+			</div><!-- col-md-offset-2 col-md-8 -->
+			<a href="#" class="back-to-top"><i class="fa fa-arrow-circle-o-up"></i> <br> ke atas</a>
+		</div><!-- row -->
+	</div><!-- kb02 --> 	
+  		
+	<div id="footerwrap">
+		<div class="container">
+			<p>by <a href="bantuan.html">diondr</a> <i class="fa fa-asterisk"></i> 2014</p>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/retina.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="assets/js/smoothscroll.js"></script>
+	<script type="text/javascript" src="assets/js/jquery-func.js"></script>
+  </body>
+</html>

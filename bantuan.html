@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MODIS | Modul Sistem Operasi</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    <link rel="shortcut icon" href="assets/img/favicon_modis-1_1.png">
+
+    <!--Tko bootstrap dkk-->
+    <link href='assets/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/main.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/animate-custom.css' rel='stylesheet' type='text/css'>
+    <link href="assets/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" media="screen">
+    
+    <!--Gae modif-->
+    <link href='assets/css/tambah-font.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-modis.css' rel='stylesheet' type='text/css'>
+    
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/fancybox/jquery.fancybox.pack.js"></script>
+    <script>
+    $(document).ready(function() {
+        //semua links dengam akhiran ekstensi gambar
+        var thumbnails = 'a[href$=".gif"],a[href$=".jpg"],a[href$=".jpeg"],a[href$=".png"],a[href$=".GIF"],a[href$=".JPG"],a[href$=".JPEG"],a[href$=".PNG"]';
+
+        //menambah class "fancybox" ke thumbnails dan dijadikan satu group "rel" untuk mengaktifkan tombol previous/next
+        jQuery(thumbnails).addClass("fancybox").attr("rel","lightbox");
+
+        //memanggil fancybox
+        jQuery('.fancybox').fancybox({
+            padding: 0,
+            //mendapatkan alt dari img untuk title fancybox
+            beforeShow : function() {
+                var alt = this.element.find('img').attr('alt');
+                this.inner.find('img').attr('alt', alt);
+                this.title = alt;
+            }
+        });
+    });
+    </script>
+</head>
+<body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+  
+<div id="navbar-main">
+    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="menuIcon"><i class="fa fa-lg fa-list-ul"></i> Menu</span>
+            </button>
+            <span class="navbar-brand logoModis"><img class="noBayang" src="assets/img/logo_modis-1_1.png"></span>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html"><i class="fa fa-lg fa-home"></i>&nbsp; Home</a></li>
+                <li><a href="info.html"><i class="fa fa-lg fa-info-circle"></i>&nbsp; Info</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-lg fa-book"></i>&nbsp; Pembelajaran <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="bab1.html">&nbsp; BAB 1 &nbsp; Perkembangan</a></li>
+                        <li><a href="bab2.html">&nbsp; BAB 2 &nbsp; Struktur</a></li>
+                        <li><a href="bab3.html">&nbsp; BAB 3 &nbsp; Proses <em>Booting</em></a></li>
+                        <li><a href="bab4.html">&nbsp; BAB 4 &nbsp; Instalasi</a></li>
+                        <li><a href="bab5.html">&nbsp; BAB 5 &nbsp; Administrasi</a></li>
+                        <li><a href="bab6.html">&nbsp; BAB 6 &nbsp; Pencarian Kesalahan</a></li>
+                    </ul>
+                </li>
+                <li><a href="evaluasi.html"><i class="fa fa-lg fa-tasks"></i>&nbsp; Evaluasi</a></li>
+                <li><a href="bantuan.html"><i class="fa fa-lg fa-question-circle"></i>&nbsp; Bantuan</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div id="abuwrap">
+    <div class="container">
+    <div class="row">	
+        <h2 class="centered">.bantuan.</h2>
+        <hr><br>
+        <div class="col-md-offset-2 col-md-8 centered">
+            <p>Anda mengalami kesulitan dalam menggunakan modul ini? Maka Anda berada pada menu yang tepat. Silakan pilih sub menu di bawah ini.</p>
+
+            <div class="kb-row-container">
+                <div class="kb-row" id="petunjuk">
+                    <a href="#" class="kb-row-handle">Petunjuk Penggunaan</a>
+                    <div class="kb-row-content" style="text-align:left;" >
+                        <p>Pada modul ini terdapat menu utama yang dapat Anda akses di pojok kiri atas.
+                        <a href="assets/img/bt/01-menu.jpg"><img src="assets/img/bt/01-menu.jpg" class="img-responsive tengah" alt="Posisi Menu" title="Posisi Menu"></a></p>
+                        <p>Di dalamnya terdiri dari <em>home</em>, info, pembelajaran, evaluasi, dan bantuan.
+                        <a href="assets/img/bt/02-menu_open.jpg"><img src="assets/img/bt/02-menu_open.jpg" class="img-responsive tengah" alt="Menu-menu" title="Menu-menu"></a></p>
+                        <p>Untuk pembelajaran terdiri dari bab-bab yang ada dalam modul ini.
+                        <a href="assets/img/bt/03-menu_pembelajaran.jpg"><img src="assets/img/bt/03-menu_pembelajaran.jpg" class="img-responsive tengah" alt="Menu Pembelajaran" title="Menu Pembelajaran"></a></p>
+
+                        <p class="page-header subHeader"><em><strong>HOME</strong></em></p>
+                        <p>Merupakan bagian awal yang pertama kali Anda akses ketikan membuka modul ini.
+                        <a href="assets/img/bt/04-home_1.jpg"><img src="assets/img/bt/04-home_1.jpg" class="img-responsive tengah" alt="Home" title="Home"></a></p>
+                        <p>Pada bagian ini Anda dapat langsung memulai pembelajaran atau memilih &quot;Ketahui Lebih Lanjut&quot; untuk melihat bantuan ini.
+                        <a href="assets/img/bt/05-home_2.jpg"><img src="assets/img/bt/05-home_2.jpg" class="img-responsive tengah" alt="Mulai atau Ketahui Lebih" title="Mulai atau Ketahui Lebih"></a></p>
+                        <br>
+                        <p class="page-header subHeader"><strong>INFO</strong></p>
+                        <p>Berisi informasi awal dari modul yang menyediakan pilihan Bab 1 sampai 6. Anda bisa memilih Bab yang Anda inginkan dengan cara mengeklik pada Bab yang sesuai.
+                        <a href="assets/img/bt/06-mulai.jpg"><img src="assets/img/bt/06-mulai.jpg" class="img-responsive tengah" alt="Info Awal" title="Info Awal"></a></p>
+                        
+                        <p class="page-header subHeader"><strong>PEMBELAJARAN</strong></p>
+                        <p>Terdiri dari sub menu Bab 1 sampai 6 yang akan membawa Anda pada sesuai Bab yang Anda pilih.
+                        <a href="assets/img/bt/07-bab.jpg"><img src="assets/img/bt/07-bab.jpg" class="img-responsive tengah" alt="Menu Bab" title="Menu Bab"></a></p>
+                        <p>Pada setiap pembelajaran terdapat tujuan, uraian materi, lembar kerja, dan rangkuman.
+                        <a href="assets/img/bt/08-pembelajaran.jpg"><img src="assets/img/bt/08-pembelajaran.jpg" class="img-responsive tengah" alt="Pembelajaran" title="Pembelajaran"></a>
+                        <a href="assets/img/bt/09-materi.jpg"><img src="assets/img/bt/09-materi.jpg" class="img-responsive tengah" alt="Uraian Materi" title="Uraian Materi"></a></p>
+                        
+                        <p class="page-header subHeader"><strong>EVALUASI</strong></p>
+                        <p>Bagian ini terdiri dari 6 evaluasi.
+                        <a href="assets/img/bt/10-evaluasi_umum.jpg"><img src="assets/img/bt/10-evaluasi_umum.jpg" class="img-responsive tengah" alt="Evaluasi" title="Evaluasi"></a></p>
+                        <ol style="margin-left:-20px;">
+                            <li>Setiap evaluasi akan ada konfirmasi kesiapan Anda dalam mengikuti evaluasi.</li>
+                            <li>Klik &quot;Mulai&quot; untuk memulai evaluasi.</li>
+                            <a href="assets/img/bt/11-evaluasi_awal.jpg"><img src="assets/img/bt/11-evaluasi_awal.jpg" class="img-responsive tengah" alt="Siap?" title="Siap?"></a>
+                            <li>Pada setiap soal Anda harus memilih opsi yang disediakan, kemudian klik &quot;Lanjut&quot;. Pada evaluasi ini, Anda tidak bisa kembali ke nomor sebelumnya.</li>
+                            <a href="assets/img/bt/12-evaluasi_soal.jpg"><img src="assets/img/bt/12-evaluasi_soal.jpg" class="img-responsive tengah" alt="Soal" title="Soal"></a>
+                            <li>Setelah selesai Akan ditampilkan informasi apakah Anda berhasil atau tidak.</li>
+                            <li>Untuk mereview jawaban, Anda bisa mengkelik tombol &quot;Review&quot;.</li>
+                            <a href="assets/img/bt/13-evaluasi_selesai.jpg"><img src="assets/img/bt/13-evaluasi_selesai.jpg" class="img-responsive tengah" alt="Evaluasi Selesai" title="Evaluasi Selesai"></a>
+                        </ol>
+
+                        <p class="page-header subHeader"><strong>BANTUAN</strong></p>
+                        <p>Merupakan bagian yang Anda lihat saat ini. Terdiri dari 3 sub menu yaitu petunjuk ini, glosarium, dan kontak.
+                        <a href="assets/img/bt/14-bantuan.jpg"><img src="assets/img/bt/14-bantuan.jpg" class="img-responsive tengah" alt="Bantuan" title="Bantuan"></a></p>
+                        <p  class="centered">Selamat Belajar &amp; Semoga Sukses :)</p>
+                        <hr>
+                    </div>
+                </div>
+                <div class="kb-row" id="glosarium">
+                    <a href="#petunjuk" class="kb-row-handle">Glosarium (Kata-kata Sulit)</a>
+                    <div class="kb-row-content" style="text-align:left;">
+                        <p><strong>Distro</strong> atau distribusi Linux merupakan gabungan antara kernel Linux dengan program dan utilitas tambahan berupa kumpulan paket-paket <em>software </em>dan dapat digunakan menjadi sebuah sistem operasi siap pakai.</p>
+                        <p><strong>GNU</strong> adalah suatu proyek <em>free software</em> yang dikembangkan oleh Richard Matthew Stallman pada 1984.</p>
+                        <p><strong>GNU GPL</strong> (GNU <em>General Public Liscense</em>) merupakan suatu lisensi yang disusun oleh <em>Free Software Foundation (FSF) </em>dimana siapa saja boleh menggunakan sesuatu atau memodifikasinya, tetapi tidak boleh membuatnya menjadi milik sendiri.</p>
+                        <p><strong>GParted</strong> adalah suatu aplikasi pada Linux untuk membuat, mengatur, dan menghapus partisi <em>harrdisk.</em></p>
+                        <p><strong>Kernel</strong> adalah suatu perangkat lunak yang menjadi bagian utama dari sebuah sistem operasi. Tugasnya melayani bermacam program aplikasi untuk mengakses perangkat keras komputer.</p>
+                        <p><em><strong>Wine</strong></em> adalah suatu program emulator pada Linux yang digunakan untuk menjalankan program-program Windows.</p>
+                    </div>
+                </div>
+                <div class="kb-row open">
+                    <a href="#glosarium" class="kb-row-handle">Kontak</a>
+                    <div class="kb-row-content" style="display:block;">
+                        <p><i class="fa fa-envelope"></i> ikidiondr@gmail.com</p>
+                        <p><i class="fa fa-globe"></i> http://diondr.blogspot.com</p>
+                        <p><i class="fa fa-facebook-square"></i> fb.com/ikidiondr</p>
+                        <p><i class="fa fa-twitter-square"></i> @diondr</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- col-lg -->
+    </div><!-- row -->
+    <br>
+    </div>
+</div>
+
+<div id="footerwrapAwal">
+    <div class="container">
+        <p>by <a href="bantuan.html">diondr</a> <i class="fa fa-asterisk"></i> 2014</p>
+    </div>
+</div>
+    
+<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+<script type="text/javascript" src="assets/js/jmodis.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/retina.js"></script>
+<script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="assets/js/smoothscroll.js"></script>
+<script type="text/javascript" src="assets/js/jquery-func.js"></script>
+</body>
+</html>

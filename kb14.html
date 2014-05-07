@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MODIS | Modul Sistem Operasi</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    <link rel="shortcut icon" href="assets/img/favicon_modis-1_1.png">
+
+    <link href='assets/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/main.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/animate-custom.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-font.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-modis.css' rel='stylesheet' type='text/css'>
+    <link href="assets/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" media="screen">
+
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+	<script type="text/javascript" src="assets/js/jmodis.js"></script>
+    <script type="text/javascript" src="assets/fancybox/jquery.fancybox.pack.js"></script>
+    <script>
+    $(document).ready(function() {
+        //semua links dengam akhiran ekstensi gambar
+        var thumbnails = 'a[href$=".gif"],a[href$=".jpg"],a[href$=".jpeg"],a[href$=".png"],a[href$=".GIF"],a[href$=".JPG"],a[href$=".JPEG"],a[href$=".PNG"]';
+
+        //menambah class "fancybox" ke thumbnails dan dijadikan satu group "rel" untuk mengaktifkan tombol previous/next
+        jQuery(thumbnails).addClass("fancybox").attr("rel","lightbox");
+
+        //memanggil fancybox
+        jQuery('.fancybox').fancybox({
+            padding: 0,
+            //mendapatkan alt dari img untuk title fancybox
+            beforeShow : function() {
+                var alt = this.element.find('img').attr('alt');
+                this.inner.find('img').attr('alt', alt);
+                this.title = alt;
+            }
+        });
+    });
+    </script>
+</head>
+<body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+
+<div id="navbar-main">
+    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="menuIcon"><i class="fa fa-lg fa-list-ul"></i> Menu</span>
+            </button>
+            <span class="navbar-brand logoModis"><img class="noBayang" src="assets/img/logo_modis-1_1.png"></span>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html"><i class="fa fa-lg fa-home"></i>&nbsp; Home</a></li>
+                <li><a href="info.html"><i class="fa fa-lg fa-info-circle"></i>&nbsp; Info</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-lg fa-book"></i>&nbsp; Pembelajaran <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="bab1.html">&nbsp; BAB 1 &nbsp; Perkembangan</a></li>
+                        <li><a href="bab2.html">&nbsp; BAB 2 &nbsp; Struktur</a></li>
+                        <li><a href="bab3.html">&nbsp; BAB 3 &nbsp; Proses <em>Booting</em></a></li>
+                        <li><a href="bab4.html">&nbsp; BAB 4 &nbsp; Instalasi</a></li>
+                        <li><a href="bab5.html">&nbsp; BAB 5 &nbsp; Administrasi</a></li>
+                        <li><a href="bab6.html">&nbsp; BAB 6 &nbsp; Pencarian Kesalahan</a></li>
+                    </ul>
+                </li>
+                <li><a href="evaluasi.html"><i class="fa fa-lg fa-tasks"></i>&nbsp; Evaluasi</a></li>
+                <li><a href="bantuan.html"><i class="fa fa-lg fa-question-circle"></i>&nbsp; Bantuan</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</div>
+
+    <!--INFO AWAL-->
+	<div id="kbwrap" class="kbwrap05">
+		<div class="row">	
+			<img src="assets/img/batik1.png" class="img-responsive tengah"></a>
+			<h3 class="centered">#14 Proses dan Manajemen Proses</h3>
+			<hr>
+			<a onclick="toggle('tujuan');" href="#tujuan" class="smoothScroll">Tujuan</a> / 
+			<a onclick="toggle('uraianMateri');" href="#uraianMateri" class="smoothScroll">Uraian Materi</a> / 
+			<a onclick="toggle('lembarKerja');" href="#lembarKerja" class="smoothScroll">Lembar Kerja</a> / 
+			<a onclick="toggle('rangkuman');" href="#rangkuman" class="smoothScroll">Rangkuman</a>
+			</p>
+			<br>
+		</div>
+	</div>
+	
+	<div class="container" id="kb05" name="kb05">
+		<br>
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+			<div class="panel panel-default artikel" id="tujuan">
+				<div class="panel-body"> 
+					<h3 class="page-header">Tujuan</h3> 
+    				<p>Pada pembelajaran ini Anda diharapkan:</p>
+					<ul>
+                        <li>Dapat menjelaskan konsep proses pada Linux.</li>
+                        <li>Mampu menampilkan status proses dengan format yang berbeda.</li>
+                        <li>Mampu menampilkan hubungan proses <em>parent</em> dan <em>child.</em></li>
+                        <li>Mampu melakukan pengontrolan proses pada <em>shell.</em></li>
+                        <li>Mampu melakukan pengontrolan proses lain.</li>
+					</ul>
+                    <hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('uraianMateri');" href="#uraianMateri">Lanjut ke Materi &raquo;</a></p>
+				</div>
+			</div>
+			
+			<div class="panel panel-default artikel" id="uraianMateri" style="display:none;">
+				<div class="panel-body">
+					<h3 class="page-header">Uraian Materi</h3>
+                    <p>Pembelajaran mengenai proses dan manajemen proses ini dimulai dengan pembahasan mengenai konsep proses pada Linux. Kemudian dilanjutkan dengan sinyal, mengontrol proses pada <em>shell</em>, sampai mengontrol proses lain. Setelah itu latihan yang berkaitan dengan bahasan tersebut siap Anda kerjakan. Selamat belajar :)</p>
+				    
+                    <div class="kb-row-container">
+                    <div class="kb-row" id="prosesLinux">
+    					<a href="#uraianMateri" class="kb-row-handle">Konsep Proses pada Linux</a>
+    					<div class="kb-row-content">
+                            <p><strong>Proses</strong> merupakan program yang sedang dieksekusi. Setiap kali menggunakan utilitas sistem atau program aplikasi dari <em>shell</em>, satu atau lebih proses <em>&rdquo;child&rdquo;</em> akan dibuat oleh<em> shell</em> sesuai perintah yang diberikan. Setiap kali instruksi diberikan pada Linux <em>shell</em>, maka kernel akan menciptakan sebuah proses-id. Proses ini disebut juga dengan terminology Unix sebagai sebuah Job. Proses ID (PID) dimulai dari 0, yaitu proses INIT, kemudian diikuti oleh proses yang lainnya.</p>
+                            <p>Tipe proses antara lain yaitu:</p>
+                            <p><em><strong>Foreground</strong></em><br />
+                            Proses yang diciptakan oleh pemakai langsung pada terminal (interaktif, dialog).</p>
+                            <p><em><strong>Batch</strong></em><br />
+                            Proses yang dikumpulkan dan dijalankan secara sekuensial (satu persatu). Proses <em>batch</em> tidak diasosiasikan (berinteraksi) dengan terminal.</p>
+                            <p><em><strong>Daemon</strong></em><br />
+                            Proses yang menunggu permintaan <em>(request)</em> dari proses lainnya dan menjalankan tugas sesuai dengan permintaan tersebut. Bila tidak ada request, maka program ini akan berada dalam kondisi diam atau <em>&ldquo;idle&rdquo;</em> dan tidak menggunakan CPU. Umumnya nama proses daemon berakhiran d, misalnya inetd, named, popd, dsb.</p>
+    					</div>
+    				</div>
+                        
+                    <div class="kb-row" id="sinyal">
+    					<a href="#prosesLinux" class="kb-row-handle">Sinyal</a>
+    					<div class="kb-row-content">
+                            <p><strong>Proses</strong> dapat mengirim dan menerima sinyal dari dan ke proses lainnya. Proses mengirim sinyal melalui instruksi <em>&ldquo;kill&rdquo;</em>. Suatu sinyal mempunyai nomor&nbsp;sinyal (mulai dari 1 s/d maksimum nomor sinyal) yang didefinisikan oleh sistem.</p>
+                            <p>Mengirim sinyal yaitu memberitahukan proses yang sedang berjalan bahwa ada sesuatu yang harus dikendalikan. Berdasarkan sinyal yang dikirim ini maka proses dapat bereaksi dan <em>administrator/programmer</em> dapat menentukan reaksi tersebut. Mengirim sinyal menggunakan instruksi</p>
+                            <p><code>kill [-nomor sinyal] PID</code></p>
+                            <p>Sebelum mengirim sinyal PID proses yang akan dikirim harus diketahui terlebih dahulu.</p>
+    					</div>
+    				</div>
+                    
+                    <div class="kb-row" id="mengontrolProsesShell">
+    					<a href="#sinyal" class="kb-row-handle">Mengontrol Proses pada <em>Shell</em></a>
+    					<div class="kb-row-content">
+                            <p><em><strong>Shell</strong></em> menyediakan fasilitas <em>job control</em> yang memungkinkan mengontrol beberapa <em>job</em> atau proses yang sedang berjalan pada waktu yang sama. Misalnya bila melakukan pengeditan <em>file</em> teks dan ingin berhenti sejenak untuk mengerjakan hal lainnya. Bila selesai, dapat kembali <em>(switch)</em> ke <em>editor</em> dan melakukan pengeditan <em>file</em> teks kembali.</p>
+                            <p><em>Job</em> bekerja pada <em><strong>foreground</strong></em> atau <em><strong>background</strong></em>. Pada <em>foreground</em> hanya diperuntukkan untuk satu job pada satu waktu. Job pada foreground akan mengontrol <em>shell</em> yaitu menerima <em>input</em> dari <em>keyboard</em> dan mengirim <em>output</em> ke layar. <em>Job</em> pada <em>background</em> tidak menerima <em>input</em> dari terminal, biasanya berjalan tanpa memerlukan interaksi.</p>
+                            <p><em>Job</em> pada <em>foreground</em> dimungkingkan untuk dihentikan sementara <em>(suspend)</em>, dengan menekan <kbd>Ctrl+z</kbd> pada <em>keyboard</em>. Job yang dihentikan sementara dapat dijalankan kembali pada <em>foreground</em> atau <em>background</em> sesuai keperluan dengan menekan tombol &quot;fg&quot; atau &quot;bg&quot;. Sebagai catatan, menghentikan <em>job</em> sementara sangat berbeda dengan melakuakan <em>interrupt job</em> (biasanya menggunakan <kbd>Ctrl+c</kbd>), dimana job yang di-<em>interrupt</em> akan dimatikan secara <em>permanen</em> dan tidak dapat dijalankan lagi.</p>
+    					</div>
+    				</div>
+                        
+                    <div class="kb-row">
+    					<a href="#mengontrolProsesShell" class="kb-row-handle">Mengontrol Proses Lain</a>
+    					<div class="kb-row-content">
+                            <p><strong>Perintah</strong> <code>ps</code> dapat digunakan untuk menunjukkan semua proses yang sedang berjalan pada komputer (bukan hanya proses pada <em>shell</em> saat itu).
+                            <p>Ubuntu (dan beberapa versi Linux lainnya) memiliki utilitas sistem yang disebut <tt>top</tt> yang menyediakan cara interaktif untuk memonitor aktivitas sistem. Statistik secara detail dari proses yang berjalan ditampilkan secara terus-menerus di-<em>refresh</em>. Setelah perintah <code>top</code> dijalankan, beberapa kunci yang berguna yaitu:</p>
+                            <p><kbd>s</kbd> &ndash; mengatur <em>update frequency</em><br />
+                            <kbd>u</kbd> &ndash; menampilkan proses <em>user</em> tertentu<br />
+                            <kbd>k</kbd> &ndash; <em>kill</em> proses sesuai PID<br />
+                            <kbd>q</kbd> &ndash; keluar</p>
+    					</div>
+    				</div>
+                        
+    				</div><!-- kb-row-container-->
+    				<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('lembarKerja');" href="#lembarKerja">Lanjut ke Lembar Kerja &raquo;</a></p>
+				</div><!-- panel-body-->
+			</div>
+
+			<div class="panel panel-default artikel" id="lembarKerja" style="display:none;">
+				<div class="panel-body">
+                    <h3 class="page-header">Lembar Kerja</h3>
+                    <div class="kb-row-container">
+                        <div class="kb-row open" id="alatBahan">
+                            <a href="#lembarKerja" class="kb-row-handle">Alat dan Bahan</a>
+                            <div class="kb-row-content" style="display:block;">
+                                <ul>
+                                    <li>Komputer atau laptop dengan sistem operasi Ubuntu</li>
+                                </ul>
+					       </div>
+                        </div>
+                        
+                        <div class="kb-row" id="petunjuk">
+                            <a href="#alatBahan" class="kb-row-handle">Petunjuk</a>
+                            <div class="kb-row-content">
+                            <ul>
+                                <li>Awali setiap aktivitas dengan do'a, semoga mendapat kemudahan dan keberkahan.</li>
+                                <li>Baca dan pahami langkah-langkah yang ada dengan seksama.</li>
+                                <li>Pastikan komputer dalam keadaan baik dan benar.</li>
+                                <li>Jangan meletakkan benda yang dapat mengeluarkan medan elektromagnetik (<em>handphone</em>, magnet, dan sejenisnya) di dekat komputer.</li>
+                                <li>Gunakan komputer sesuai fungsinya dengan hati-hati.</li>
+                                <li>Kerjakan secara baik, benar, dan sabar.</li>
+                            </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="kb-row" id="latihan">
+                            <a href="#petunjuk" class="kb-row-handle">Latihan</a>
+                            <div class="kb-row-content">
+                            <ol style="margin-left:-20px;">
+                                <li>Hidupkan komputer dan <em>login </em>ke Ubuntu.</li>
+                                <li>Jalankan <strong>terminal</strong>.</li>
+                                <li>Kerjakan latihan-latihan berikut ini.</li>
+                            </ol>
+                            <hr>    
+                            <p><strong>LATIHAN 1. STATUS PROSES</strong></p>
+                            <ol style="margin-left:-20px;">
+                                <li>Perintah <strong><tt>ps</tt></strong> <em>(process status)</em>.
+                                    <p><code>$ ps</code></p>
+                                    <p>Digunakan untuk melihat kondisi proses yang ada. PID merupakan nomor identitas proses, TTY adalah nama terminal dimana proses tersebut aktif, CMD adalah instruksi yang digunakan.</p>
+                                </li>
+                                <li>Untuk melihat faktor atau elemen lainnya, gunakan <em>option</em> <tt>u</tt> <em>(user)</em>
+                                    <p><code>$ ps u</code></p>
+                                </li>
+                                <li>Proses dengan <em>user</em> tertentu.
+                                    <p><code>$ ps -u &lt;user&gt;</code></p>
+                                </li>
+                                <li>Untuk menampilkan semua proses.
+                                    <p><code>$ ps -A</code></p>
+                                </li>
+                            </ol>
+                            <hr>
+                            <p><strong>LATIHAN 2. MENAMPILKAN HUBUNGAN PROSES <em>PARENT</em> DENGAN <em>CHILD</em> </strong></p>
+                            <ol style="margin-left:-20px;">
+                                <li>Menampilkan semua proses dan <em>child</em>.
+                                    <p><code>$ ps -eH</code></p>
+                                    <p>Opsi <strong>e</strong> memilih semua proses dan opsi <strong>H</strong> menghasilkan tampilan proses secara hierarki. Proses <em>child</em> ditandai dengan awalan beberapa spasi.</p>
+                                </li>
+                                <li>Menampilkan semua proses dan <em>child</em> dengan karakter grafis (\ dan _).
+                                    <p><code>$ ps -e f</code></p>
+                                </li>
+                                <li>Menampilkan proses dalam bentuk hirarki <em>parent-child</em>.
+                                    <p><code>$ pstree</code></p>
+                                </li>
+                                <li><tt>pstree</tt> untuk proses tertentu. Misal proses dari unity.
+                                    <p><code>$ pstree | grep unity</code></p>
+                                </li>
+                                <li><tt>pstree</tt> dengan PID
+                                    <p><code>$ pstree -p</code></p>
+                                </li>
+                            </ol>
+                            <hr>
+                            <p><strong>LATIHAN 3. MENGONTROL PROSES PADA <em>SHELL</em></strong></p>
+                            <ol style="margin-left:-20px;">
+                                <li>Gunakan perintah <tt><b>yes</b></tt> yang menghasilkan <em>otuput</em> y yang tidak pernah berhenti.
+                                    <p><code>$ yes</code></p>
+                                    <p>Untuk menghentikannya tekan <kbd>Ctrl+c</kbd> pada <em>keyboard</em>.</p>
+                                </li>
+                                <li>Membelokkan standar <em>output</em> ke <tt>/dev/null</tt>
+                                    <p><code>$ yes > /dev/null</code></p>
+                                    <p>Untuk menghentikannya tekan <kbd>Ctrl+c</kbd>.</p>
+                                </li>
+                                <li>Cara agar perintah <tt><b>yes</b></tt> tetap dijalankan dan <em>shell</em> dapat digunakan untuk hal yang lain yaitu dengan meletakkan proses pada <em>background</em>, yaitu dengan menambahkan karakter &amp; pada akhir perintah.
+                                    <p><code>$ yes > /dev/null &amp;</code></p>
+                                    <p>Angka dalam &quot;[ ]&quot; merupakan <em>job number</em> diikuti PID.</p>
+                                </li>
+                                <li>Untuk melihat status proses, gunakan perintah:
+                                    <p><code>$ jobs</code></p>
+                                </li>
+                                <li>Untuk menghentikan <tt>job</tt>, gunakan perintah <tt>kill</tt> diikuti <em>job number</em> atau PID proses. Untuk <em>job number</em>, ditambah dengan karakter &quot;%&quot; di depannya.
+                                    <p><code>$ kill %&lt;nomor_job&gt; </code></p>
+                                    <p>Contoh <code>$ kill %&lt;1&gt; </code></p>
+                                </li>
+                                <li>Lihat status <tt>jobs</tt> setelah dihentikan.
+                                    <p><code>$ jobs</code></p>
+                                </li>
+                            </ol>
+                            <hr>
+                            <p><strong>LATIHAN 4. MENGONTROL PROSES LAIN</strong></p>
+                            <ol style="margin-left:-20px;">
+                                <li><p>Buka 4 terminal sekaligus, atur posisi sehingga keempat terminal terlihat pada layar.</p></li>
+                                <li>Login sebagai <em>root</em> pada setiap terminal dengan perintah:
+                                    <p><code>$ sudo su</code></p>
+                                    <p>Masukkan <em>password user</em> Ubuntu Anda &amp; tekan Enter.</p>
+                                </li>
+                                <li>Pada terminal 1 jalankan perintah:
+                                    <p><code>$ top</code></p>
+                                    <p>Pada <em>keyboard</em>, ketikan <kbd>lmt</kbd> agar informasi pada bagian atas tidak ditampilkan.</p>
+                                </li>
+                                <li>Pada terminal 2 jalankan perintah:
+                                    <p><code>$ yes</code></p>
+                                </li>
+                                <li><p>Ulangi langkah 4 untuk terminal 3.</p></li>
+                                <li><p>Jendela top (terminal 1) akan menampilkan dua program yes sebagai proses yang sedang dijalankan. PID dari kedua proses akan berbeda, misalnya 4850 dan 4851.</p></li>
+                                <li>Gunakan terminal 4 (yang masih kosong) dan jalankan perintah:
+                                    <p><code>$ renice 19 &lt;PID terminal 1&gt;</code></p>
+                                    <p>Contoh: <code>$ renice 19 4850</code></p>
+                                    <p>Sesuaikan 4850 dengan PID Anda.<br>
+                                    Hal tersebut berarti mengganti prioritas penjadwalan proses yang bersangkutan menjadi 19.</p>
+                                </li>
+                                <li><p>Tunggu beberapa saat sampai hasil dari top berubah. Pada kolom NI terlihat bahwa proses 4850 berubah menjadi 19. Hal tersebut berarti bahwa prioritas untuk proses 4850 lebih besar (lebih lambat) daripada proses 4851 (berjalan lebih cepat).</p></li>
+                                <li><p>Program <em>top</em> juga mempunyai fungsi yang sama dengan program <em>renice</em>.<br>
+                                    ~ Pilih jendela <em>top</em> (terminal 1) kemudian tekan <kbd>r</kbd>.<br>
+                                    ~ Pada program <em>top</em> terdapat prompt <strong>PID to renice:</strong> ketikkan 4850 (ingat bahwa Anda harus mengganti 4850 dengan PID Anda sendiri), kemudian tekan Enter.<br>
+                                    ~ Program top memberikan <em>prompt</em> <strong>Renice PID 3148 to value:</strong> ketikkan -19, kemudian tekan Enter.</p></li>
+                                <li><p>Tunggu beberapa saat sampai hasil dari top berubah. Pada kolom NI terlihat bahwa proses 4850 berubah menjadi -19. Hal tersebut berarti bahwa prioritas untuk proses 4850 lebih rendah (lebih cepat) daripada proses 4851 (dengan prioritas 0).</p></li>
+                            </ol>
+                            <br>
+                            </div>          
+                        </div>
+                        
+                        <div class="kb-row">
+                            <a href="#latihan" class="kb-row-handle">Tugas</a>
+                            <div class="kb-row-content">
+                                <ol style="margin-left:-20px;">
+                                <li>Pada terminal 4 di atas (yang sedang tidak menjalankan program yes atau top), jalankan perintah:
+                                    <p><code>$ nice -n -10 yes</code></p>
+                                </li>
+                                <li><p>Lihat apa yang terjadi pada jendela top (terminal 1).</p></li>
+                                <li><p>Analisa hasil yang peroleh. Apa bedanya dengan renice?</p></li>
+                                <li><p>Jika sudah selesai, Anda bisa menuliskan atau menceritakan apa saja yang Anda peroleh pada pembelajaran kali ini. Kemudian publikasikan tulisan Anda tersebut pada blog, website, atau media sosial.</p></li>
+                                </ol>
+                            </div>
+                        </div>
+                        
+					</div>
+					<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('rangkuman');" href="#rangkuman">Lanjut ke Rangkuman &raquo;</a></p>
+    			</div>
+    		</div>
+    		
+    		
+    		<div class="panel panel-default artikel" id="rangkuman" style="display:none;">
+				<div class="panel-body">  
+					<h3 class="page-header">Rangkuman</h3>
+                    <p><strong>Proses</strong> merupakan program yang sedang dieksekusi. Setiap kali menggunakan utilitas sistem atau program aplikasi dari <em>shell</em>, satu atau lebih proses <em>&rdquo;child&rdquo;</em> akan dibuat oleh<em> shell</em> sesuai perintah yang diberikan. Ada 4 tipe proses yaitu <em>foreground, batchm, </em>dan <em>daemon.</em></p>
+                    <p>Untuk melihat status proses dapat digunakan perintah <code>ps</code> dengan beberapa <em>option</em> yang dapat digunakan. Hubungan proses <em>parent</em> dan <em>child</em> dapat ditampilan dengan perintah ps dan pstree.</p>
+                    <p><em>Shell</em> menyediakan fasilitas <em>job control</em> yang memungkinkan mengontrol beberapa <em>job</em>. Pada <em>job</em> tersebut dimungkingkan untuk dihentikan sementara <em>(suspend)</em>, dengan menekan <kbd>Ctrl+z</kbd>. Sedangkan untuk menghentikan secara permanen dilakukan dengan menekan <kbd>Ctrl+c</kbd> pada keyboard.</p>
+                    <p>Untuk mengontrol proses lain dapat dilakukan melalui perintah ps &amp; top, yang selanjtunya dikontrol dengan perintah nice atau renice.</p>
+                    
+                    <br><hr><br><p class="gambar-tengah"><a class="btn btn-success btn-sm smoothScroll" href="kb15.html">Lanjut ke Pembelajaran 15 &raquo;</a></p>
+                    </div>
+    			</div>
+    		</div>
+			
+			</div><!-- col-md-offset-2 col-md-8 -->
+			<a href="#" class="back-to-top"><i class="fa fa-arrow-circle-o-up"></i> <br> ke atas</a>
+		</div><!-- row -->
+	</div><!-- kb02 --> 	
+  		
+	<div id="footerwrap">
+		<div class="container">
+			<p>by <a href="bantuan.html">diondr</a> <i class="fa fa-asterisk"></i> 2014</p>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/retina.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="assets/js/smoothscroll.js"></script>
+	<script type="text/javascript" src="assets/js/jquery-func.js"></script>
+  </body>
+</html>

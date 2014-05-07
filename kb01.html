@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MODIS | Modul Sistem Operasi</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    <link rel="shortcut icon" href="assets/img/favicon_modis-1_1.png">
+
+    <link href='assets/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/main.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/animate-custom.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-font.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/tambah-modis.css' rel='stylesheet' type='text/css'>
+    <link href="assets/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" media="screen">
+
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+	<script type="text/javascript" src="assets/js/jmodis.js"></script>
+    <script type="text/javascript" src="assets/fancybox/jquery.fancybox.pack.js"></script>
+    <script>
+    $(document).ready(function() {
+        //semua links dengam akhiran ekstensi gambar
+        var thumbnails = 'a[href$=".gif"],a[href$=".jpg"],a[href$=".jpeg"],a[href$=".png"],a[href$=".GIF"],a[href$=".JPG"],a[href$=".JPEG"],a[href$=".PNG"]';
+
+        //menambah class "fancybox" ke thumbnails dan dijadikan satu group "rel" untuk mengaktifkan tombol previous/next
+        jQuery(thumbnails).addClass("fancybox").attr("rel","lightbox");
+
+        //memanggil fancybox
+        jQuery('.fancybox').fancybox({
+            padding: 0,
+            //mendapatkan alt dari img untuk title fancybox
+            beforeShow : function() {
+                var alt = this.element.find('img').attr('alt');
+                this.inner.find('img').attr('alt', alt);
+                this.title = alt;
+            }
+        });
+    });
+    </script>
+</head>
+<body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+
+<div id="navbar-main">
+    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="menuIcon"><i class="fa fa-lg fa-list-ul"></i> Menu</span>
+            </button>
+            <span class="navbar-brand logoModis"><img class="noBayang" src="assets/img/logo_modis-1_1.png"></span>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html"><i class="fa fa-lg fa-home"></i>&nbsp; Home</a></li>
+                <li><a href="info.html"><i class="fa fa-lg fa-info-circle"></i>&nbsp; Info</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-lg fa-book"></i>&nbsp; Pembelajaran <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="bab1.html">&nbsp; BAB 1 &nbsp; Perkembangan</a></li>
+                        <li><a href="bab2.html">&nbsp; BAB 2 &nbsp; Struktur</a></li>
+                        <li><a href="bab3.html">&nbsp; BAB 3 &nbsp; Proses <em>Booting</em></a></li>
+                        <li><a href="bab4.html">&nbsp; BAB 4 &nbsp; Instalasi</a></li>
+                        <li><a href="bab5.html">&nbsp; BAB 5 &nbsp; Administrasi</a></li>
+                        <li><a href="bab6.html">&nbsp; BAB 6 &nbsp; Pencarian Kesalahan</a></li>
+                    </ul>
+                </li>
+                <li><a href="evaluasi.html"><i class="fa fa-lg fa-tasks"></i>&nbsp; Evaluasi</a></li>
+                <li><a href="bantuan.html"><i class="fa fa-lg fa-question-circle"></i>&nbsp; Bantuan</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</div>
+
+    <!--INFO AWAL-->
+	<div id="kbwrap" class="kbwrap01">
+		<div class="row">	
+			<img src="assets/img/batik1.png" class="img-responsive tengah"></a>
+			<h3 class="centered">#1 Perkembangan Sistem Operasi <em>Open Source</em></h3>
+			<hr>
+			<a onclick="toggle('tujuan');" href="#tujuan" class="smoothScroll">Tujuan</a> / 
+			<a onclick="toggle('uraianMateri');" href="#uraianMateri" class="smoothScroll">Uraian Materi</a> / 
+			<a onclick="toggle('lembarKerja');" href="#lembarKerja" class="smoothScroll">Lembar Kerja</a> / 
+			<a onclick="toggle('rangkuman');" href="#rangkuman" class="smoothScroll">Rangkuman</a>
+			</p>
+			<br>
+		</div>
+	</div>
+	
+	<div class="container" id="kb01" name="kb01">
+		<br>
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+			<div class="panel panel-default artikel" id="tujuan">
+				<div class="panel-body"> 
+					<h3 class="page-header">Tujuan</h3> 
+    				<p>Pada pembelajaran pertama ini Anda diharapkan:</p>
+					<ul>
+                        <li>Dapat menjelaskan pengetian sistem operasi.</li>
+                        <li>Dapat mengidentifikasi perkembangan sistem operasi Linux.</li>
+                        <li>Mampu menjelaskan Distro Linux dan Ubuntu.</li>
+                        <li>Mampu menyajikan data perkembangan sistem operasi Linux.</li>
+                    </ul>
+                    <hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('uraianMateri');" href="#uraianMateri">Lanjut ke Materi &raquo;</a></p>
+				</div>
+			</div>
+			
+			<div class="panel panel-default artikel" id="uraianMateri" style="display:none;">
+				<div class="panel-body">
+					<h3 class="page-header">Uraian Materi</h3>
+                    <p>Pembelajaran pertama ini dimulai dengan pembahasan secara umum tentang sistem operasi. Setelah itu Anda akan mempelajari tentang Perkembangan Linux, kemudian disinggung juga mengenai "Distro". Terakhir, sajian mengenai Ubuntu siap untuk Anda pelajari :)</p>
+				    
+                    <div class="kb-row-container">
+                    <div class="kb-row" id="so">
+    					<a href="#uraianMateri" class="kb-row-handle">Sistem Operasi</a>
+    					<div class="kb-row-content">
+    						<p><strong>Berbicara</strong> mengenai sistem operasi tentu tidak lepas dari bahasan komputer. Pada komputer terdapat 3 bagian utama yaitu perangkat keras <em>(hardware),</em> perangkat lunak <em>(software)</em>, dan pengguna komputer <em>(brainware)</em>. Lalu dimana letak sistem operasi?</p>
+							<figure class="gambar-kanan img-responsive">
+    							<a href="assets/img/kb01/hsap_1.jpg"><img src="assets/img/kb01/hsap_1.jpg" width="150px" class="img-responsive tengah" alt="Posisi Sitem Operasi" title="Posisi Sitem Operasi"></a>
+                                <figcaption>Gambar 1.1. &nbsp;&nbsp; Posisi Sitem Operasi</figcaption>
+    						</figure>
+                            <p>Sistem operasi termasuk dalam kategori perangkat lunak. Ada juga perangkat lunak seperti <em>browser, editor, </em>dan sejenisnya yang termasuk dalam perangkat lunak aplikasi <em>(software application)</em>. Sebuah sistem operasi merupakan perangkat lunak <strong>penghubung</strong> antara perangkat keras dengan perangkat lunak aplikasi tersebut. Secara lebih rinci, sistem operasi didefinisikan sebagai sebuah program yang mengatur perangkat keras komputer, dengan menyediakan landasan untuk aplikasi yang berada di atasnya, serta sebagai penghubung antara para pengguna dengan perangkat keras.</p>
+                            <p>Sistem operasi yang digunakan komputer saat ini terbagi menjadi 3 kelompok besar yaitu keluarga Microsoft Windows, Mac OS, dan keluarga Unix. Pada modul ini, bahasan utama yang akan kita bicarakan tertuju pada keluarga Unix, terutama yaitu Linux.</p>
+    					</div>
+    				</div>
+    				
+    				<div class="kb-row" id="perkembanganLinux">
+    					<a href="#so" class="kb-row-handle">Perkembangan Linux</a>
+    					<div class="kb-row-content">
+                            <p><strong>Antara UNIX dan Linux</strong></p>
+                            <p>UNIX adalah nama sistem operasi yang dapat diterapkan pada berbagai jenis mesin, dari PC higga <em>mainframe</em>. Sistem operasi yang diciptakan oleh Ken Thompson (1969) tersebut memiliki keistimewaan daripada sistem operasi lainnya pada masa itu. Beberapa keistimewaannya yaitu bersiftar portabilitas (mudah diadaptasikan ke sistem komputer yang lain), <em>multiuser </em>, <em>multitasking </em>, sistem berkas yang hierarkis , dukungan <em>shell </em>, dan ketersediaan beragam utilitas.</p>
+                            <p>Bahasan kita dalam modul ini bukan pada UNIX. Lho kenapa? Alasan utamanya karena lisensi UNIX bersifat komersial. Untungnya pada pertengahan tahun 90-an<strong>,</strong> mahasiswa Universitas Helsinki, Finlandia bernama Linus Benedict Torvalds menciptakan Linux (kloning dari sistem operasi UNIX) yang bersifat <em>open source, </em>sehingga kita dapat melihat kode programnya <em>(source code)</em> dan juga mengembangkannya.</p>
+                            <blockquote><p><strong>CATATAN:</strong> Linux adalah semacam UNIX dan bukan UNIX. Alasannya UNIX adalah merk dagang (bersifat komersial), sedangkan Linux tidak. Terlepas dari hal tersebut, perintah Linux serupa dengan perintah UNIX.</p></blockquote>
+                            <p>Dengan adanya <em>source code</em> Linux yang disediakan secara bebas tersebut, banyak <em>user </em>dari seluruh dunia berkolaborasi mengembangkan Linux. Semuanya dilakukan secara eksklusif melalui Internet. Dari kernel awal yang hanya menerapkan bagian kecil dari sistem UNIX, kini sistem Linux telah bertumbuh dimana sudah mampu menerapkan banyak fungsi UNIX.</p>
+                            <br>
+                            <p><strong>Perkembangan Linux</strong></p>
+                            <figure class="gambar-kiri img-responsive">
+                                <a href="assets/img/kb01/Tux_1.jpg"><img src="assets/img/kb01/Tux_1.jpg" width="150px" class="img-responsive tengah" alt="Tux Logo Linux" title="Tux Logo Linux"></a>
+                                <figcaption>Gambar 1.2. &nbsp;&nbsp; "Tux" Logo Linux</figcaption>
+                            </figure>
+                            <p>Pada tahun 1991 kernel Linux dikombinasikan dengan <em>software </em>GNU (proyek <em>free software</em> yang dikembangkan oleh Richard Matthew Stallman pada 1984). Kombinasi itulah yang menjadi rintisan awal dari GNU/Linux (untuk memudahkan, pada modul ini GNU/Linux cukup disebut <strong>Linux</strong> saja).</p>
+                            <p>Memasuki tahun 2000, Linux terus berkibar. Dengan konsep <em>open source</em>-nya Linux dapat digunakan untuk berbagai keperluan, seperti jaringan, pengembangan <em>software</em>, dan sebagai <em>end-user platform.</em></p>
+                            <p>Linux telah mendapat dukungan dari perusahaan besar seperti IBM, dan Hewlett-Packard serta perusahaan besar lain. Para pengamat teknologi informatika beranggapan kesuksesan ini dikarenakan Linux tidak bergantung kepada <em>vendor (vendor-independence)</em>, biaya operasional yang rendah, dan kompatibilitas yang tinggi dibandingkan versi Unix berbayar, serta faktor keamanan dan kestabilannya lebih baik daripada Microsoft Windows.</p>
+                            <p>Kernel Linux berbeda dengan sistem Linux. Kernel Linux berisi sebuah perangkat lunak orisinil yang dibuat oleh komunitas Linux, sedangkan sistem Linux, yang dikenal saat ini, mengandung banyak komponen yang dibuat sendiri atau dipinjam dari proyek pengembangan lain.</p>
+                            <br>
+                            <p><strong>Lisensi Linux</strong></p>
+                            <figure class="gambar-kanan img-responsive">
+                                <a href="assets/img/kb01/android--by_diondr.jpg"><img src="assets/img/kb01/android--by_diondr.jpg" width="120px" class="img-responsive tengah" alt="Android, Smartphone OS dengan Kernel Linux" title="Android, Smartphone OS dengan Kernel Linux"></a>
+                                <figcaption>Gambar 1.3. &nbsp;&nbsp; Android, <em>Smartphone OS</em><br> dengan Kernel Linux</figcaption>
+                            </figure>
+                            <p>Kernel Linux terdistribusi di bawah lisensi GNU <em>General Public Liscense</em> (GPL), dimana peraturannya disusun oleh <em>Free Software Foundation (FSF)</em>. Tujuan utama peraturan ini yaitu siapa saja boleh menggunakan Linux atau memodifikasinya, tetapi tidak boleh membuatnya menjadi milik sendiri. Jika sebuah perangkat lunak dirilis dengan menggunakan lisensi GPL tersebut, produknya tidak boleh didistribusikan hanya sebagai produk biner <em>(binary‐only)</em>. Perangkat lunak yang dirilis atau akan dirilis tersebut harus disediakan sumber kodenya bersamaan dengan distribusi binernya .</p>
+                            <br>
+                            <p><strong>Linux Saai ini</strong></p>
+                            <p>&ldquo;Linux yang dulu bukanlah yang sekarang&rdquo;. Maksudnya disini adalah dahulu Linux memiliki masalah pada <em>interface </em>atau tampilan yang berbasis teks <em>(text based)</em>. Hal tersebut membuat orang awam kurang begitu tertarik dengan Linux. Kini Linux hadir dengan <em>Graphical User Interface </em>(GUI) sebagai tampilan desktopnya. Beberapa lingkungan desktop yang banyak digunakan saat ini yaitu GNOME, KDE, dan XFCE.</p>
+                            <p>Dengan adanya perubahan yang lebih baik tersebut tentu membuat Linux lebih banyak diminati. Terhitung sejak tahun <strong>1991 </strong>(kernel Linux pertama versi 0.01 dipublikasikan) sampai tahun <strong>2013 (</strong>kernel Linux versi 3.10), Linux telah banyak melahirkan berbagai sistem operasi yang dijalankan mulai dari komputer pribadi, server, super komputer, hingga sistem operasi pada <em>smartphone</em> seperti Android.</p>
+    					</div>
+    				</div>
+                        
+                    <div class="kb-row" id="distro">
+    				<a href="#perkembanganLinux" class="kb-row-handle">Distro</a>
+    					<div class="kb-row-content">
+                            <figure class="gambar-tengah img-responsive">
+                                <a href="assets/img/kb01/distolinux--by_diondr.png"><img src="assets/img/kb01/distolinux--by_diondr.png" class="img-responsive tengah" width="300px" alt="Beberapa Contoh Distro Linux" title="Beberapa Contoh Distro Linux"></a>
+                                <figcaption>Gambar 1.4. &nbsp;&nbsp; Beberapa Contoh Distro Linux</figcaption>
+                            </figure>
+                            <p><strong>Jangan</strong> membayangkan distro disini sebagai tempat atau toko yang menjual beragam pakaian yang banyak digandrungi anak muda. Seperti telah kita dibahas sebelumnya, pada awalnya Linux hanya sebuah kernel. Sebuah kernel tidak akan banyak berarti dan tidak dapat digunakan sebagai sistem operasi yang bekerja secara fungsional. Oleh karena itu, diperlukan program dan utilitas tambahan yang berjalan diatas Linux. Gabungan antara kernel Linux dengan program dan utilitas tambahan berupa kumpulan paket-paket <em>software </em>dan dapat digunakan menjadi sebuah sistem operasi siap pakai itulah yang disebut distribusi Linux atau lebih populer dengan nama &ldquo;Distro Linux&rdquo;.</p>
+                            <p>Banyak distro Linux yang telah dikembangkan saat ini, diantaranya yaitu Debian GNU/Linux, Slackware, Red Hat Linux, SUSE, Mandriva Linux, Gentoo Linux, dan sebagainya. Pada sistus distrowatch.com Anda bisa menemukan beragam distro linux yang ada saat ini.</p>
+                            <p>Sama dengan lisensi kernel Linux, distro-distro tersebut boleh digunakan siapa saja, bahkan memodifikasinya, aslakan tetap memakai lisensi GNU <em>General Public Liscense</em> (GPL). Salah satu distro yang telah banyak dimodifikasi dan banyak menghasilan &ldquo;turunan&rdquo; yaitu Debian. Distro turunannya antara lain yaitu Ubuntu, Linux Mint, BackTrack, dan distro yang dikembagkan oleh generasi muda Indonesia yaitu BlankOn. Akan tetapi, fokus kita dalam modul ini terletak pada salah satu turuan Debian yaitu Ubuntu.</p>
+						</div>
+    				</div>    				
+    				
+    				<div class="kb-row">
+    					<a href="#distro" class="kb-row-handle">Apa itu Ubuntu?</a>
+    					<div class="kb-row-content">
+                            <figure class="gambar-kiri img-responsive">
+                                <a href="assets/img/kb01/ubuntu_desktop.jpg"><img src="assets/img/kb01/ubuntu_desktop.jpg" width="300px" class="img-responsive tengah" alt="Ubuntu Desktop" title="Ubuntu Desktop"></a>
+                                <figcaption>Gambar 1.5. &nbsp;&nbsp; Ubuntu Desktop</figcaption>
+    				        </figure>
+                            <p><strong>Mendengar</strong> kata &ldquo;Ubuntu&rdquo; sepertinya kurang begitu menarik ditelinga masyarakat Indonesia. Memang kata tersebut sering diplesetkan menjadi kata &ldquo;buntu&rdquo; yang berati tak ada jalan lagi. Padahal nama Ubuntu memiliki arti yang jauh dari kata &ldquo;buntu&rdquo;. Kata &ldquo;Ubuntu&rdquo; berasal dari filosofi Afrika Selatan yang berati &ldquo;kemanusiaan kepada sesama&rdquo;. Walaupun memiliki arti yang berbeda jauh, tetapi bahasan kita disini tidak dititik beratkan pada artinya melainkan pada sistem operasi Ubuntu itu sendiri.</p>
+                            <p>Seperti disinggung sebelumnya, Ubuntu merupakan sistem operasi yang berbasiskan Debian. Distro linux ini didistribusikan sebagai perangkat lunak bebas, jadi kamu bisa mendapatkannya tanpa harus membayarnya. Proyek Ubuntu disponsori oleh Canonical Ltd. yang merupakan sebuah perusahaan yang dimiliki oleh pengusaha Afrika Selatan, Mark Shuttleworth .</p>
+                            <p>Ubuntu pertama kali dirilis pada 20 Oktober 2004. Sejak itu, Canonical merilis versi Ubuntu yang baru setiap 6 bulan sekali. Setiap 4 rilis atau 2 tahun sekali (versi <em>xx.04</em> dengan <em>x</em> angka genap) kamu bisa mendapatkan versi <em>long-term support (LTS). </em>Dengan versi LTS tersebut kita akan mendapat <em>support</em> selama 3 tahun untuk desktop dan 5 tahun untuk server. Sedangkan untuk versi regular atau non-LTS <em>support </em>yang didapat hanya 9 bulan. Versi terbaru sampi modul ini dibuat yaitu versi 13.10 yang dirilis pada 17 Oktober 2013. Akan tetapi, versi yang akan kita pakai dalam modul ini yaitu versi 12.04 LTS. Kenapa? Dengan versi LTS ini kita bisa mendapat support lebih daripada versi regular. Juga ada yang spesial untuk versi 12.04 yang dirilis 26 April 2012 ini, dengan versi LTS tersebut kita akan mendapat <em>support</em> selama 5 tahun, dari normalnya yang hanya 3 tahun.</p>
+                            <p>Ada 6 varian Ubuntu yang resmi dari Canonical dan Ubuntu community. Varian tersebut yaitu:</p>
+                            <ul>
+                                <li>
+                                <p><strong>Ubuntu <em>desktop</em></strong>, secara formal namanya Ubuntu Desktop Edition, tetapi lebih sering disebut Ubuntu. Varian ini didesain untuk desktop PC dan laptop.</p>
+                                </li>
+                                <li>
+                                <p><strong>Ubuntu <em>Bussines Desktop Remix</em></strong>, varian ini dirilis untuk pebisnis dengan <em>software</em> spesial untuk perusahaan.</p>
+                                </li>
+                                <li>
+                                <p><strong>Ubuntu <em>Server</em></strong>, tentu saja digunakan untuk komputer server. Tidak ada <em>graphical user interface</em> (GUI) pada varian ini, hanya berbasis teks.</p>
+                                </li>
+                                <li>
+                                <p><strong>Ubuntu TV</strong>, dibuat untuk SmartTV yang dapat digunakan mengakses internet dan mengakses konten pada perangkat <em>mobile</em> Android, iOS, dan Ubuntu.</p>
+                                </li>
+                                <li>
+                                <p><strong>Ubuntu <em>Touch</em></strong> merupakan varuan Ubuntu untuk <em>smartphone</em> dan tablet. Versi pertamanya tersedia untuk konsumen hanya pada Galaxy Nexus.</p>
+                                </li>
+                                <li>
+                                <p><strong>Ubuntu <em>for</em> Android</strong>, varian ini didesain agar bisa berjalan pada ponsel Android.</p>
+                                </li>
+                            </ul>
+                            <p>Fokus kita pada modul ini tertuju pada Ubuntu Desktop atau biasa disebut <strong>Ubuntu</strong>. Karena sebagai langkah awal perkenalan dipilihlah yang versi desktop tersebut.</p>
+    					</div>
+    				</div>
+                        
+    				</div><!-- kb-row-container-->
+    				<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('lembarKerja');" href="#lembarKerja">Lanjut ke Lembar Kerja &raquo;</a></p>
+				</div><!-- panel-body-->
+			</div>
+
+			<div class="panel panel-default artikel" id="lembarKerja" style="display:none;">
+				<div class="panel-body">
+                    <h3 class="page-header">Lembar Kerja</h3>
+                    <div class="kb-row-container">
+                        <div class="kb-row open" id="alatBahan">
+                            <a href="#lembarKerja" class="kb-row-handle">Alat dan Bahan</a>
+                            <div class="kb-row-content" style="display:block;">
+                                <ul>
+                                    <li>Komputer atau laptop</li>
+                                    <li>Buku, artikel, atau sumber lain tentang Linux</li>
+                                </ul>
+					       </div>
+                        </div>
+                        
+                        <div class="kb-row" id="petunjuk">
+                            <a href="#alatBahan" class="kb-row-handle">Petunjuk</a>
+                            <div class="kb-row-content">
+                            <ul>
+                                <li>Awali setiap aktivitas dengan do'a, semoga mendapat kemudahan dan keberkahan.</li>
+                                <li>Baca dan pahami langkah-langkah yang ada dengan seksama.</li>
+                                <li>Pastikan komputer dalam keadaan baik dan benar.</li>
+                                <li>Jangan meletakkan benda yang dapat mengeluarkan medan elektromagnetik (<em>handphone</em>, magnet, dan sejenisnya) di dekat komputer.</li>
+                                <li>Gunakan komputer sesuai fungsinya dengan hati-hati.</li>
+                                <li>Kerjakan secara baik, benar, dan sabar.</li>
+                            </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="kb-row">
+                            <a href="#petunjuk" class="kb-row-handle">Tugas</a>
+                            <div class="kb-row-content">
+                                <ol>
+                                    <li><p>Pastikan alat dan bahan sudah siap.</p></li>
+                                    <li><p>Buatlah sebuah tulisan atau artikel tentang perkembangan Linux mulai pertama kali dirilis sampai terakhir dirilis. Sertakan juga fitur-fitur yang ditambahkan tiap rilisnya.</p></li>
+                                    <li><p>Anda bisa menggunakan bantuan komputer atau laptop untuk memperoleh infromasi tambahan.</p></li>
+                                    <li><p>Kemudian publikasikan tulisan Anda tersebut pada blog, website, atau media sosial.</p></li>
+                                    <li><p>Jika sudah selesai, jangan lupa matikan komputer/laptop dengan benar.</p></li>
+                                </ol>				
+                            </div>
+                        </div>
+                        
+					</div>
+					<br><hr><br><p class="gambar-tengah"><a class="btn btn-warning btn-sm smoothScroll" onclick="toggle('rangkuman');" href="#rangkuman">Lanjut ke Rangkuman &raquo;</a></p>
+    			</div>
+    		</div>
+    		
+    		
+    		<div class="panel panel-default artikel" id="rangkuman" style="display:none;">
+				<div class="panel-body">  
+					<h3 class="page-header">Rangkuman</h3>
+					<p>Sistem operasi merupakan perangkat lunak penghubung antara perangkat keras dengan perangkat lunak aplikasi. Saat ini sistem operasi terbagi menjadi 3 kelompok besar yaitu keluarga Microsoft Windows, Mac OS, dan keluarga Unix (termasuk Linux).</p>
+                    <p>Linux merupakan sebuah sistem operasi mirip UNIX yang dikembagkan secara <em>open source.</em> Mulai kernel Linux pertama versi 0.01 (tahun 1991) sampai kernel Linux versi 3.10, Linux telah banyak melahirkan berbagai sistem operasi yang dijalankan mulai dari komputer pribadi, server, super komputer, hingga sistem operasi pada <em>smartphone</em> seperti Android. Kernel Linux terdistribusi di bawah lisensi GNU <em>General Public Liscense</em> (GPL) yaitu siapa saja boleh menggunakan atau memodifikasinya, tetapi tidak boleh membuatnya menjadi milik sendiri.</p>
+                    <p>Distribusi atau Distro Linux merupakan gabungan antara kernel Linux dengan program dan utilitas tambahan berupa kumpulan paket-paket <em>software</em>. Contoh distro Linux yaitu Debian GNU/Linux, Slackware, Red Hat Linux, SUSE, Mandriva Linux, Gentoo Linux, dan Ubuntu.</p>
+                    <p>Ubuntu merupakan sistem operasi yang berbasiskan Debian. Distro linux ini didistribusikan sebagai perangkat lunak bebas mulai 20 Oktober 2004. Ada 6 varian Ubuntu yang resmi dari Canonical dan Ubuntu community, yaitu ubuntu desktop, ubuntu <em>bussines desktop remix, </em>ubuntu <em>server</em>, ubuntu TV, ubuntu <em>touch, </em>dan ubuntu for Android.</p>
+                    <br><hr><br><p class="gambar-tengah"><a class="btn btn-primary btn-sm smoothScroll" href="evaluasi-1.html">Lanjut ke Evaluasi &raquo;</a></p>
+                    </div>
+    			</div>
+    		</div>
+			
+			</div><!-- col-md-offset-2 col-md-8 -->
+			<a href="#" class="back-to-top"><i class="fa fa-arrow-circle-o-up"></i> <br> ke atas</a>
+		</div><!-- row -->
+	</div><!-- kb02 --> 	
+  		
+	<div id="footerwrap">
+		<div class="container">
+			<p>by <a href="bantuan.html">diondr</a> <i class="fa fa-asterisk"></i> 2014</p>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/retina.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="assets/js/smoothscroll.js"></script>
+	<script type="text/javascript" src="assets/js/jquery-func.js"></script>
+  </body>
+</html>
